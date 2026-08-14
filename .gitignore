@@ -1,0 +1,20 @@
+# Ambiente Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Cache e modelos
+.cache/
+
+# Dados e imagens
+data/
+outputs/
+
+# Repositório externo da Apple
+ml-cubifyanything/
+
+# Credenciais e arquivos locais
+.env
+.env.*
+!.env.example
+.DS_Store

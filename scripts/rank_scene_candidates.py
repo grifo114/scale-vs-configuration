@@ -53,10 +53,16 @@ def parse_args() -> argparse.Namespace:
         help="Per-capture sharpness quantile applied after eligibility filters.",
     )
     parser.add_argument(
+        "--candidates-per-temporal-bin",
+        type=int,
+        default=1,
+        help="Maximum ranked frames retained from each temporal bin.",
+    )
+    parser.add_argument(
         "--candidates-per-capture",
         type=int,
         default=5,
-        help="Maximum number of temporal-bin winners retained per capture.",
+        help="Maximum number of ranked frames retained per capture.",
     )
     parser.add_argument(
         "--exclude-capture",
@@ -191,6 +197,7 @@ def rank_capture(
     minimum_natural: int,
     minimum_natural_interior: int,
     sharpness_quantile: float,
+    candidates_per_temporal_bin: int,
     candidates_per_capture: int,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     eligible_rows = [
@@ -221,11 +228,14 @@ def rank_capture(
     by_bin: dict[int, list[dict[str, Any]]] = defaultdict(list)
     for row in high_sharpness:
         by_bin[row["temporal_bin"]].append(row)
-    bin_winners = [
-        sorted(bin_rows, key=rank_key)[0]
+    bin_candidates = [
+        row
         for _, bin_rows in sorted(by_bin.items())
+        for row in sorted(bin_rows, key=rank_key)[
+            :candidates_per_temporal_bin
+        ]
     ]
-    shortlist = sorted(bin_winners, key=rank_key)[:candidates_per_capture]
+    shortlist = sorted(bin_candidates, key=rank_key)[:candidates_per_capture]
     ranked: list[dict[str, Any]] = []
     for candidate_rank, row in enumerate(shortlist, start=1):
         candidate = dict(row)
@@ -245,6 +255,7 @@ def rank_capture(
         "sharpness_cutoff": cutoff,
         "high_sharpness_frames": len(high_sharpness),
         "temporal_bins_represented": sorted(by_bin),
+        "candidates_per_temporal_bin": candidates_per_temporal_bin,
         "shortlist_size": len(ranked),
     }
     return ranked, summary
@@ -303,8 +314,10 @@ def main() -> int:
         raise ValueError("Minimum counts must be nonnegative")
     if not 0 <= args.sharpness_quantile <= 1:
         raise ValueError("--sharpness-quantile must be between zero and one")
-    if not 1 <= args.candidates_per_capture <= 5:
-        raise ValueError("--candidates-per-capture must be between one and five")
+    if args.candidates_per_temporal_bin <= 0:
+        raise ValueError("--candidates-per-temporal-bin must be positive")
+    if args.candidates_per_capture <= 0:
+        raise ValueError("--candidates-per-capture must be positive")
     for path in audit_paths:
         if not path.is_file():
             raise FileNotFoundError(f"Audit not found: {path}")
@@ -341,6 +354,7 @@ def main() -> int:
             minimum_natural=args.minimum_natural,
             minimum_natural_interior=args.minimum_natural_interior,
             sharpness_quantile=args.sharpness_quantile,
+            candidates_per_temporal_bin=args.candidates_per_temporal_bin,
             candidates_per_capture=args.candidates_per_capture,
         )
         capture_summaries[capture_id] = summary
@@ -377,7 +391,13 @@ def main() -> int:
                 "frame_index ascending",
                 "image_member ascending",
             ],
-            "temporal_diversity": "retain the best frame per temporal bin",
+            "temporal_diversity": (
+                "retain up to candidates_per_temporal_bin ranked frames "
+                "from each temporal bin before the per-capture limit"
+            ),
+            "candidates_per_temporal_bin": (
+                args.candidates_per_temporal_bin
+            ),
             "candidates_per_capture": args.candidates_per_capture,
             "uses_model_outputs": False,
         },

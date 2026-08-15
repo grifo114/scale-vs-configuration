@@ -133,12 +133,19 @@ def read_member_bytes(archive: tarfile.TarFile, name: str) -> bytes:
 
 
 def frame_members(archive: tarfile.TarFile) -> list[str]:
-    members = [
+    file_names = {
         member.name
         for member in archive.getmembers()
-        if member.isfile() and member.name.endswith(INSTANCE_SUFFIX)
-    ]
-    return sorted(members)
+        if member.isfile()
+    }
+    instance_members = []
+    for name in file_names:
+        if not name.endswith(INSTANCE_SUFFIX):
+            continue
+        frame_directory = name[: -len(INSTANCE_SUFFIX)]
+        if f"{frame_directory}/image.png" in file_names:
+            instance_members.append(name)
+    return sorted(instance_members)
 
 
 def temporal_bin(frame_index: int, number_of_frames: int) -> int:

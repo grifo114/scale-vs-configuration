@@ -1,0 +1,461 @@
+#!/usr/bin/env python3
+"""Select balanced 3D relation pairs from CA-1M scene candidates."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import math
+import os
+import tempfile
+from collections import Counter
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
+
+
+STRATUM_NAMES = ("short", "medium", "long")
+
+
+def parse_args() -> argparse.Namespace:
+    project_root = Path(__file__).resolve().parents[1]
+    parser = argparse.ArgumentParser(
+        description="Select 12 balanced relation pairs per chosen scene."
+    )
+    parser.add_argument("feasibility", type=Path, help="Pair-feasibility JSONL.")
+    parser.add_argument(
+        "--project-root",
+        type=Path,
+        default=project_root,
+        help="Project root. Defaults to the parent of scripts/.",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        required=True,
+        help="Destination selected-pair manifest JSONL.",
+    )
+    parser.add_argument(
+        "--protocol",
+        type=Path,
+        help="Protocol JSON path. Defaults beside the output.",
+    )
+    parser.add_argument("--minimum-distance-m", type=float, default=0.25)
+    parser.add_argument("--minimum-visible-fraction", type=float, default=1.0)
+    parser.add_argument("--maximum-box-iou", type=float, default=0.50)
+    parser.add_argument(
+        "--maximum-intersection-over-smaller", type=float, default=0.80
+    )
+    parser.add_argument("--pairs-per-scene", type=int, default=12)
+    parser.add_argument("--distance-strata", type=int, default=3)
+    parser.add_argument(
+        "--overwrite",
+        action="store_true",
+        help="Replace existing output and protocol files.",
+    )
+    return parser.parse_args()
+
+
+def resolve_path(project_root: Path, path: Path) -> Path:
+    path = path.expanduser()
+    return path.resolve() if path.is_absolute() else (project_root / path).resolve()
+
+
+def display_path(project_root: Path, path: Path) -> str:
+    try:
+        return str(path.relative_to(project_root))
+    except ValueError:
+        return str(path)
+
+
+def sha256_file(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def load_jsonl(path: Path) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    with path.open("r", encoding="utf-8") as handle:
+        for line_number, line in enumerate(handle, start=1):
+            if not line.strip():
+                continue
+            row = json.loads(line)
+            if not isinstance(row, dict):
+                raise TypeError(f"Expected an object at {path}:{line_number}")
+            rows.append(row)
+    return rows
+
+
+def partition_evenly(items: list[Any], groups: int) -> list[list[Any]]:
+    if groups <= 0:
+        raise ValueError("groups must be positive")
+    if len(items) < groups:
+        raise ValueError(f"Cannot split {len(items)} items into {groups} nonempty groups")
+    base, remainder = divmod(len(items), groups)
+    partitions: list[list[Any]] = []
+    start = 0
+    for index in range(groups):
+        size = base + (1 if index < remainder else 0)
+        partitions.append(items[start : start + size])
+        start += size
+    return partitions
+
+
+def pair_quality_key(pair: dict[str, Any]) -> tuple[Any, ...]:
+    return (
+        -float(pair["minimum_box_area_px2"]),
+        -float(pair["box_center_distance_px"]),
+        float(pair["box_iou"]),
+        float(pair["intersection_over_smaller_box"]),
+        not bool(pair["both_interior"]),
+        int(pair["first_instance_index"]),
+        int(pair["second_instance_index"]),
+    )
+
+
+def hard_pair_filter(
+    pair: dict[str, Any],
+    minimum_distance_m: float,
+    minimum_visible_fraction: float,
+    maximum_box_iou: float,
+    maximum_intersection_over_smaller: float,
+) -> bool:
+    return (
+        float(pair["distance_m"]) >= minimum_distance_m
+        and float(pair["minimum_visible_fraction"])
+        >= minimum_visible_fraction
+        and float(pair["box_iou"]) <= maximum_box_iou
+        and float(pair["intersection_over_smaller_box"])
+        <= maximum_intersection_over_smaller
+    )
+
+
+def select_scene_pairs(
+    scene: dict[str, Any],
+    minimum_distance_m: float,
+    minimum_visible_fraction: float,
+    maximum_box_iou: float,
+    maximum_intersection_over_smaller: float,
+    pairs_per_scene: int,
+    distance_strata: int,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    eligible = [
+        pair
+        for pair in scene["eligible_pairs"]
+        if hard_pair_filter(
+            pair,
+            minimum_distance_m,
+            minimum_visible_fraction,
+            maximum_box_iou,
+            maximum_intersection_over_smaller,
+        )
+    ]
+    eligible.sort(
+        key=lambda pair: (
+            float(pair["distance_m"]),
+            int(pair["first_instance_index"]),
+            int(pair["second_instance_index"]),
+        )
+    )
+    if len(eligible) < pairs_per_scene:
+        raise ValueError(
+            f"Capture {scene['capture_id']} has {len(eligible)} eligible pairs; "
+            f"{pairs_per_scene} required"
+        )
+    pairs_per_stratum = pairs_per_scene // distance_strata
+    distance_partitions = partition_evenly(eligible, distance_strata)
+    selected: list[dict[str, Any]] = []
+    stratum_summaries: dict[str, dict[str, Any]] = {}
+    for stratum_index, (stratum_name, stratum_pairs) in enumerate(
+        zip(STRATUM_NAMES, distance_partitions), start=1
+    ):
+        subranges = partition_evenly(stratum_pairs, pairs_per_stratum)
+        stratum_selected = [
+            min(subrange, key=pair_quality_key) for subrange in subranges
+        ]
+        stratum_selected.sort(
+            key=lambda pair: (
+                float(pair["distance_m"]),
+                int(pair["first_instance_index"]),
+                int(pair["second_instance_index"]),
+            )
+        )
+        for within_stratum_index, pair in enumerate(stratum_selected, start=1):
+            chosen = dict(pair)
+            chosen["distance_stratum"] = stratum_name
+            chosen["distance_stratum_index"] = stratum_index
+            chosen["within_stratum_index"] = within_stratum_index
+            selected.append(chosen)
+        stratum_distances = [float(pair["distance_m"]) for pair in stratum_pairs]
+        selected_distances = [
+            float(pair["distance_m"]) for pair in stratum_selected
+        ]
+        stratum_summaries[stratum_name] = {
+            "candidate_pairs": len(stratum_pairs),
+            "candidate_minimum_m": min(stratum_distances),
+            "candidate_maximum_m": max(stratum_distances),
+            "selected_minimum_m": min(selected_distances),
+            "selected_maximum_m": max(selected_distances),
+        }
+
+    objects = {
+        int(obj["instance_index"]): obj for obj in scene["natural_objects"]
+    }
+    manifest_rows: list[dict[str, Any]] = []
+    object_usage: Counter[int] = Counter()
+    for pair_index, pair in enumerate(selected, start=1):
+        first_index = int(pair["first_instance_index"])
+        second_index = int(pair["second_instance_index"])
+        object_usage[first_index] += 1
+        object_usage[second_index] += 1
+        fold = "A" if pair_index % 2 == 1 else "B"
+        manifest_rows.append(
+            {
+                "scene_id": str(scene["capture_id"]),
+                "capture_id": str(scene["capture_id"]),
+                "scene_candidate_rank": int(scene["candidate_rank"]),
+                "frame_index": int(scene["frame_index"]),
+                "temporal_bin": int(scene["temporal_bin"]),
+                "archive": str(scene["archive"]),
+                "image_member": str(scene["image_member"]),
+                "instance_member": str(scene["instance_member"]),
+                "pair_id": f"{scene['capture_id']}-P{pair_index:02d}",
+                "pair_index": pair_index,
+                "fold": fold,
+                "distance_stratum": pair["distance_stratum"],
+                "distance_stratum_index": pair["distance_stratum_index"],
+                "within_stratum_index": pair["within_stratum_index"],
+                "ground_truth_m": float(pair["distance_m"]),
+                "object_a": objects[first_index],
+                "object_b": objects[second_index],
+                "pair_quality": {
+                    "both_interior": bool(pair["both_interior"]),
+                    "minimum_visible_fraction": float(
+                        pair["minimum_visible_fraction"]
+                    ),
+                    "box_iou": float(pair["box_iou"]),
+                    "intersection_over_smaller_box": float(
+                        pair["intersection_over_smaller_box"]
+                    ),
+                    "minimum_box_area_px2": float(pair["minimum_box_area_px2"]),
+                    "box_center_distance_px": float(
+                        pair["box_center_distance_px"]
+                    ),
+                },
+            }
+        )
+    fold_strata = Counter(
+        (row["fold"], row["distance_stratum"]) for row in manifest_rows
+    )
+    expected_per_fold_stratum = pairs_per_stratum // 2
+    for fold in ("A", "B"):
+        for stratum_name in STRATUM_NAMES:
+            observed = fold_strata[(fold, stratum_name)]
+            if observed != expected_per_fold_stratum:
+                raise AssertionError(
+                    f"Unexpected {fold}/{stratum_name} count: {observed}"
+                )
+    distances = [row["ground_truth_m"] for row in manifest_rows]
+    scene_summary = {
+        "candidate_rank": int(scene["candidate_rank"]),
+        "frame_index": int(scene["frame_index"]),
+        "hard_filter_pairs": len(eligible),
+        "selected_pairs": len(manifest_rows),
+        "selected_minimum_m": min(distances),
+        "selected_maximum_m": max(distances),
+        "selected_interior_pairs": sum(
+            row["pair_quality"]["both_interior"] for row in manifest_rows
+        ),
+        "unique_objects_used": len(object_usage),
+        "maximum_object_uses": max(object_usage.values()),
+        "object_usage": {
+            str(index): count for index, count in sorted(object_usage.items())
+        },
+        "distance_strata": stratum_summaries,
+    }
+    return manifest_rows, scene_summary
+
+
+def write_jsonl_atomic(path: Path, rows: list[dict[str, Any]]) -> str:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(
+        "w",
+        encoding="utf-8",
+        dir=path.parent,
+        prefix=f".{path.name}.",
+        suffix=".tmp",
+        delete=False,
+    ) as handle:
+        temporary = Path(handle.name)
+        for row in rows:
+            handle.write(json.dumps(row, ensure_ascii=False) + "\n")
+        handle.flush()
+        os.fsync(handle.fileno())
+    os.replace(temporary, path)
+    return sha256_file(path)
+
+
+def write_json_atomic(path: Path, data: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(
+        "w",
+        encoding="utf-8",
+        dir=path.parent,
+        prefix=f".{path.name}.",
+        suffix=".tmp",
+        delete=False,
+    ) as handle:
+        temporary = Path(handle.name)
+        json.dump(data, handle, indent=2, ensure_ascii=False)
+        handle.write("\n")
+        handle.flush()
+        os.fsync(handle.fileno())
+    os.replace(temporary, path)
+
+
+def main() -> int:
+    args = parse_args()
+    project_root = args.project_root.expanduser().resolve()
+    feasibility_path = resolve_path(project_root, args.feasibility)
+    output_path = resolve_path(project_root, args.output)
+    protocol_path = (
+        resolve_path(project_root, args.protocol)
+        if args.protocol
+        else output_path.with_name(f"{output_path.stem}_protocol.json")
+    )
+    if not feasibility_path.is_file():
+        raise FileNotFoundError(f"Feasibility file not found: {feasibility_path}")
+    finite_thresholds = (
+        args.minimum_distance_m,
+        args.minimum_visible_fraction,
+        args.maximum_box_iou,
+        args.maximum_intersection_over_smaller,
+    )
+    if not all(math.isfinite(value) for value in finite_thresholds):
+        raise ValueError("Pair thresholds must be finite")
+    if args.minimum_distance_m < 0:
+        raise ValueError("--minimum-distance-m must be nonnegative")
+    if not 0 <= args.minimum_visible_fraction <= 1:
+        raise ValueError("--minimum-visible-fraction must be between zero and one")
+    if not 0 <= args.maximum_box_iou <= 1:
+        raise ValueError("--maximum-box-iou must be between zero and one")
+    if not 0 <= args.maximum_intersection_over_smaller <= 1:
+        raise ValueError(
+            "--maximum-intersection-over-smaller must be between zero and one"
+        )
+    if args.distance_strata != len(STRATUM_NAMES):
+        raise ValueError(f"--distance-strata must be {len(STRATUM_NAMES)}")
+    if args.pairs_per_scene <= 0 or args.pairs_per_scene % args.distance_strata:
+        raise ValueError("--pairs-per-scene must be positive and divisible by strata")
+    pairs_per_stratum = args.pairs_per_scene // args.distance_strata
+    if pairs_per_stratum % 2:
+        raise ValueError("Pairs per distance stratum must be even for folds A/B")
+    for destination in (output_path, protocol_path):
+        if destination.exists() and not args.overwrite:
+            raise FileExistsError(
+                f"Destination exists; pass --overwrite to replace it: {destination}"
+            )
+
+    rows = load_jsonl(feasibility_path)
+    selected_scenes = [
+        row for row in rows if bool(row.get("selected_by_frame_rule"))
+    ]
+    all_captures = sorted({str(row["capture_id"]) for row in rows})
+    capture_counts = Counter(str(row["capture_id"]) for row in selected_scenes)
+    invalid_captures = [
+        capture for capture in all_captures if capture_counts[capture] != 1
+    ]
+    if invalid_captures:
+        raise ValueError(
+            f"Expected one selected scene per capture: {invalid_captures}"
+        )
+    if not selected_scenes:
+        raise ValueError("No scenes marked selected_by_frame_rule")
+
+    manifest: list[dict[str, Any]] = []
+    scene_summaries: dict[str, dict[str, Any]] = {}
+    for scene in sorted(selected_scenes, key=lambda row: str(row["capture_id"])):
+        scene_rows, scene_summary = select_scene_pairs(
+            scene=scene,
+            minimum_distance_m=args.minimum_distance_m,
+            minimum_visible_fraction=args.minimum_visible_fraction,
+            maximum_box_iou=args.maximum_box_iou,
+            maximum_intersection_over_smaller=(
+                args.maximum_intersection_over_smaller
+            ),
+            pairs_per_scene=args.pairs_per_scene,
+            distance_strata=args.distance_strata,
+        )
+        manifest.extend(scene_rows)
+        scene_summaries[str(scene["capture_id"])] = scene_summary
+
+    output_sha256 = write_jsonl_atomic(output_path, manifest)
+    protocol = {
+        "schema_version": "1.0",
+        "status": "development_balanced_pair_selection",
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+        "input": display_path(project_root, feasibility_path),
+        "input_sha256": sha256_file(feasibility_path),
+        "scene_rule": "selected_by_frame_rule=true; exactly one frame per capture",
+        "hard_pair_filters": {
+            "minimum_distance_m": args.minimum_distance_m,
+            "minimum_visible_fraction": args.minimum_visible_fraction,
+            "maximum_box_iou": args.maximum_box_iou,
+            "maximum_intersection_over_smaller_box": (
+                args.maximum_intersection_over_smaller
+            ),
+        },
+        "selection": {
+            "pairs_per_scene": args.pairs_per_scene,
+            "distance_strata": list(STRATUM_NAMES),
+            "pairs_per_stratum": pairs_per_stratum,
+            "distance_partition": (
+                "sort eligible pairs by 3D distance and split contiguously "
+                "into three groups with sizes differing by at most one"
+            ),
+            "within_stratum_partition": (
+                "split each distance stratum contiguously into four "
+                "subranges and select one pair per subrange"
+            ),
+            "within_subrange_priority": [
+                "minimum 2D box area descending",
+                "2D box-center distance descending",
+                "box IoU ascending",
+                "intersection over smaller box ascending",
+                "both objects interior first",
+                "instance indices ascending",
+            ],
+            "fold_assignment": "odd pair indices=A; even pair indices=B",
+        },
+        "number_of_scenes": len(selected_scenes),
+        "number_of_pairs": len(manifest),
+        "scene_summaries": scene_summaries,
+        "output": display_path(project_root, output_path),
+        "output_sha256": output_sha256,
+        "next_required_stage": "render and visually audit red/blue pair stimuli",
+    }
+    write_json_atomic(protocol_path, protocol)
+
+    print("Balanced pair selection")
+    print(f"Scenes: {len(selected_scenes)}")
+    print(f"Pairs: {len(manifest)}")
+    print()
+    for scene_id, summary in scene_summaries.items():
+        print(
+            f"{scene_id}: eligible={summary['hard_filter_pairs']} "
+            f"selected={summary['selected_pairs']} "
+            f"distance={summary['selected_minimum_m']:.3f}-"
+            f"{summary['selected_maximum_m']:.3f} m "
+            f"interior={summary['selected_interior_pairs']} "
+            f"objects={summary['unique_objects_used']} "
+            f"max_uses={summary['maximum_object_uses']}"
+        )
+    print()
+    print(f"Output: {output_path}")
+    print(f"Protocol: {protocol_path}")
+    print(f"Output SHA-256: {output_sha256}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

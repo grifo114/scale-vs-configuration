@@ -26,9 +26,11 @@ DEFAULT_GENERIC_CATEGORIES = (
     "wall",
 )
 DEFAULT_MARGINS = (0.025, 0.05, 0.075, 0.10, 0.125, 0.15)
+DEFAULT_PIXEL_MARGINS = (10.0, 20.0, 25.0, 30.0, 40.0, 50.0)
 BOX_FIELDS = ("box_2d_rend", "box_2d_proj")
 DUPLICATE_SCOPES = ("all", "geometric", "oracle")
 INTERIOR_MODES = ("box", "center")
+INTERIOR_PIPELINES = ("subset", "recompute")
 
 
 @dataclass(frozen=True)
@@ -37,6 +39,8 @@ class RuleConfig:
     duplicate_scope: str
     caption_required: bool
     interior_mode: str
+    interior_pipeline: str
+    margin_kind: str
     margin: float
 
     @property
@@ -45,7 +49,8 @@ class RuleConfig:
         return (
             f"box={self.box_field}, duplicates={self.duplicate_scope}, "
             f"caption={caption}, interior={self.interior_mode}, "
-            f"margin={self.margin:.3f}"
+            f"pipeline={self.interior_pipeline}, "
+            f"margin={self.margin:g}-{self.margin_kind}"
         )
 
 
@@ -96,6 +101,16 @@ def parse_args() -> argparse.Namespace:
         help=(
             "Candidate interior margin as a fraction in [0, 0.5). Repeat "
             "the option to replace the default margin set."
+        ),
+    )
+    parser.add_argument(
+        "--pixel-margin",
+        action="append",
+        type=float,
+        dest="pixel_margins",
+        help=(
+            "Candidate fixed interior margin in pixels. Repeat the option "
+            "to replace the default pixel-margin set."
         ),
     )
     parser.add_argument(
@@ -238,15 +253,24 @@ def interior_valid(
     width: int,
     height: int,
     mode: str,
+    margin_kind: str,
     margin: float,
 ) -> bool:
     box = valid_box(instance, box_field)
     if box is None:
         return False
-    x_low = margin * width
-    y_low = margin * height
-    x_high = (1.0 - margin) * width
-    y_high = (1.0 - margin) * height
+    if margin_kind == "fraction":
+        x_margin = margin * width
+        y_margin = margin * height
+    elif margin_kind == "pixels":
+        x_margin = margin
+        y_margin = margin
+    else:
+        raise ValueError(f"Unknown margin kind: {margin_kind}")
+    x_low = x_margin
+    y_low = y_margin
+    x_high = width - x_margin
+    y_high = height - y_margin
     if mode == "box":
         return (
             box[0] >= x_low
@@ -259,20 +283,30 @@ def interior_valid(
     return x_low <= center_x <= x_high and y_low <= center_y <= y_high
 
 
-def candidate_configs(margins: Iterable[float]) -> list[RuleConfig]:
+def candidate_configs(
+    margins: Iterable[float],
+    pixel_margins: Iterable[float],
+) -> list[RuleConfig]:
+    margin_specs = [
+        *(('fraction', margin) for margin in margins),
+        *(('pixels', margin) for margin in pixel_margins),
+    ]
     return [
         RuleConfig(
             box_field=box_field,
             duplicate_scope=duplicate_scope,
             caption_required=caption_required,
             interior_mode=interior_mode,
+            interior_pipeline=interior_pipeline,
+            margin_kind=margin_kind,
             margin=margin,
         )
         for box_field in BOX_FIELDS
         for duplicate_scope in DUPLICATE_SCOPES
         for caption_required in (False, True)
         for interior_mode in INTERIOR_MODES
-        for margin in margins
+        for interior_pipeline in INTERIOR_PIPELINES
+        for margin_kind, margin in margin_specs
     ]
 
 
@@ -322,17 +356,22 @@ def main() -> int:
         if category.strip()
     )
     margins = tuple(args.margins or DEFAULT_MARGINS)
+    pixel_margins = tuple(args.pixel_margins or DEFAULT_PIXEL_MARGINS)
     if any(not 0 <= margin < 0.5 for margin in margins):
         raise ValueError("Every margin must be in [0, 0.5).")
+    if any(margin < 0 for margin in pixel_margins):
+        raise ValueError("Every pixel margin must be nonnegative.")
     if args.top <= 0 or args.max_mismatches < 0:
         raise ValueError("--top must be positive and --max-mismatches nonnegative.")
     if args.limit is not None and args.limit <= 0:
         raise ValueError("--limit must be positive.")
 
     rows = load_audit(audit_path, args.limit)
-    configs = candidate_configs(margins)
+    configs = candidate_configs(margins, pixel_margins)
     match_counts = {config: MatchCounts() for config in configs}
-    predictions: dict[RuleConfig, list[tuple[dict[str, Any], tuple[int, ...]]]] = {
+    mismatch_samples: dict[
+        RuleConfig, list[tuple[dict[str, Any], tuple[int, ...]]]
+    ] = {
         config: [] for config in configs
     }
 
@@ -396,18 +435,44 @@ def main() -> int:
                             config.caption_required,
                         )
                     ]
-                    interior = [
+                    interior_oracle = [
                         instance
-                        for instance in natural
+                        for instance in oracle
                         if interior_valid(
                             instance=instance,
                             box_field=config.box_field,
                             width=width,
                             height=height,
                             mode=config.interior_mode,
+                            margin_kind=config.margin_kind,
                             margin=config.margin,
                         )
                     ]
+                    if config.interior_pipeline == "subset":
+                        natural_ids = {id(instance) for instance in natural}
+                        interior = [
+                            instance
+                            for instance in interior_oracle
+                            if id(instance) in natural_ids
+                        ]
+                    else:
+                        interior_counts = Counter(
+                            normalized_category(instance)
+                            for instance in interior_oracle
+                        )
+                        interior = []
+                        for instance in interior_oracle:
+                            category = normalized_category(instance)
+                            if not category or category in generic_categories:
+                                continue
+                            if interior_counts[category] != 1:
+                                continue
+                            if (
+                                config.caption_required
+                                and not str(instance.get("caption", "")).strip()
+                            ):
+                                continue
+                            interior.append(instance)
                     predicted = (
                         total_prediction,
                         geometric_prediction,
@@ -425,8 +490,11 @@ def main() -> int:
                     counts.natural += int(comparisons[3])
                     counts.interior += int(comparisons[4])
                     counts.all_fields += int(all(comparisons))
-                    if not all(comparisons):
-                        predictions[config].append((row, predicted))
+                    if (
+                        not all(comparisons)
+                        and len(mismatch_samples[config]) < args.max_mismatches
+                    ):
+                        mismatch_samples[config].append((row, predicted))
 
                 processed += 1
                 if processed % 250 == 0:
@@ -454,13 +522,13 @@ def main() -> int:
         print_configuration(rank, config, match_counts[config], len(rows))
 
     best = ranked[0]
-    mismatches = predictions[best]
+    mismatches = len(rows) - match_counts[best].all_fields
     print()
     print(f"Best: {best.label}")
-    print(f"Mismatched rows: {len(mismatches)}/{len(rows)}")
+    print(f"Mismatched rows: {mismatches}/{len(rows)}")
     if mismatches and args.max_mismatches:
         print("First mismatches (expected -> predicted):")
-        for row, predicted in mismatches[: args.max_mismatches]:
+        for row, predicted in mismatch_samples[best]:
             expected = (
                 int(row["total"]),
                 int(row["geometric"]),

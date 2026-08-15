@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "created_at_utc": "2026-08-15T17:00:21.738536+00:00",
+  "project_root": "/Users/jeffersonlopes/scale-vs-configuration",
+  "archives": [
+    "data/ca1m/ca1m-val-45662921.tar"
+  ],
+  "number_of_archives": 1,
+  "number_of_frames": 1135,
+  "frames_per_capture": {
+    "45662921": 1135
+  },
+  "limited_frames_per_archive": null,
+  "rules": {
+    "box_field": "box_2d_rend",
+    "minimum_box_area_px2": 1000.0,
+    "minimum_box_side_px": 20.0,
+    "maximum_box_coverage": 0.5,
+    "interior_margin_px": 5.0,
+    "generic_categories": [
+      "baseboard",
+      "ceiling",
+      "floor",
+      "object",
+      "wall"
+    ],
+    "category_uniqueness_scope": "all_instances",
+    "caption_required": false
+  },
+  "sharpness": {
+    "color_decode": "Pillow RGB",
+    "grayscale": "cv2.COLOR_RGB2GRAY",
+    "operator": "cv2.Laplacian(gray, cv2.CV_64F).var()"
+  },
+  "output": "outputs/phase1/scene_selection_protocol/audit_45662921.jsonl",
+  "output_sha256": "03f163a7aeecb40a8a24a00e093d2b3431468f76ceff55421b62531ce3d57d7f"
+}

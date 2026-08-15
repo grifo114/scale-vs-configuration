@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "created_at_utc": "2026-08-15T20:36:29.495897+00:00",
+  "source_manifest": "outputs/phase1/scene_selection_protocol/balanced_pairs_manifest_legible.jsonl",
+  "source_manifest_sha256": "8347d700cf8874b511ca266644c8f5bca224b821c6e745b38dc8e61add610c44",
+  "number_of_scenes": 4,
+  "number_of_stimuli": 48,
+  "stimulus_annotations": {
+    "object_a": {
+      "label": "A",
+      "color": "#E53935"
+    },
+    "object_b": {
+      "label": "B",
+      "color": "#1565E8"
+    },
+    "ground_truth_in_stimulus": false,
+    "categories_in_stimulus": false
+  },
+  "human_audit_sheets": {
+    "ground_truth_in_title": true,
+    "categories_in_title": true,
+    "scene_sheet_sha256": {
+      "42897545": "3d24023d82184d7c88f93c90f7361027bb48515e1e5d3961b9405861af6b9c96",
+      "45261179": "627ea538f9b685514e367df086ad0bb5931e5b93751f71201f4a72b557306d27",
+      "45662921": "872e709f2513cc1b4980107353dee7ee388fa7531c9eb069d099d270d9b86aaa",
+      "47115543": "c97e06aea940c615ae43725c46fdebb1b1b1ed2a25d8f0ebc5151de35f0c1648"
+    },
+    "master_sheet": "outputs/phase1/scene_selection_protocol/balanced_pair_stimuli_legible/contact_sheet_all.png",
+    "master_sheet_sha256": "9089f842b0b5fa1de90f6451788c6fc8a2f96711b1d25c145d2dacf4fd003aa2"
+  },
+  "rendered_manifest": "outputs/phase1/scene_selection_protocol/balanced_pair_stimuli_legible/rendered_manifest.jsonl",
+  "rendered_manifest_sha256": "ba98b546b82af133e6146bd2d2a9739d2ed6fa43784bf79ef42bcffdc7c087ce"
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "created_at_utc": "2026-08-15T16:58:08.389603+00:00",
+  "project_root": "/Users/jeffersonlopes/scale-vs-configuration",
+  "archives": [
+    "data/ca1m/ca1m-val-45261179.tar",
+    "data/ca1m/ca1m-val-42897545.tar",
+    "data/ca1m/ca1m-val-45261615.tar",
+    "data/ca1m/ca1m-val-47115543.tar"
+  ],
+  "number_of_archives": 4,
+  "number_of_frames": 1833,
+  "frames_per_capture": {
+    "42897545": 335,
+    "45261179": 280,
+    "45261615": 518,
+    "47115543": 700
+  },
+  "limited_frames_per_archive": null,
+  "rules": {
+    "box_field": "box_2d_rend",
+    "minimum_box_area_px2": 1000.0,
+    "minimum_box_side_px": 20.0,
+    "maximum_box_coverage": 0.5,
+    "interior_margin_px": 5.0,
+    "generic_categories": [
+      "baseboard",
+      "ceiling",
+      "floor",
+      "object",
+      "wall"
+    ],
+    "category_uniqueness_scope": "all_instances",
+    "caption_required": false
+  },
+  "sharpness": {
+    "color_decode": "Pillow RGB",
+    "grayscale": "cv2.COLOR_RGB2GRAY",
+    "operator": "cv2.Laplacian(gray, cv2.CV_64F).var()"
+  },
+  "output": "outputs/phase1/scene_selection_protocol/audit_reconstructed_1833.jsonl",
+  "output_sha256": "6a3fd405df2e8d1a20bdf5edfdc560ff0da1a22ee13ad21b08bb0edc36be06f4",
+  "reference_comparison": {
+    "reference": "outputs/pilot/capture_candidates/frame_audit.jsonl",
+    "mismatched_frames": 0,
+    "sample_mismatches": []
+  }
+}

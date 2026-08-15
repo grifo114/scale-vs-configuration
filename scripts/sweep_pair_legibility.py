@@ -218,6 +218,22 @@ def main() -> int:
             -config["minimum_best_pair_count"],
         )
     )
+    maximum_feasible_captures = max(
+        config["feasible_captures"] for config in configurations
+    )
+    best_coverage = [
+        config
+        for config in configurations
+        if config["feasible_captures"] == maximum_feasible_captures
+    ]
+    best_coverage.sort(
+        key=lambda config: (
+            -config["minimum_border_margin_px"],
+            -config["minimum_side_px"],
+            -config["minimum_area_fraction"],
+            -config["minimum_best_pair_count"],
+        )
+    )
 
     selected_counts = []
     for candidate in sorted(
@@ -253,6 +269,8 @@ def main() -> int:
             ),
         },
         "selected_scene_diagnostics": selected_counts,
+        "maximum_feasible_captures": maximum_feasible_captures,
+        "best_coverage_configurations": best_coverage,
         "full_coverage_configurations": full_coverage,
         "all_configurations": configurations,
     }
@@ -269,6 +287,10 @@ def main() -> int:
     print(f"Candidates: {len(candidates)}")
     print(f"Configurations: {len(configurations)}")
     print(f"Full-coverage configurations: {len(full_coverage)}")
+    print(
+        f"Maximum feasible captures: {maximum_feasible_captures}/"
+        f"{number_of_captures}"
+    )
     print()
     print("Current selected scenes:")
     for item in selected_counts:
@@ -278,9 +300,13 @@ def main() -> int:
             f"moderate={item['moderate_pairs']} strict={item['strict_pairs']}"
         )
     print()
-    print("Strictest full-coverage configurations:")
+    configurations_to_print = full_coverage or best_coverage
+    if full_coverage:
+        print("Strictest full-coverage configurations:")
+    else:
+        print("Strictest best-coverage configurations:")
     for index, config in enumerate(
-        full_coverage[: args.top_configurations], start=1
+        configurations_to_print[: args.top_configurations], start=1
     ):
         choices = ", ".join(
             f"{capture_id}:r{result['best_candidate']['candidate_rank']}="
@@ -291,6 +317,7 @@ def main() -> int:
             f"{index:02d}. area>={config['minimum_area_fraction']:.5f} "
             f"side>={config['minimum_side_px']:.0f}px "
             f"margin>={config['minimum_border_margin_px']:.0f}px "
+            f"coverage={config['feasible_captures']}/{number_of_captures} "
             f"min_support={config['minimum_best_pair_count']} | {choices}"
         )
     if args.output:

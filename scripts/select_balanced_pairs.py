@@ -139,7 +139,7 @@ def select_scene_pairs(
     pairs_per_scene: int,
     distance_strata: int,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    eligible = [
+    hard_eligible = [
         pair
         for pair in scene["eligible_pairs"]
         if hard_pair_filter(
@@ -150,20 +150,29 @@ def select_scene_pairs(
             maximum_intersection_over_smaller,
         )
     ]
-    eligible.sort(
+    hard_eligible.sort(
         key=lambda pair: (
             float(pair["distance_m"]),
             int(pair["first_instance_index"]),
             int(pair["second_instance_index"]),
         )
     )
-    if len(eligible) < pairs_per_scene:
+    if len(hard_eligible) < pairs_per_scene:
         raise ValueError(
-            f"Capture {scene['capture_id']} has {len(eligible)} eligible pairs; "
+            f"Capture {scene['capture_id']} has {len(hard_eligible)} eligible pairs; "
             f"{pairs_per_scene} required"
         )
+    interior_eligible = [
+        pair for pair in hard_eligible if bool(pair["both_interior"])
+    ]
+    if len(interior_eligible) >= pairs_per_scene:
+        selection_pool = interior_eligible
+        interior_policy = "interior_only"
+    else:
+        selection_pool = hard_eligible
+        interior_policy = "full_visible_fallback"
     pairs_per_stratum = pairs_per_scene // distance_strata
-    distance_partitions = partition_evenly(eligible, distance_strata)
+    distance_partitions = partition_evenly(selection_pool, distance_strata)
     selected: list[dict[str, Any]] = []
     stratum_summaries: dict[str, dict[str, Any]] = {}
     for stratum_index, (stratum_name, stratum_pairs) in enumerate(
@@ -259,7 +268,10 @@ def select_scene_pairs(
     scene_summary = {
         "candidate_rank": int(scene["candidate_rank"]),
         "frame_index": int(scene["frame_index"]),
-        "hard_filter_pairs": len(eligible),
+        "hard_filter_pairs": len(hard_eligible),
+        "interior_filter_pairs": len(interior_eligible),
+        "selection_pool_pairs": len(selection_pool),
+        "interior_policy": interior_policy,
         "selected_pairs": len(manifest_rows),
         "selected_minimum_m": min(distances),
         "selected_maximum_m": max(distances),
@@ -417,6 +429,11 @@ def main() -> int:
                 "split each distance stratum contiguously into four "
                 "subranges and select one pair per subrange"
             ),
+            "interior_pool_policy": (
+                "use only pairs with both boxes at least 5 px from the image "
+                "border when at least 12 such pairs exist; otherwise use the "
+                "full hard-filtered pool"
+            ),
             "within_subrange_priority": [
                 "minimum 2D box area descending",
                 "2D box-center distance descending",
@@ -443,6 +460,8 @@ def main() -> int:
     for scene_id, summary in scene_summaries.items():
         print(
             f"{scene_id}: eligible={summary['hard_filter_pairs']} "
+            f"interior_pool={summary['interior_filter_pairs']} "
+            f"policy={summary['interior_policy']} "
             f"selected={summary['selected_pairs']} "
             f"distance={summary['selected_minimum_m']:.3f}-"
             f"{summary['selected_maximum_m']:.3f} m "

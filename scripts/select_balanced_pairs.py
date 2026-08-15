@@ -615,7 +615,9 @@ def main() -> int:
     print()
     for scene_id, summary in scene_summaries.items():
         print(
-            f"{scene_id}: eligible={summary['hard_filter_pairs']} "
+            f"{scene_id}: rank={summary['candidate_rank']} "
+            f"frame={summary['frame_index']} "
+            f"eligible={summary['hard_filter_pairs']} "
             f"interior_pool={summary['interior_filter_pairs']} "
             f"policy={summary['interior_policy']} "
             f"selected={summary['selected_pairs']} "

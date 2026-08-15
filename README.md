@@ -85,15 +85,38 @@ O runner exige que novas execuções sejam gravadas fora de
 
 ## Reprodução completa das inferências
 
-O comando abaixo está preparado para uma nova execução das 60 consultas. Essa
-execução ainda não foi realizada com o runner versionado.
+As 60 consultas foram reexecutadas com o runner versionado. A comparação com
+o checkpoint v0.1 produziu:
+
+- 60/60 respostas válidas;
+- 0 diferenças de ordem;
+- 0 diferenças nos campos de entrada;
+- 0 diferenças nas respostas brutas;
+- 0 diferenças nas previsões e métricas derivadas;
+- 0 diferenças nos metadados estáveis;
+- diferença absoluta máxima de previsão: 0 m.
+
+O tempo mediano por consulta foi de 4.650 s no checkpoint e 4.236 s na nova
+execução. Tempos e timestamps não são tratados como campos determinísticos.
+
+Comando da reprodução:
 
 ```bash
 python3 scripts/run_oracle_mlx.py \
   --output-dir outputs/phase1/reproduction_qwen3vl4b_oracle
 ```
 
-Uma execução interrompida pode ser retomada com o mesmo diretório:
+Comando da comparação exata:
+
+```bash
+python3 scripts/compare_oracle_runs.py \
+  --report outputs/phase1/reproduction_qwen3vl4b_oracle/comparison_to_checkpoint.json
+```
+
+O comparador retorna código diferente de zero ao detectar divergências. O
+relatório fica em `outputs/` e não é versionado.
+
+Uma reprodução interrompida pode ser retomada com o mesmo diretório:
 
 ```bash
 python3 scripts/run_oracle_mlx.py \

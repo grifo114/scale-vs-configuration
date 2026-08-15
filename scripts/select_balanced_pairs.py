@@ -47,6 +47,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--maximum-intersection-over-smaller", type=float, default=0.80
     )
+    parser.add_argument(
+        "--minimum-box-area-fraction", type=float, default=0.00375
+    )
+    parser.add_argument("--minimum-box-side-px", type=float, default=30.0)
+    parser.add_argument("--minimum-border-margin-px", type=float, default=20.0)
     parser.add_argument("--pairs-per-scene", type=int, default=12)
     parser.add_argument("--distance-strata", type=int, default=3)
     parser.add_argument(
@@ -119,6 +124,9 @@ def hard_pair_filter(
     minimum_visible_fraction: float,
     maximum_box_iou: float,
     maximum_intersection_over_smaller: float,
+    minimum_box_area_fraction: float,
+    minimum_box_side_px: float,
+    minimum_border_margin_px: float,
 ) -> bool:
     return (
         float(pair["distance_m"]) >= minimum_distance_m
@@ -127,6 +135,86 @@ def hard_pair_filter(
         and float(pair["box_iou"]) <= maximum_box_iou
         and float(pair["intersection_over_smaller_box"])
         <= maximum_intersection_over_smaller
+        and float(pair["minimum_box_area_fraction"])
+        >= minimum_box_area_fraction
+        and float(pair["minimum_box_side_px"]) >= minimum_box_side_px
+        and float(pair["minimum_border_margin_px"])
+        >= minimum_border_margin_px
+    )
+
+
+def object_legibility(
+    obj: dict[str, Any], width: int, height: int
+) -> dict[str, float]:
+    box = [float(value) for value in obj["box_2d_rend"]]
+    box_width = box[2] - box[0]
+    box_height = box[3] - box[1]
+    if box_width <= 0 or box_height <= 0:
+        raise ValueError(f"Invalid object box: {box}")
+    return {
+        "box_area_fraction": (box_width * box_height) / (width * height),
+        "box_minimum_side_px": min(box_width, box_height),
+        "box_border_margin_px": min(
+            box[0], box[1], width - box[2], height - box[3]
+        ),
+    }
+
+
+def hard_eligible_pairs(
+    scene: dict[str, Any],
+    minimum_distance_m: float,
+    minimum_visible_fraction: float,
+    maximum_box_iou: float,
+    maximum_intersection_over_smaller: float,
+    minimum_box_area_fraction: float,
+    minimum_box_side_px: float,
+    minimum_border_margin_px: float,
+) -> list[dict[str, Any]]:
+    width = int(scene["width"])
+    height = int(scene["height"])
+    objects = {
+        int(obj["instance_index"]): object_legibility(obj, width, height)
+        for obj in scene["natural_objects"]
+    }
+    enriched_pairs: list[dict[str, Any]] = []
+    for source_pair in scene["eligible_pairs"]:
+        pair = dict(source_pair)
+        first = objects[int(pair["first_instance_index"])]
+        second = objects[int(pair["second_instance_index"])]
+        pair.update(
+            {
+                "minimum_box_area_fraction": min(
+                    first["box_area_fraction"],
+                    second["box_area_fraction"],
+                ),
+                "minimum_box_side_px": min(
+                    first["box_minimum_side_px"],
+                    second["box_minimum_side_px"],
+                ),
+                "minimum_border_margin_px": min(
+                    first["box_border_margin_px"],
+                    second["box_border_margin_px"],
+                ),
+            }
+        )
+        if hard_pair_filter(
+            pair,
+            minimum_distance_m,
+            minimum_visible_fraction,
+            maximum_box_iou,
+            maximum_intersection_over_smaller,
+            minimum_box_area_fraction,
+            minimum_box_side_px,
+            minimum_border_margin_px,
+        ):
+            enriched_pairs.append(pair)
+    return sorted(
+        enriched_pairs,
+        key=lambda pair: (
+            float(pair["distance_m"]),
+            int(pair["first_instance_index"]),
+            int(pair["second_instance_index"]),
+        ),
     )
 
 
@@ -136,26 +224,21 @@ def select_scene_pairs(
     minimum_visible_fraction: float,
     maximum_box_iou: float,
     maximum_intersection_over_smaller: float,
+    minimum_box_area_fraction: float,
+    minimum_box_side_px: float,
+    minimum_border_margin_px: float,
     pairs_per_scene: int,
     distance_strata: int,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    hard_eligible = [
-        pair
-        for pair in scene["eligible_pairs"]
-        if hard_pair_filter(
-            pair,
-            minimum_distance_m,
-            minimum_visible_fraction,
-            maximum_box_iou,
-            maximum_intersection_over_smaller,
-        )
-    ]
-    hard_eligible.sort(
-        key=lambda pair: (
-            float(pair["distance_m"]),
-            int(pair["first_instance_index"]),
-            int(pair["second_instance_index"]),
-        )
+    hard_eligible = hard_eligible_pairs(
+        scene,
+        minimum_distance_m,
+        minimum_visible_fraction,
+        maximum_box_iou,
+        maximum_intersection_over_smaller,
+        minimum_box_area_fraction,
+        minimum_box_side_px,
+        minimum_border_margin_px,
     )
     if len(hard_eligible) < pairs_per_scene:
         raise ValueError(
@@ -247,6 +330,15 @@ def select_scene_pairs(
                         pair["intersection_over_smaller_box"]
                     ),
                     "minimum_box_area_px2": float(pair["minimum_box_area_px2"]),
+                    "minimum_box_area_fraction": float(
+                        pair["minimum_box_area_fraction"]
+                    ),
+                    "minimum_box_side_px": float(
+                        pair["minimum_box_side_px"]
+                    ),
+                    "minimum_border_margin_px": float(
+                        pair["minimum_border_margin_px"]
+                    ),
                     "box_center_distance_px": float(
                         pair["box_center_distance_px"]
                     ),
@@ -342,6 +434,9 @@ def main() -> int:
         args.minimum_visible_fraction,
         args.maximum_box_iou,
         args.maximum_intersection_over_smaller,
+        args.minimum_box_area_fraction,
+        args.minimum_box_side_px,
+        args.minimum_border_margin_px,
     )
     if not all(math.isfinite(value) for value in finite_thresholds):
         raise ValueError("Pair thresholds must be finite")
@@ -355,6 +450,14 @@ def main() -> int:
         raise ValueError(
             "--maximum-intersection-over-smaller must be between zero and one"
         )
+    if not 0 <= args.minimum_box_area_fraction <= 1:
+        raise ValueError(
+            "--minimum-box-area-fraction must be between zero and one"
+        )
+    if args.minimum_box_side_px < 0:
+        raise ValueError("--minimum-box-side-px must be nonnegative")
+    if args.minimum_border_margin_px < 0:
+        raise ValueError("--minimum-border-margin-px must be nonnegative")
     if args.distance_strata != len(STRATUM_NAMES):
         raise ValueError(f"--distance-strata must be {len(STRATUM_NAMES)}")
     if args.pairs_per_scene <= 0 or args.pairs_per_scene % args.distance_strata:
@@ -369,20 +472,57 @@ def main() -> int:
             )
 
     rows = load_jsonl(feasibility_path)
-    selected_scenes = [
-        row for row in rows if bool(row.get("selected_by_frame_rule"))
-    ]
-    all_captures = sorted({str(row["capture_id"]) for row in rows})
-    capture_counts = Counter(str(row["capture_id"]) for row in selected_scenes)
-    invalid_captures = [
-        capture for capture in all_captures if capture_counts[capture] != 1
-    ]
-    if invalid_captures:
-        raise ValueError(
-            f"Expected one selected scene per capture: {invalid_captures}"
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    for row in rows:
+        grouped.setdefault(str(row["capture_id"]), []).append(row)
+    selected_scenes: list[dict[str, Any]] = []
+    rejected_captures: list[str] = []
+    scene_selection_summaries: dict[str, dict[str, Any]] = {}
+    for capture_id, candidates in sorted(grouped.items()):
+        evaluated: list[tuple[int, dict[str, Any]]] = []
+        for candidate in candidates:
+            pair_count = len(
+                hard_eligible_pairs(
+                    candidate,
+                    args.minimum_distance_m,
+                    args.minimum_visible_fraction,
+                    args.maximum_box_iou,
+                    args.maximum_intersection_over_smaller,
+                    args.minimum_box_area_fraction,
+                    args.minimum_box_side_px,
+                    args.minimum_border_margin_px,
+                )
+            )
+            evaluated.append((pair_count, candidate))
+        evaluated.sort(
+            key=lambda item: (
+                -item[0],
+                int(item[1]["candidate_rank"]),
+                int(item[1]["frame_index"]),
+            )
         )
+        best_count, best_candidate = evaluated[0]
+        scene_selection_summaries[capture_id] = {
+            "candidate_frames": len(candidates),
+            "maximum_eligible_pairs": best_count,
+            "selected": best_count >= args.pairs_per_scene,
+            "selected_candidate_rank": (
+                int(best_candidate["candidate_rank"])
+                if best_count >= args.pairs_per_scene
+                else None
+            ),
+            "selected_frame_index": (
+                int(best_candidate["frame_index"])
+                if best_count >= args.pairs_per_scene
+                else None
+            ),
+        }
+        if best_count >= args.pairs_per_scene:
+            selected_scenes.append(best_candidate)
+        else:
+            rejected_captures.append(capture_id)
     if not selected_scenes:
-        raise ValueError("No scenes marked selected_by_frame_rule")
+        raise ValueError("No capture has enough legible relation pairs")
 
     manifest: list[dict[str, Any]] = []
     scene_summaries: dict[str, dict[str, Any]] = {}
@@ -395,6 +535,9 @@ def main() -> int:
             maximum_intersection_over_smaller=(
                 args.maximum_intersection_over_smaller
             ),
+            minimum_box_area_fraction=args.minimum_box_area_fraction,
+            minimum_box_side_px=args.minimum_box_side_px,
+            minimum_border_margin_px=args.minimum_border_margin_px,
             pairs_per_scene=args.pairs_per_scene,
             distance_strata=args.distance_strata,
         )
@@ -408,7 +551,11 @@ def main() -> int:
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "input": display_path(project_root, feasibility_path),
         "input_sha256": sha256_file(feasibility_path),
-        "scene_rule": "selected_by_frame_rule=true; exactly one frame per capture",
+        "scene_rule": (
+            "choose the candidate frame with the largest hard-filtered pair "
+            "pool; break ties by candidate_rank then frame_index; reject a "
+            "capture when its best frame has fewer than pairs_per_scene pairs"
+        ),
         "hard_pair_filters": {
             "minimum_distance_m": args.minimum_distance_m,
             "minimum_visible_fraction": args.minimum_visible_fraction,
@@ -416,6 +563,9 @@ def main() -> int:
             "maximum_intersection_over_smaller_box": (
                 args.maximum_intersection_over_smaller
             ),
+            "minimum_box_area_fraction": args.minimum_box_area_fraction,
+            "minimum_box_side_px": args.minimum_box_side_px,
+            "minimum_border_margin_px": args.minimum_border_margin_px,
         },
         "selection": {
             "pairs_per_scene": args.pairs_per_scene,
@@ -445,6 +595,9 @@ def main() -> int:
             "fold_assignment": "odd pair indices=A; even pair indices=B",
         },
         "number_of_scenes": len(selected_scenes),
+        "number_of_rejected_captures": len(rejected_captures),
+        "rejected_captures": rejected_captures,
+        "scene_selection_summaries": scene_selection_summaries,
         "number_of_pairs": len(manifest),
         "scene_summaries": scene_summaries,
         "output": display_path(project_root, output_path),
@@ -455,6 +608,9 @@ def main() -> int:
 
     print("Balanced pair selection")
     print(f"Scenes: {len(selected_scenes)}")
+    print(f"Rejected captures: {len(rejected_captures)}")
+    if rejected_captures:
+        print(f"Rejected IDs: {', '.join(rejected_captures)}")
     print(f"Pairs: {len(manifest)}")
     print()
     for scene_id, summary in scene_summaries.items():

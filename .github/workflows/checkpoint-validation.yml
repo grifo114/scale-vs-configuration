@@ -1,0 +1,39 @@
+name: Checkpoint validation
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - phase1/scene-selection-protocol
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate frozen checkpoint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compile Python scripts
+        run: python -m compileall -q scripts
+
+      - name: Validate v0.3 pair manifest
+        run: |
+          python scripts/validate_pair_manifest.py \
+            checkpoints/v0.3/pair_selection_manifest.jsonl \
+            --protocol checkpoints/v0.3/pair_selection_protocol.json
+
+      - name: Verify v0.3 checksums
+        run: sha256sum --check checkpoints/v0.3/SHA256SUMS

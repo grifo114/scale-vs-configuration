@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "status": "development_pair_feasibility",
+  "created_at_utc": "2026-08-15T20:02:30.416731+00:00",
+  "shortlist": "outputs/phase1/scene_selection_protocol/development_candidates_all.jsonl",
+  "shortlist_sha256": "533860c0dfd683380d2fc595b6b49c0aec43dbe44b03a122094cbc3a63eb22fd",
+  "minimum_distance_m": 0.25,
+  "minimum_pairs": 12,
+  "visibility_thresholds_reported": [
+    0.8,
+    0.9,
+    1.0
+  ],
+  "overlap_thresholds_reported": {
+    "box_iou": [
+      0.25,
+      0.5
+    ],
+    "intersection_over_smaller_box": [
+      0.8
+    ],
+    "combined": {
+      "box_iou": 0.5,
+      "intersection_over_smaller_box": 0.8
+    }
+  },
+  "number_of_candidates": 547,
+  "number_basic_pair_feasible": 547,
+  "number_of_frame_rule_selections": 5,
+  "frame_rule_selections_basic_pair_feasible": 5,
+  "frame_rule_selections_with_minimum_pairs_by_visibility": {
+    "at_least_80_percent": 5,
+    "at_least_90_percent": 5,
+    "at_least_100_percent": 5
+  },
+  "rules": {
+    "box_field": "box_2d_rend",
+    "minimum_box_area_px2": 1000.0,
+    "minimum_box_side_px": 20.0,
+    "maximum_box_coverage": 0.5,
+    "interior_margin_px": 5.0,
+    "generic_categories": [
+      "baseboard",
+      "ceiling",
+      "floor",
+      "object",
+      "wall"
+    ],
+    "category_uniqueness_scope": "all_instances",
+    "caption_required": false
+  },
+  "output": "outputs/phase1/scene_selection_protocol/pair_feasibility_all.jsonl",
+  "output_sha256": "f554a7b61f7d9972c5b78021b9f5a944f024e37dcae592c01df6427c4a9b56e9",
+  "next_required_stage": "choose a visibility rule, then construct balanced 12-pair manifests"
+}

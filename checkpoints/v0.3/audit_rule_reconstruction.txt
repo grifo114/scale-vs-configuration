@@ -1,0 +1,61 @@
+Reading ca1m-val-42897545.tar ...
+  processed 250/1833 frames
+Reading ca1m-val-45261179.tar ...
+  processed 500/1833 frames
+Reading ca1m-val-45261615.tar ...
+  processed 750/1833 frames
+  processed 1000/1833 frames
+Reading ca1m-val-47115543.tar ...
+  processed 1250/1833 frames
+  processed 1500/1833 frames
+  processed 1750/1833 frames
+
+Audit rule reconstruction
+Rows: 1833
+Generic categories: baseboard, ceiling, floor, object, wall
+Configurations: 480
+
+Highest-scoring configurations:
+01. box=box_2d_rend, duplicates=all, caption=ignored, interior=box, pipeline=subset, margin=5-pixels
+    matches: all=1833/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1833/1833, interior=1833/1833
+02. box=box_2d_rend, duplicates=all, caption=ignored, interior=box, pipeline=subset, margin=6-pixels
+    matches: all=1833/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1833/1833, interior=1833/1833
+03. box=box_2d_rend, duplicates=geometric, caption=ignored, interior=box, pipeline=subset, margin=5-pixels
+    matches: all=1833/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1833/1833, interior=1833/1833
+04. box=box_2d_rend, duplicates=geometric, caption=ignored, interior=box, pipeline=subset, margin=6-pixels
+    matches: all=1833/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1833/1833, interior=1833/1833
+05. box=box_2d_rend, duplicates=all, caption=required, interior=box, pipeline=subset, margin=5-pixels
+    matches: all=1812/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1812/1833, interior=1821/1833
+06. box=box_2d_rend, duplicates=all, caption=required, interior=box, pipeline=subset, margin=6-pixels
+    matches: all=1812/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1812/1833, interior=1821/1833
+07. box=box_2d_rend, duplicates=geometric, caption=required, interior=box, pipeline=subset, margin=5-pixels
+    matches: all=1812/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1812/1833, interior=1821/1833
+08. box=box_2d_rend, duplicates=geometric, caption=required, interior=box, pipeline=subset, margin=6-pixels
+    matches: all=1812/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1812/1833, interior=1821/1833
+09. box=box_2d_rend, duplicates=all, caption=ignored, interior=box, pipeline=subset, margin=7-pixels
+    matches: all=1804/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1833/1833, interior=1804/1833
+10. box=box_2d_rend, duplicates=geometric, caption=ignored, interior=box, pipeline=subset, margin=7-pixels
+    matches: all=1804/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1833/1833, interior=1804/1833
+11. box=box_2d_rend, duplicates=all, caption=ignored, interior=box, pipeline=subset, margin=4-pixels
+    matches: all=1799/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1833/1833, interior=1799/1833
+12. box=box_2d_rend, duplicates=geometric, caption=ignored, interior=box, pipeline=subset, margin=4-pixels
+    matches: all=1799/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1833/1833, interior=1799/1833
+13. box=box_2d_rend, duplicates=all, caption=required, interior=box, pipeline=subset, margin=7-pixels
+    matches: all=1783/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1812/1833, interior=1792/1833
+14. box=box_2d_rend, duplicates=geometric, caption=required, interior=box, pipeline=subset, margin=7-pixels
+    matches: all=1783/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1812/1833, interior=1792/1833
+15. box=box_2d_rend, duplicates=all, caption=required, interior=box, pipeline=subset, margin=4-pixels
+    matches: all=1778/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1812/1833, interior=1787/1833
+16. box=box_2d_rend, duplicates=geometric, caption=required, interior=box, pipeline=subset, margin=4-pixels
+    matches: all=1778/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1812/1833, interior=1787/1833
+17. box=box_2d_rend, duplicates=oracle, caption=ignored, interior=box, pipeline=subset, margin=5-pixels
+    matches: all=1615/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1615/1833, interior=1705/1833
+18. box=box_2d_rend, duplicates=oracle, caption=ignored, interior=box, pipeline=subset, margin=6-pixels
+    matches: all=1615/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1615/1833, interior=1705/1833
+19. box=box_2d_rend, duplicates=all, caption=ignored, interior=box, pipeline=subset, margin=0.025-fraction
+    matches: all=1614/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1833/1833, interior=1614/1833
+20. box=box_2d_rend, duplicates=geometric, caption=ignored, interior=box, pipeline=subset, margin=0.025-fraction
+    matches: all=1614/1833, total=1833/1833, geometric=1833/1833, oracle=1833/1833, natural=1833/1833, interior=1614/1833
+
+Best: box=box_2d_rend, duplicates=all, caption=ignored, interior=box, pipeline=subset, margin=5-pixels
+Mismatched rows: 0/1833

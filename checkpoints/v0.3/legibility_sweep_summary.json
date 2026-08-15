@@ -1,0 +1,3517 @@
+{
+  "schema_version": "1.0",
+  "source": "outputs/phase1/scene_selection_protocol/pair_legibility_sweep_all.json",
+  "source_sha256": "cfd6d766ddc362ebf501c10336468235e7483a596ae14ac189f40375bfcfcc61",
+  "number_of_captures": 5,
+  "number_of_candidates": 547,
+  "minimum_pairs": 12,
+  "maximum_feasible_captures": 4,
+  "hard_pair_filters": {
+    "minimum_distance_m": 0.25,
+    "minimum_visible_fraction": 1.0,
+    "maximum_box_iou": 0.5,
+    "maximum_intersection_over_smaller": 0.8
+  },
+  "number_of_full_coverage_configurations": 0,
+  "number_of_best_coverage_configurations": 24,
+  "selected_scene_diagnostics": [
+    {
+      "capture_id": "42897545",
+      "candidate_rank": 1,
+      "frame_index": 101,
+      "baseline_pairs": 31,
+      "moderate_pairs": 12,
+      "strict_pairs": 7
+    },
+    {
+      "capture_id": "45261179",
+      "candidate_rank": 1,
+      "frame_index": 31,
+      "baseline_pairs": 51,
+      "moderate_pairs": 14,
+      "strict_pairs": 10
+    },
+    {
+      "capture_id": "45261615",
+      "candidate_rank": 1,
+      "frame_index": 0,
+      "baseline_pairs": 30,
+      "moderate_pairs": 5,
+      "strict_pairs": 5
+    },
+    {
+      "capture_id": "45662921",
+      "candidate_rank": 1,
+      "frame_index": 119,
+      "baseline_pairs": 89,
+      "moderate_pairs": 21,
+      "strict_pairs": 3
+    },
+    {
+      "capture_id": "47115543",
+      "candidate_rank": 1,
+      "frame_index": 84,
+      "baseline_pairs": 52,
+      "moderate_pairs": 27,
+      "strict_pairs": 14
+    }
+  ],
+  "compact_all_configurations": [
+    {
+      "minimum_area_fraction": 0.00125,
+      "minimum_side_px": 20.0,
+      "minimum_border_margin_px": 5.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 18
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 0,
+            "selected_by_frame_rule": true,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 119,
+            "selected_by_frame_rule": true,
+            "pair_count": 63
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00125,
+      "minimum_side_px": 20.0,
+      "minimum_border_margin_px": 10.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 0,
+            "selected_by_frame_rule": true,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 119,
+            "selected_by_frame_rule": true,
+            "pair_count": 54
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00125,
+      "minimum_side_px": 20.0,
+      "minimum_border_margin_px": 15.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 0,
+            "selected_by_frame_rule": true,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 119,
+            "selected_by_frame_rule": true,
+            "pair_count": 54
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00125,
+      "minimum_side_px": 20.0,
+      "minimum_border_margin_px": 20.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 0,
+            "selected_by_frame_rule": true,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 4,
+            "frame_index": 86,
+            "selected_by_frame_rule": false,
+            "pair_count": 21
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00125,
+      "minimum_side_px": 30.0,
+      "minimum_border_margin_px": 5.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 18
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 0,
+            "selected_by_frame_rule": true,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00125,
+      "minimum_side_px": 30.0,
+      "minimum_border_margin_px": 10.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 0,
+            "selected_by_frame_rule": true,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00125,
+      "minimum_side_px": 30.0,
+      "minimum_border_margin_px": 15.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 0,
+            "selected_by_frame_rule": true,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00125,
+      "minimum_side_px": 30.0,
+      "minimum_border_margin_px": 20.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 0,
+            "selected_by_frame_rule": true,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 4,
+            "frame_index": 86,
+            "selected_by_frame_rule": false,
+            "pair_count": 21
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00125,
+      "minimum_side_px": 40.0,
+      "minimum_border_margin_px": 5.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 18
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00125,
+      "minimum_side_px": 40.0,
+      "minimum_border_margin_px": 10.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00125,
+      "minimum_side_px": 40.0,
+      "minimum_border_margin_px": 15.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00125,
+      "minimum_side_px": 40.0,
+      "minimum_border_margin_px": 20.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 6,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 6
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 20
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00125,
+      "minimum_side_px": 50.0,
+      "minimum_border_margin_px": 5.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 18
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 20
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00125,
+      "minimum_side_px": 50.0,
+      "minimum_border_margin_px": 10.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 20
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00125,
+      "minimum_side_px": 50.0,
+      "minimum_border_margin_px": 15.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 20
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00125,
+      "minimum_side_px": 50.0,
+      "minimum_border_margin_px": 20.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 6,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 6
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.0025,
+      "minimum_side_px": 20.0,
+      "minimum_border_margin_px": 5.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 18
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.0025,
+      "minimum_side_px": 20.0,
+      "minimum_border_margin_px": 10.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.0025,
+      "minimum_side_px": 20.0,
+      "minimum_border_margin_px": 15.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.0025,
+      "minimum_side_px": 20.0,
+      "minimum_border_margin_px": 20.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 6,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 6
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 4,
+            "frame_index": 86,
+            "selected_by_frame_rule": false,
+            "pair_count": 21
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.0025,
+      "minimum_side_px": 30.0,
+      "minimum_border_margin_px": 5.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 18
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.0025,
+      "minimum_side_px": 30.0,
+      "minimum_border_margin_px": 10.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.0025,
+      "minimum_side_px": 30.0,
+      "minimum_border_margin_px": 15.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.0025,
+      "minimum_side_px": 30.0,
+      "minimum_border_margin_px": 20.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 6,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 6
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 4,
+            "frame_index": 86,
+            "selected_by_frame_rule": false,
+            "pair_count": 21
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.0025,
+      "minimum_side_px": 40.0,
+      "minimum_border_margin_px": 5.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 18
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.0025,
+      "minimum_side_px": 40.0,
+      "minimum_border_margin_px": 10.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.0025,
+      "minimum_side_px": 40.0,
+      "minimum_border_margin_px": 15.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.0025,
+      "minimum_side_px": 40.0,
+      "minimum_border_margin_px": 20.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 6,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 6
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 20
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.0025,
+      "minimum_side_px": 50.0,
+      "minimum_border_margin_px": 5.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 18
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 20
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.0025,
+      "minimum_side_px": 50.0,
+      "minimum_border_margin_px": 10.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 20
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.0025,
+      "minimum_side_px": 50.0,
+      "minimum_border_margin_px": 15.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 20
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.0025,
+      "minimum_side_px": 50.0,
+      "minimum_border_margin_px": 20.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 6,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 6
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00375,
+      "minimum_side_px": 20.0,
+      "minimum_border_margin_px": 5.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 18
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00375,
+      "minimum_side_px": 20.0,
+      "minimum_border_margin_px": 10.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00375,
+      "minimum_side_px": 20.0,
+      "minimum_border_margin_px": 15.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00375,
+      "minimum_side_px": 20.0,
+      "minimum_border_margin_px": 20.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 6,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 6
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 4,
+            "frame_index": 86,
+            "selected_by_frame_rule": false,
+            "pair_count": 21
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00375,
+      "minimum_side_px": 30.0,
+      "minimum_border_margin_px": 5.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 18
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00375,
+      "minimum_side_px": 30.0,
+      "minimum_border_margin_px": 10.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00375,
+      "minimum_side_px": 30.0,
+      "minimum_border_margin_px": 15.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00375,
+      "minimum_side_px": 30.0,
+      "minimum_border_margin_px": 20.0,
+      "feasible_captures": 4,
+      "minimum_best_pair_count": 6,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 6
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 4,
+            "frame_index": 86,
+            "selected_by_frame_rule": false,
+            "pair_count": 21
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00375,
+      "minimum_side_px": 40.0,
+      "minimum_border_margin_px": 5.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 18
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00375,
+      "minimum_side_px": 40.0,
+      "minimum_border_margin_px": 10.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00375,
+      "minimum_side_px": 40.0,
+      "minimum_border_margin_px": 15.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00375,
+      "minimum_side_px": 40.0,
+      "minimum_border_margin_px": 20.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 6,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 6
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 20
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00375,
+      "minimum_side_px": 50.0,
+      "minimum_border_margin_px": 5.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 18
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 20
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00375,
+      "minimum_side_px": 50.0,
+      "minimum_border_margin_px": 10.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 20
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00375,
+      "minimum_side_px": 50.0,
+      "minimum_border_margin_px": 15.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 20
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.00375,
+      "minimum_side_px": 50.0,
+      "minimum_border_margin_px": 20.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 6,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 6
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 946,
+            "selected_by_frame_rule": false,
+            "pair_count": 48
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.005,
+      "minimum_side_px": 20.0,
+      "minimum_border_margin_px": 5.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 18
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 10,
+            "frame_index": 947,
+            "selected_by_frame_rule": false,
+            "pair_count": 38
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.005,
+      "minimum_side_px": 20.0,
+      "minimum_border_margin_px": 10.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 10,
+            "frame_index": 947,
+            "selected_by_frame_rule": false,
+            "pair_count": 38
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.005,
+      "minimum_side_px": 20.0,
+      "minimum_border_margin_px": 15.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 10,
+            "frame_index": 947,
+            "selected_by_frame_rule": false,
+            "pair_count": 30
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.005,
+      "minimum_side_px": 20.0,
+      "minimum_border_margin_px": 20.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 6,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 6
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 12,
+            "frame_index": 906,
+            "selected_by_frame_rule": false,
+            "pair_count": 30
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 4,
+            "frame_index": 86,
+            "selected_by_frame_rule": false,
+            "pair_count": 21
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.005,
+      "minimum_side_px": 30.0,
+      "minimum_border_margin_px": 5.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 18
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 10,
+            "frame_index": 947,
+            "selected_by_frame_rule": false,
+            "pair_count": 38
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.005,
+      "minimum_side_px": 30.0,
+      "minimum_border_margin_px": 10.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 10,
+            "frame_index": 947,
+            "selected_by_frame_rule": false,
+            "pair_count": 38
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.005,
+      "minimum_side_px": 30.0,
+      "minimum_border_margin_px": 15.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 10,
+            "frame_index": 947,
+            "selected_by_frame_rule": false,
+            "pair_count": 30
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.005,
+      "minimum_side_px": 30.0,
+      "minimum_border_margin_px": 20.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 6,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 6
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 12,
+            "frame_index": 906,
+            "selected_by_frame_rule": false,
+            "pair_count": 30
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 4,
+            "frame_index": 86,
+            "selected_by_frame_rule": false,
+            "pair_count": 21
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.005,
+      "minimum_side_px": 40.0,
+      "minimum_border_margin_px": 5.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 18
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 10,
+            "frame_index": 947,
+            "selected_by_frame_rule": false,
+            "pair_count": 38
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.005,
+      "minimum_side_px": 40.0,
+      "minimum_border_margin_px": 10.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 10,
+            "frame_index": 947,
+            "selected_by_frame_rule": false,
+            "pair_count": 38
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.005,
+      "minimum_side_px": 40.0,
+      "minimum_border_margin_px": 15.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 10,
+            "frame_index": 947,
+            "selected_by_frame_rule": false,
+            "pair_count": 30
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 27
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.005,
+      "minimum_side_px": 40.0,
+      "minimum_border_margin_px": 20.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 6,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 6
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 12,
+            "frame_index": 906,
+            "selected_by_frame_rule": false,
+            "pair_count": 30
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 20
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.005,
+      "minimum_side_px": 50.0,
+      "minimum_border_margin_px": 5.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 18
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 10,
+            "frame_index": 947,
+            "selected_by_frame_rule": false,
+            "pair_count": 38
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 20
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.005,
+      "minimum_side_px": 50.0,
+      "minimum_border_margin_px": 10.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 101,
+            "selected_by_frame_rule": true,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 5,
+            "frame_index": 3,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 10,
+            "frame_index": 947,
+            "selected_by_frame_rule": false,
+            "pair_count": 38
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 20
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.005,
+      "minimum_side_px": 50.0,
+      "minimum_border_margin_px": 15.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 9,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 9
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 10,
+            "frame_index": 947,
+            "selected_by_frame_rule": false,
+            "pair_count": 30
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 85,
+            "selected_by_frame_rule": false,
+            "pair_count": 20
+          }
+        }
+      }
+    },
+    {
+      "minimum_area_fraction": 0.005,
+      "minimum_side_px": 50.0,
+      "minimum_border_margin_px": 20.0,
+      "feasible_captures": 3,
+      "minimum_best_pair_count": 6,
+      "captures": {
+        "42897545": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 2,
+            "frame_index": 100,
+            "selected_by_frame_rule": false,
+            "pair_count": 12
+          }
+        },
+        "45261179": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 31,
+            "selected_by_frame_rule": true,
+            "pair_count": 10
+          }
+        },
+        "45261615": {
+          "feasible": false,
+          "best_candidate": {
+            "candidate_rank": 7,
+            "frame_index": 2,
+            "selected_by_frame_rule": false,
+            "pair_count": 6
+          }
+        },
+        "45662921": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 12,
+            "frame_index": 906,
+            "selected_by_frame_rule": false,
+            "pair_count": 30
+          }
+        },
+        "47115543": {
+          "feasible": true,
+          "best_candidate": {
+            "candidate_rank": 1,
+            "frame_index": 84,
+            "selected_by_frame_rule": true,
+            "pair_count": 14
+          }
+        }
+      }
+    }
+  ]
+}

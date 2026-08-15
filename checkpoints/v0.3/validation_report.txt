@@ -1,0 +1,12 @@
+Pair-manifest validation
+Manifest: /Users/jeffersonlopes/scale-vs-configuration/checkpoints/v0.3/pair_selection_manifest.jsonl
+SHA-256: 8347d700cf8874b511ca266644c8f5bca224b821c6e745b38dc8e61add610c44
+Scenes: 4
+Pairs: 48
+
+42897545: pairs=12 distance=0.266-0.886 m ratio=3.332 objects=6 max_uses=5
+45261179: pairs=12 distance=0.378-1.140 m ratio=3.013 objects=6 max_uses=5
+45662921: pairs=12 distance=0.288-0.775 m ratio=2.695 objects=9 max_uses=5
+47115543: pairs=12 distance=0.364-2.627 m ratio=7.217 objects=7 max_uses=4
+
+Result: PASSED

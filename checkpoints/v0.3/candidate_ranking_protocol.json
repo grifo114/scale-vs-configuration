@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "status": "development_candidate_ranking",
+  "created_at_utc": "2026-08-15T20:00:34.244490+00:00",
+  "inputs": [
+    {
+      "path": "outputs/phase1/scene_selection_protocol/audit_reconstructed_1833.jsonl",
+      "sha256": "6a3fd405df2e8d1a20bdf5edfdc560ff0da1a22ee13ad21b08bb0edc36be06f4"
+    },
+    {
+      "path": "outputs/phase1/scene_selection_protocol/audit_45662921.jsonl",
+      "sha256": "03f163a7aeecb40a8a24a00e093d2b3431468f76ceff55421b62531ce3d57d7f"
+    }
+  ],
+  "input_rows": 2968,
+  "excluded_captures": [],
+  "selection_rule": {
+    "minimum_oracle": 8,
+    "minimum_natural": 6,
+    "minimum_natural_interior": 3,
+    "sharpness_quantile": 0.0,
+    "quantile_interpolation": "linear, position=(n-1)*q",
+    "sharpness_scope": "eligible frames within each capture",
+    "ranking_priority": [
+      "natural_interior descending",
+      "natural descending",
+      "oracle descending",
+      "sharpness descending",
+      "frame_index ascending",
+      "image_member ascending"
+    ],
+    "temporal_diversity": "retain up to candidates_per_temporal_bin ranked frames from each temporal bin before the per-capture limit",
+    "candidates_per_temporal_bin": 10000,
+    "candidates_per_capture": 10000,
+    "uses_model_outputs": false
+  },
+  "captures_considered": 5,
+  "captures_with_shortlist": 5,
+  "rejected_captures": [],
+  "shortlist_rows": 547,
+  "capture_summaries": {
+    "42897545": {
+      "audited_frames": 335,
+      "eligible_frames": 23,
+      "sharpness_cutoff": 8.015951761159359,
+      "high_sharpness_frames": 23,
+      "temporal_bins_represented": [
+        1,
+        2
+      ],
+      "candidates_per_temporal_bin": 10000,
+      "shortlist_size": 23
+    },
+    "45261179": {
+      "audited_frames": 280,
+      "eligible_frames": 51,
+      "sharpness_cutoff": 31.75332619705134,
+      "high_sharpness_frames": 51,
+      "temporal_bins_represented": [
+        1,
+        3
+      ],
+      "candidates_per_temporal_bin": 10000,
+      "shortlist_size": 51
+    },
+    "45261615": {
+      "audited_frames": 518,
+      "eligible_frames": 53,
+      "sharpness_cutoff": 25.705553579603375,
+      "high_sharpness_frames": 53,
+      "temporal_bins_represented": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "candidates_per_temporal_bin": 10000,
+      "shortlist_size": 53
+    },
+    "45662921": {
+      "audited_frames": 1135,
+      "eligible_frames": 204,
+      "sharpness_cutoff": 15.389593039581086,
+      "high_sharpness_frames": 204,
+      "temporal_bins_represented": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "candidates_per_temporal_bin": 10000,
+      "shortlist_size": 204
+    },
+    "47115543": {
+      "audited_frames": 700,
+      "eligible_frames": 216,
+      "sharpness_cutoff": 27.317511111147013,
+      "high_sharpness_frames": 216,
+      "temporal_bins_represented": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "candidates_per_temporal_bin": 10000,
+      "shortlist_size": 216
+    }
+  },
+  "output": "outputs/phase1/scene_selection_protocol/development_candidates_all.jsonl",
+  "output_sha256": "533860c0dfd683380d2fc595b6b49c0aec43dbe44b03a122094cbc3a63eb22fd",
+  "next_required_stage": "3D pair-feasibility validation"
+}

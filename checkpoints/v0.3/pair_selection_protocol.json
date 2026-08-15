@@ -1,0 +1,270 @@
+{
+  "schema_version": "1.0",
+  "status": "development_balanced_pair_selection",
+  "created_at_utc": "2026-08-15T20:33:42.122823+00:00",
+  "input": "outputs/phase1/scene_selection_protocol/pair_feasibility_all.jsonl",
+  "input_sha256": "f554a7b61f7d9972c5b78021b9f5a944f024e37dcae592c01df6427c4a9b56e9",
+  "scene_rule": "choose the candidate frame with the largest hard-filtered pair pool; break ties by candidate_rank then frame_index; reject a capture when its best frame has fewer than pairs_per_scene pairs",
+  "hard_pair_filters": {
+    "minimum_distance_m": 0.25,
+    "minimum_visible_fraction": 1.0,
+    "maximum_box_iou": 0.5,
+    "maximum_intersection_over_smaller_box": 0.8,
+    "minimum_box_area_fraction": 0.00375,
+    "minimum_box_side_px": 30.0,
+    "minimum_border_margin_px": 20.0
+  },
+  "selection": {
+    "pairs_per_scene": 12,
+    "distance_strata": [
+      "short",
+      "medium",
+      "long"
+    ],
+    "pairs_per_stratum": 4,
+    "distance_partition": "sort eligible pairs by 3D distance and split contiguously into three groups with sizes differing by at most one",
+    "within_stratum_partition": "split each distance stratum contiguously into four subranges and select one pair per subrange",
+    "interior_pool_policy": "use only pairs with both boxes at least 5 px from the image border when at least 12 such pairs exist; otherwise use the full hard-filtered pool",
+    "within_subrange_priority": [
+      "minimum 2D box area descending",
+      "2D box-center distance descending",
+      "box IoU ascending",
+      "intersection over smaller box ascending",
+      "both objects interior first",
+      "instance indices ascending"
+    ],
+    "fold_assignment": "odd pair indices=A; even pair indices=B"
+  },
+  "number_of_scenes": 4,
+  "number_of_rejected_captures": 1,
+  "rejected_captures": [
+    "45261615"
+  ],
+  "scene_selection_summaries": {
+    "42897545": {
+      "candidate_frames": 23,
+      "maximum_eligible_pairs": 12,
+      "selected": true,
+      "selected_candidate_rank": 2,
+      "selected_frame_index": 100
+    },
+    "45261179": {
+      "candidate_frames": 51,
+      "maximum_eligible_pairs": 14,
+      "selected": true,
+      "selected_candidate_rank": 1,
+      "selected_frame_index": 31
+    },
+    "45261615": {
+      "candidate_frames": 53,
+      "maximum_eligible_pairs": 6,
+      "selected": false,
+      "selected_candidate_rank": null,
+      "selected_frame_index": null
+    },
+    "45662921": {
+      "candidate_frames": 204,
+      "maximum_eligible_pairs": 48,
+      "selected": true,
+      "selected_candidate_rank": 2,
+      "selected_frame_index": 946
+    },
+    "47115543": {
+      "candidate_frames": 216,
+      "maximum_eligible_pairs": 21,
+      "selected": true,
+      "selected_candidate_rank": 4,
+      "selected_frame_index": 86
+    }
+  },
+  "number_of_pairs": 48,
+  "scene_summaries": {
+    "42897545": {
+      "candidate_rank": 2,
+      "frame_index": 100,
+      "hard_filter_pairs": 12,
+      "interior_filter_pairs": 12,
+      "selection_pool_pairs": 12,
+      "interior_policy": "interior_only",
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.265869478575959,
+      "selected_maximum_m": 0.885767409154213,
+      "selected_interior_pairs": 12,
+      "unique_objects_used": 6,
+      "maximum_object_uses": 5,
+      "object_usage": {
+        "4": 3,
+        "6": 5,
+        "7": 5,
+        "8": 3,
+        "10": 3,
+        "11": 5
+      },
+      "distance_strata": {
+        "short": {
+          "candidate_pairs": 4,
+          "candidate_minimum_m": 0.265869478575959,
+          "candidate_maximum_m": 0.4628638446454604,
+          "selected_minimum_m": 0.265869478575959,
+          "selected_maximum_m": 0.4628638446454604
+        },
+        "medium": {
+          "candidate_pairs": 4,
+          "candidate_minimum_m": 0.4636826997011577,
+          "candidate_maximum_m": 0.6755249185772283,
+          "selected_minimum_m": 0.4636826997011577,
+          "selected_maximum_m": 0.6755249185772283
+        },
+        "long": {
+          "candidate_pairs": 4,
+          "candidate_minimum_m": 0.8615462916589591,
+          "candidate_maximum_m": 0.885767409154213,
+          "selected_minimum_m": 0.8615462916589591,
+          "selected_maximum_m": 0.885767409154213
+        }
+      }
+    },
+    "45261179": {
+      "candidate_rank": 1,
+      "frame_index": 31,
+      "hard_filter_pairs": 14,
+      "interior_filter_pairs": 14,
+      "selection_pool_pairs": 14,
+      "interior_policy": "interior_only",
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.37845805643986113,
+      "selected_maximum_m": 1.1404640970451827,
+      "selected_interior_pairs": 12,
+      "unique_objects_used": 6,
+      "maximum_object_uses": 5,
+      "object_usage": {
+        "4": 4,
+        "5": 3,
+        "6": 4,
+        "7": 5,
+        "8": 4,
+        "24": 4
+      },
+      "distance_strata": {
+        "short": {
+          "candidate_pairs": 5,
+          "candidate_minimum_m": 0.30815102521092524,
+          "candidate_maximum_m": 0.5421384829614716,
+          "selected_minimum_m": 0.37845805643986113,
+          "selected_maximum_m": 0.5421384829614716
+        },
+        "medium": {
+          "candidate_pairs": 5,
+          "candidate_minimum_m": 0.6159431247721521,
+          "candidate_maximum_m": 0.8460261644651927,
+          "selected_minimum_m": 0.7925389173809132,
+          "selected_maximum_m": 0.8460261644651927
+        },
+        "long": {
+          "candidate_pairs": 4,
+          "candidate_minimum_m": 1.071724071749706,
+          "candidate_maximum_m": 1.1404640970451827,
+          "selected_minimum_m": 1.071724071749706,
+          "selected_maximum_m": 1.1404640970451827
+        }
+      }
+    },
+    "45662921": {
+      "candidate_rank": 2,
+      "frame_index": 946,
+      "hard_filter_pairs": 48,
+      "interior_filter_pairs": 48,
+      "selection_pool_pairs": 48,
+      "interior_policy": "interior_only",
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.2877909322125445,
+      "selected_maximum_m": 0.7754824522196611,
+      "selected_interior_pairs": 12,
+      "unique_objects_used": 9,
+      "maximum_object_uses": 5,
+      "object_usage": {
+        "3": 1,
+        "7": 3,
+        "8": 5,
+        "9": 1,
+        "11": 1,
+        "12": 4,
+        "13": 2,
+        "14": 2,
+        "15": 5
+      },
+      "distance_strata": {
+        "short": {
+          "candidate_pairs": 16,
+          "candidate_minimum_m": 0.27530386934862944,
+          "candidate_maximum_m": 0.5105606554150581,
+          "selected_minimum_m": 0.2877909322125445,
+          "selected_maximum_m": 0.49402733286869505
+        },
+        "medium": {
+          "candidate_pairs": 16,
+          "candidate_minimum_m": 0.5160274562862829,
+          "candidate_maximum_m": 0.6383744931601033,
+          "selected_minimum_m": 0.5378680429265434,
+          "selected_maximum_m": 0.6306803943184335
+        },
+        "long": {
+          "candidate_pairs": 16,
+          "candidate_minimum_m": 0.6403148213741633,
+          "candidate_maximum_m": 0.8348985896461789,
+          "selected_minimum_m": 0.6424351612902645,
+          "selected_maximum_m": 0.7754824522196611
+        }
+      }
+    },
+    "47115543": {
+      "candidate_rank": 4,
+      "frame_index": 86,
+      "hard_filter_pairs": 21,
+      "interior_filter_pairs": 21,
+      "selection_pool_pairs": 21,
+      "interior_policy": "interior_only",
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.3640241136472852,
+      "selected_maximum_m": 2.627104888811257,
+      "selected_interior_pairs": 12,
+      "unique_objects_used": 7,
+      "maximum_object_uses": 4,
+      "object_usage": {
+        "7": 4,
+        "8": 4,
+        "9": 1,
+        "15": 3,
+        "16": 4,
+        "18": 4,
+        "20": 4
+      },
+      "distance_strata": {
+        "short": {
+          "candidate_pairs": 7,
+          "candidate_minimum_m": 0.3018539663295223,
+          "candidate_maximum_m": 0.8957381684302668,
+          "selected_minimum_m": 0.3640241136472852,
+          "selected_maximum_m": 0.8957381684302668
+        },
+        "medium": {
+          "candidate_pairs": 7,
+          "candidate_minimum_m": 1.10876801370765,
+          "candidate_maximum_m": 1.462318235592897,
+          "selected_minimum_m": 1.1923028677251202,
+          "selected_maximum_m": 1.462318235592897
+        },
+        "long": {
+          "candidate_pairs": 7,
+          "candidate_minimum_m": 1.6152837802866813,
+          "candidate_maximum_m": 2.627104888811257,
+          "selected_minimum_m": 1.6565479481693395,
+          "selected_maximum_m": 2.627104888811257
+        }
+      }
+    }
+  },
+  "output": "outputs/phase1/scene_selection_protocol/balanced_pairs_manifest_legible.jsonl",
+  "output_sha256": "8347d700cf8874b511ca266644c8f5bca224b821c6e745b38dc8e61add610c44",
+  "next_required_stage": "render and visually audit red/blue pair stimuli"
+}

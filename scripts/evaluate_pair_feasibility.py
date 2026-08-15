@@ -151,8 +151,47 @@ def object_record(
         "category": normalized_category(instance),
         "position": [float(value) for value in position],
         "box_2d_rend": list(box),
+        "box_area_px2": (box[2] - box[0]) * (box[3] - box[1]),
         "visible_fraction": visible_fraction(box, width, height),
         "interior": interior_valid(instance, width, height, rules),
+    }
+
+
+def pair_box_geometry(
+    first_box: list[float], second_box: list[float]
+) -> dict[str, float]:
+    first_area = (first_box[2] - first_box[0]) * (first_box[3] - first_box[1])
+    second_area = (second_box[2] - second_box[0]) * (
+        second_box[3] - second_box[1]
+    )
+    intersection_width = max(
+        0.0, min(first_box[2], second_box[2]) - max(first_box[0], second_box[0])
+    )
+    intersection_height = max(
+        0.0, min(first_box[3], second_box[3]) - max(first_box[1], second_box[1])
+    )
+    intersection = intersection_width * intersection_height
+    union = first_area + second_area - intersection
+    smaller = min(first_area, second_area)
+    first_center = (
+        (first_box[0] + first_box[2]) / 2,
+        (first_box[1] + first_box[3]) / 2,
+    )
+    second_center = (
+        (second_box[0] + second_box[2]) / 2,
+        (second_box[1] + second_box[3]) / 2,
+    )
+    center_distance = math.hypot(
+        first_center[0] - second_center[0],
+        first_center[1] - second_center[1],
+    )
+    return {
+        "box_iou": intersection / union if union > 0 else 0.0,
+        "intersection_over_smaller_box": (
+            intersection / smaller if smaller > 0 else 0.0
+        ),
+        "minimum_box_area_px2": smaller,
+        "box_center_distance_px": center_distance,
     }
 
 
@@ -160,21 +199,23 @@ def build_pairs(objects: list[dict[str, Any]]) -> list[dict[str, Any]]:
     pairs: list[dict[str, Any]] = []
     for first, second in itertools.combinations(objects, 2):
         distance = euclidean_distance(first["position"], second["position"])
-        pairs.append(
-            {
-                "first_instance_index": first["instance_index"],
-                "second_instance_index": second["instance_index"],
-                "first_instance_id": first["instance_id"],
-                "second_instance_id": second["instance_id"],
-                "first_category": first["category"],
-                "second_category": second["category"],
-                "distance_m": distance,
-                "minimum_visible_fraction": min(
-                    first["visible_fraction"], second["visible_fraction"]
-                ),
-                "both_interior": first["interior"] and second["interior"],
-            }
+        pair = {
+            "first_instance_index": first["instance_index"],
+            "second_instance_index": second["instance_index"],
+            "first_instance_id": first["instance_id"],
+            "second_instance_id": second["instance_id"],
+            "first_category": first["category"],
+            "second_category": second["category"],
+            "distance_m": distance,
+            "minimum_visible_fraction": min(
+                first["visible_fraction"], second["visible_fraction"]
+            ),
+            "both_interior": first["interior"] and second["interior"],
+        }
+        pair.update(
+            pair_box_geometry(first["box_2d_rend"], second["box_2d_rend"])
         )
+        pairs.append(pair)
     return sorted(
         pairs,
         key=lambda pair: (
@@ -253,6 +294,23 @@ def evaluate_candidate(
         )
         for threshold in VISIBILITY_THRESHOLDS
     }
+    overlap_counts = {
+        "iou_at_most_0_25": sum(
+            pair["box_iou"] <= 0.25 for pair in eligible_pairs
+        ),
+        "iou_at_most_0_50": sum(
+            pair["box_iou"] <= 0.50 for pair in eligible_pairs
+        ),
+        "intersection_over_smaller_at_most_0_80": sum(
+            pair["intersection_over_smaller_box"] <= 0.80
+            for pair in eligible_pairs
+        ),
+        "combined_iou_0_50_ios_0_80": sum(
+            pair["box_iou"] <= 0.50
+            and pair["intersection_over_smaller_box"] <= 0.80
+            for pair in eligible_pairs
+        ),
+    }
     result = dict(candidate)
     result.update(
         {
@@ -263,6 +321,7 @@ def evaluate_candidate(
                 pair["both_interior"] for pair in eligible_pairs
             ),
             "eligible_pairs_by_visibility": visibility_counts,
+            "eligible_pairs_by_overlap": overlap_counts,
             "eligible_distance_summary": distance_summary(eligible_pairs),
             "basic_pair_feasible": len(eligible_pairs) >= minimum_pairs,
             "eligible_pairs": eligible_pairs,
@@ -407,6 +466,11 @@ def main() -> int:
         "minimum_distance_m": args.minimum_distance_m,
         "minimum_pairs": args.minimum_pairs,
         "visibility_thresholds_reported": list(VISIBILITY_THRESHOLDS),
+        "overlap_thresholds_reported": {
+            "box_iou": [0.25, 0.50],
+            "intersection_over_smaller_box": [0.80],
+            "combined": {"box_iou": 0.50, "intersection_over_smaller_box": 0.80},
+        },
         "number_of_candidates": len(results),
         "number_basic_pair_feasible": sum(
             row["basic_pair_feasible"] for row in results
@@ -436,6 +500,7 @@ def main() -> int:
     print()
     for row in results:
         visibility = row["eligible_pairs_by_visibility"]
+        overlap = row["eligible_pairs_by_overlap"]
         print(
             f"{row['capture_id']} rank={row['candidate_rank']} "
             f"frame={row['frame_index']} natural={row['natural']} "
@@ -444,6 +509,10 @@ def main() -> int:
             f"vis80={visibility['at_least_80_percent']} "
             f"vis90={visibility['at_least_90_percent']} "
             f"vis100={visibility['at_least_100_percent']} "
+            f"iou25={overlap['iou_at_most_0_25']} "
+            f"iou50={overlap['iou_at_most_0_50']} "
+            f"ios80={overlap['intersection_over_smaller_at_most_0_80']} "
+            f"combined={overlap['combined_iou_0_50_ios_0_80']} "
             f"feasible={row['basic_pair_feasible']}"
         )
     print()

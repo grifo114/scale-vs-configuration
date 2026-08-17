@@ -63,6 +63,22 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
     return rows
 
 
+def capture_accepted(record: dict[str, Any]) -> bool:
+    """Return the final decision, with fallback for schema-1.0 records."""
+    inferred = bool(record.get("selection_accepted")) and (
+        record.get("visual_qc") == "pass"
+    )
+    if "capture_accepted" in record:
+        stored = bool(record["capture_accepted"])
+        if stored != inferred:
+            raise ValueError(
+                "Log record has inconsistent selection, visual QC, and "
+                "final acceptance"
+            )
+        return stored
+    return inferred
+
+
 def read_order(path: Path) -> list[dict[str, str]]:
     with path.open("r", encoding="utf-8", newline="") as handle:
         return list(csv.DictReader(handle))
@@ -166,7 +182,7 @@ def main() -> int:
     target = int(config["stopping_rule"]["target_accepted_scenes"])
     log = read_jsonl(log_path)
     validate_log(log, order)
-    accepted = sum(bool(row["selection_accepted"]) for row in log)
+    accepted = sum(capture_accepted(row) for row in log)
 
     print("Confirmatory automatic advance")
     print(f"Officially inspected: {len(log)}/{len(order)}")
@@ -203,9 +219,7 @@ def main() -> int:
     while processed < args.max_captures:
         log_before = read_jsonl(log_path)
         validate_log(log_before, order)
-        accepted_before = sum(
-            bool(row["selection_accepted"]) for row in log_before
-        )
+        accepted_before = sum(capture_accepted(row) for row in log_before)
         if accepted_before >= target or len(log_before) >= len(order):
             break
 
@@ -273,9 +287,7 @@ def main() -> int:
         return 0
 
     final_log = read_jsonl(log_path)
-    final_accepted = sum(
-        bool(row["selection_accepted"]) for row in final_log
-    )
+    final_accepted = sum(capture_accepted(row) for row in final_log)
     print()
     print("Batch limit reached")
     print(f"Captures processed in this run: {processed}")

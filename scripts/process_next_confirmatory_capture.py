@@ -50,6 +50,22 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
     return rows
 
 
+def capture_accepted(record: dict[str, Any]) -> bool:
+    """Return the final decision, with fallback for schema-1.0 records."""
+    inferred = bool(record.get("selection_accepted")) and (
+        record.get("visual_qc") == "pass"
+    )
+    if "capture_accepted" in record:
+        stored = bool(record["capture_accepted"])
+        if stored != inferred:
+            raise ValueError(
+                "Log record has inconsistent selection, visual QC, and "
+                "final acceptance"
+            )
+        return stored
+    return inferred
+
+
 def count_jsonl(path: Path) -> int:
     with path.open("r", encoding="utf-8") as handle:
         return sum(1 for line in handle if line.strip())
@@ -130,7 +146,7 @@ def main() -> int:
     log = read_jsonl(log_path)
     config = read_json(protocol_path)
     target = int(config["stopping_rule"]["target_accepted_scenes"])
-    accepted_count = sum(bool(row["selection_accepted"]) for row in log)
+    accepted_count = sum(capture_accepted(row) for row in log)
     if accepted_count >= target:
         raise ValueError(f"Confirmatory target already reached: {accepted_count}/{target}")
     next_index = len(log) + 1

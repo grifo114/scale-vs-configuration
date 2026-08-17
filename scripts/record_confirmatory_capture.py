@@ -135,6 +135,22 @@ def artifact(project_root: Path, path: Path) -> dict[str, Any]:
     }
 
 
+def capture_accepted(record: dict[str, Any]) -> bool:
+    """Return the final decision, with fallback for schema-1.0 records."""
+    inferred = bool(record.get("selection_accepted")) and (
+        record.get("visual_qc") == "pass"
+    )
+    if "capture_accepted" in record:
+        stored = bool(record["capture_accepted"])
+        if stored != inferred:
+            raise ValueError(
+                "Log record has inconsistent selection, visual QC, and "
+                "final acceptance"
+            )
+        return stored
+    return inferred
+
+
 def main() -> int:
     args = parse_args()
     root = args.project_root.expanduser().resolve()
@@ -187,18 +203,18 @@ def main() -> int:
     if args.capture_id not in decisions:
         raise ValueError("Selection protocol has no decision for capture")
     decision = decisions[args.capture_id]
-    accepted = bool(decision["accepted"])
+    selection_accepted = bool(decision["accepted"])
     expected_pairs = int(
         read_json(config_path)["scene_acceptance"]["selected_pairs"]
     )
     observed_pairs = count_jsonl(paths["selection"])
-    if accepted and observed_pairs != expected_pairs:
+    if selection_accepted and observed_pairs != expected_pairs:
         raise ValueError(
             f"Accepted capture has {observed_pairs} pairs; expected {expected_pairs}"
         )
-    if not accepted and observed_pairs != 0:
+    if not selection_accepted and observed_pairs != 0:
         raise ValueError("Rejected capture must have an empty selection manifest")
-    if accepted:
+    if selection_accepted:
         required = (
             "validation_report",
             "rendered_manifest",
@@ -211,23 +227,37 @@ def main() -> int:
         validation = paths["validation_report"].read_text(encoding="utf-8")
         if "Result: PASSED" not in validation:
             raise ValueError("Accepted capture validation report did not pass")
-        if args.visual_qc != "pass":
-            raise ValueError("Accepted capture requires visual-qc=pass")
+        if args.visual_qc not in ("pass", "fail"):
+            raise ValueError(
+                "Numerically accepted capture requires visual-qc=pass or fail"
+            )
     elif args.visual_qc != "not_applicable":
-        raise ValueError("Rejected capture requires visual-qc=not_applicable")
+        raise ValueError(
+            "Numerically rejected capture requires visual-qc=not_applicable"
+        )
+
+    final_accepted = selection_accepted and args.visual_qc == "pass"
+    if final_accepted:
+        capture_decision = "accepted"
+    elif selection_accepted:
+        capture_decision = "rejected_visual"
+    else:
+        capture_decision = "rejected_numerical"
 
     config = read_json(config_path)
     record = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
         "order_index": next_index,
         "capture_id": args.capture_id,
         "order_key_sha256": order[next_index - 1]["order_key_sha256"],
-        "selection_accepted": accepted,
+        "selection_accepted": selection_accepted,
         "selection_pair_count": observed_pairs,
         "selection_decision": decision,
         "visual_qc": args.visual_qc,
         "visual_qc_note": args.visual_qc_note,
+        "capture_accepted": final_accepted,
+        "capture_decision": capture_decision,
         "artifacts": {
             name: artifact(root, path) for name, path in sorted(paths.items())
         },
@@ -235,8 +265,16 @@ def main() -> int:
     updated = existing + [record]
     write_jsonl_atomic(log_path, updated)
 
-    accepted_count = sum(row["selection_accepted"] for row in updated)
+    accepted_count = sum(capture_accepted(row) for row in updated)
     rejected_count = len(updated) - accepted_count
+    numerical_rejected_count = sum(
+        not bool(row.get("selection_accepted")) for row in updated
+    )
+    visual_rejected_count = sum(
+        bool(row.get("selection_accepted"))
+        and row.get("visual_qc") == "fail"
+        for row in updated
+    )
     target = int(config["stopping_rule"]["target_accepted_scenes"])
     next_capture = (
         order[len(updated)]["capture_id"]
@@ -245,10 +283,13 @@ def main() -> int:
     )
     print("Confirmatory capture log")
     print(f"Recorded: order={next_index} capture={args.capture_id}")
-    print(f"Decision: {'ACCEPTED' if accepted else 'REJECTED'}")
+    print(f"Decision: {capture_decision.upper()}")
     print(f"Inspected: {len(updated)}")
     print(f"Accepted: {accepted_count}/{target}")
-    print(f"Rejected: {rejected_count}")
+    print(
+        f"Rejected: {rejected_count} "
+        f"(numerical={numerical_rejected_count}, visual={visual_rejected_count})"
+    )
     print(f"Next capture: {next_capture or 'none'}")
     print(f"Log: {log_path}")
     print(f"Log SHA-256: {sha256(log_path)}")

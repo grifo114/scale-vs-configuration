@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "status": "post_start_operational_amendment",
+  "amendment_id": "confirmatory-visual-qc-failure-path-v1",
+  "created_at_utc": "2026-08-17T14:22:50.211949+00:00",
+  "base_protocol": {
+    "path": "configs/confirmatory_capture_protocol.json",
+    "sha256": "d78e2c4e2a7a9ec6d36a2ccc1ea64a89670834eae57f6ffca808eda88d86e74d",
+    "frozen_on": "2026-08-15"
+  },
+  "trigger": {
+    "order_index": 27,
+    "capture_id": "47115525",
+    "reason": "First numerically accepted capture to fail manual visual QC.",
+    "log_sha256_after_recording": "00998074ed11ec3a5caa1dba6e5c8aa82effcf36108e3605b84d88a8e434cc9a"
+  },
+  "scope": {
+    "description": "Formalizes the final decision, counting, and logging behavior for manual visual-QC failures.",
+    "changes_capture_order": false,
+    "changes_frame_or_pair_thresholds": false,
+    "changes_ranking_or_selection": false,
+    "changes_target_sample_size": false,
+    "allows_pair_substitution": false,
+    "allows_frame_reselection": false
+  },
+  "decision_rule": {
+    "numerically_rejected": {
+      "visual_qc": "not_applicable",
+      "capture_decision": "rejected_numerical"
+    },
+    "numerically_accepted": {
+      "requires_manual_visual_qc": true,
+      "pass_rule": "All 12 selected relations must show both projected object regions sufficiently visible and consistent with their annotations.",
+      "fail_rule": "Reject the entire capture when at least one selected relation contains a materially occluded, truncated, mismatched, or visually unidentifiable target region."
+    },
+    "final_acceptance": "selection_accepted == true and visual_qc == pass",
+    "visual_failure": {
+      "visual_qc": "fail",
+      "capture_decision": "rejected_visual",
+      "advance_frozen_order": true,
+      "increase_accepted_scene_count": false
+    }
+  },
+  "log_schema": {
+    "new_record_schema_version": "1.1",
+    "selection_accepted": "Numerical selection result.",
+    "capture_accepted": "Final result after manual visual QC.",
+    "capture_decision_values": [
+      "accepted",
+      "rejected_numerical",
+      "rejected_visual"
+    ],
+    "legacy_compatibility": "Schema-1.0 rows are accepted only when selection_accepted is true and visual_qc is pass."
+  },
+  "application": {
+    "logging_schema_from_order_index": 27,
+    "future_visual_failures_follow_this_rule": true,
+    "prior_records_require_reclassification": false
+  }
+}

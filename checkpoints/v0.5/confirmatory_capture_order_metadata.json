@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "protocol": "configs/confirmatory_capture_protocol.json",
+  "protocol_sha256": "d78e2c4e2a7a9ec6d36a2ccc1ea64a89670834eae57f6ffca808eda88d86e74d",
+  "validation_list": "ml-cubifyanything/data/val.txt",
+  "validation_list_sha256": "895580c85ac12aa7f8a907fe898e5cf8e7249976f39c41202c2670b97ab60d97",
+  "development_exclusion": "configs/development_capture_ids.txt",
+  "development_exclusion_sha256": "eacfd66dd77b6ca444afac3ad0ce31b905905b93c154bbf8ac40498cc80f17c6",
+  "source_records": 107,
+  "excluded_records": 5,
+  "confirmatory_pool": 102,
+  "target_accepted_scenes": 50,
+  "order_method": "lexicographic_sha256",
+  "order_namespace": "scale-vs-configuration-confirmatory-v1",
+  "output": "configs/confirmatory_capture_order.csv",
+  "output_sha256": "d50b01df524e25886cdcf087e5173a6dbb2a50048f54e0ed3171c5a284b713db",
+  "first_ten_capture_ids": [
+    "42897561",
+    "42899698",
+    "47333898",
+    "45662942",
+    "48018382",
+    "42899679",
+    "43896330",
+    "45260854",
+    "45662970",
+    "47334107"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "status": "confirmatory_pair_selection",
+  "created_at_utc": "2026-08-17T15:07:47.331605+00:00",
+  "confirmatory_protocol": "configs/confirmatory_capture_protocol.json",
+  "confirmatory_protocol_sha256": "d78e2c4e2a7a9ec6d36a2ccc1ea64a89670834eae57f6ffca808eda88d86e74d",
+  "input": "outputs/phase1/confirmatory_dataset/qc_batches/order-028-to-032/work/pair_feasibility/42899611.jsonl",
+  "input_sha256": "0eea632b5d0131afdbabaeb0b26b8245d34101aa8304636a0a3a7a5c9c36d057",
+  "rules": {
+    "minimum_distance_m": 0.25,
+    "minimum_visible_fraction": 1.0,
+    "maximum_box_iou": 0.5,
+    "maximum_intersection_over_smaller": 0.8,
+    "minimum_box_area_fraction": 0.00375,
+    "minimum_box_side_px": 30.0,
+    "minimum_border_margin_px": 20.0,
+    "pairs_per_scene": 12,
+    "distance_strata": 3,
+    "minimum_unique_objects": 6,
+    "maximum_uses_per_object": 5,
+    "minimum_distance_ratio": 2.5
+  },
+  "capture_decisions": {
+    "42899611": {
+      "capture_id": "42899611",
+      "candidate_frames": 37,
+      "best_candidate_rank": 1,
+      "best_frame_index": 609,
+      "best_strict_pair_count": 20,
+      "accepted": true,
+      "rejection_reasons": [],
+      "selection_summary": {
+        "candidate_rank": 1,
+        "frame_index": 609,
+        "hard_filter_pairs": 20,
+        "interior_filter_pairs": 20,
+        "selection_pool_pairs": 20,
+        "interior_policy": "interior_only",
+        "selected_pairs": 12,
+        "selected_minimum_m": 0.3859581413159779,
+        "selected_maximum_m": 2.2508796499473767,
+        "selected_interior_pairs": 12,
+        "unique_objects_used": 7,
+        "maximum_object_uses": 5,
+        "object_usage": {
+          "1": 4,
+          "2": 4,
+          "3": 3,
+          "6": 4,
+          "7": 3,
+          "15": 1,
+          "16": 5
+        },
+        "distance_strata": {
+          "short": {
+            "candidate_pairs": 7,
+            "candidate_minimum_m": 0.3859581413159779,
+            "candidate_maximum_m": 1.0450508891296,
+            "selected_minimum_m": 0.3859581413159779,
+            "selected_maximum_m": 1.0450508891296
+          },
+          "medium": {
+            "candidate_pairs": 7,
+            "candidate_minimum_m": 1.0560344016074577,
+            "candidate_maximum_m": 1.4790743033441038,
+            "selected_minimum_m": 1.1699518424670063,
+            "selected_maximum_m": 1.4790743033441038
+          },
+          "long": {
+            "candidate_pairs": 6,
+            "candidate_minimum_m": 1.7961723815536244,
+            "candidate_maximum_m": 2.2508796499473767,
+            "selected_minimum_m": 1.9251387242276243,
+            "selected_maximum_m": 2.2508796499473767
+          }
+        }
+      }
+    }
+  },
+  "accepted_captures": [
+    "42899611"
+  ],
+  "rejected_captures": [],
+  "number_of_pairs": 12,
+  "output": "outputs/phase1/confirmatory_dataset/qc_batches/order-028-to-032/work/selection/42899611.jsonl",
+  "output_sha256": "80612f11f3ce06fbf7e1b52a59efe7e8f6cfe468d2d497420e20704c606b8656"
+}

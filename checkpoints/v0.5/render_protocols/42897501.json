@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "created_at_utc": "2026-08-18T13:12:35.081202+00:00",
+  "source_manifest": "outputs/phase1/confirmatory_dataset/qc_batches/order-083-to-092/work/selection/42897501.jsonl",
+  "source_manifest_sha256": "909b0c1c15e75b7cd3c050c1c0e4a6e830c85d3cec86bc21999dc274cafd2837",
+  "number_of_scenes": 1,
+  "number_of_stimuli": 12,
+  "stimulus_annotations": {
+    "object_a": {
+      "label": "A",
+      "color": "#E53935"
+    },
+    "object_b": {
+      "label": "B",
+      "color": "#1565E8"
+    },
+    "ground_truth_in_stimulus": false,
+    "categories_in_stimulus": false
+  },
+  "human_audit_sheets": {
+    "ground_truth_in_title": true,
+    "categories_in_title": true,
+    "scene_sheet_sha256": {
+      "42897501": "46718117518ffafa9d89de656ad55cdc021e5fbb4a2617748e12a372c48a25a9"
+    },
+    "master_sheet": "outputs/phase1/confirmatory_dataset/qc_batches/order-083-to-092/work/stimuli/42897501/contact_sheet_all.png",
+    "master_sheet_sha256": "6fecd97def5df0b39f109957030103eeb087f9305e09caa28969cb560295ad48"
+  },
+  "rendered_manifest": "outputs/phase1/confirmatory_dataset/qc_batches/order-083-to-092/work/stimuli/42897501/rendered_manifest.jsonl",
+  "rendered_manifest_sha256": "ab86766e008c8a9671c44a6789cb27efca82504f1306b4c940ba194fa36825ef"
+}

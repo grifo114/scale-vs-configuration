@@ -1,0 +1,1534 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "v0.5",
+  "status": "confirmatory_pool_exhausted_before_target",
+  "created_at_utc": "2026-08-18T14:48:27.619801+00:00",
+  "source_branch": "phase1/confirmatory-dataset",
+  "source_commit": "93dbeabce0a1a5ecc1c6de79d8c761c1f68f17e2",
+  "source_log": "outputs/phase1/confirmatory_dataset/confirmatory_capture_log.jsonl",
+  "source_log_sha256": "ed8957558dd677a885e2ab753527974050e64f583098562969b8ca56bf1bb59c",
+  "inspected_order_range": [
+    1,
+    102
+  ],
+  "inspected_captures": 102,
+  "target_accepted_scenes": 50,
+  "accepted_captures": 49,
+  "target_shortfall": 1,
+  "numerically_accepted_captures": 51,
+  "numerically_rejected_captures": 51,
+  "visually_rejected_captures": 2,
+  "observed_final_acceptance_rate": 0.4803921568627451,
+  "visual_pass_rate_among_numerically_accepted": 0.9607843137254902,
+  "selected_relations": 588,
+  "relations_per_accepted_capture": 12,
+  "next_order_index": null,
+  "next_capture_id": null,
+  "accepted_capture_ids": [
+    "42897561",
+    "47333898",
+    "42899679",
+    "43896330",
+    "45260854",
+    "47334107",
+    "42899459",
+    "42897521",
+    "47895364",
+    "42899712",
+    "48458427",
+    "44358451",
+    "47333934",
+    "44358442",
+    "45261575",
+    "45260920",
+    "42898867",
+    "47331963",
+    "47333923",
+    "42899611",
+    "47895341",
+    "47331661",
+    "47333440",
+    "45261121",
+    "42897647",
+    "43896321",
+    "47332885",
+    "42898538",
+    "47331971",
+    "45663164",
+    "47430485",
+    "47333927",
+    "48018367",
+    "45261133",
+    "47204559",
+    "47332915",
+    "42897552",
+    "45260903",
+    "42897538",
+    "45662981",
+    "42446540",
+    "42897501",
+    "45663149",
+    "48018375",
+    "45663113",
+    "42899691",
+    "47332893",
+    "42898849",
+    "42898811"
+  ],
+  "numerically_rejected_capture_ids": [
+    "42899698",
+    "45662942",
+    "48018382",
+    "45662970",
+    "47331311",
+    "48018566",
+    "47115469",
+    "45260898",
+    "42897599",
+    "47331988",
+    "47430475",
+    "47895552",
+    "45261143",
+    "42899617",
+    "45261631",
+    "48018730",
+    "42898570",
+    "42899729",
+    "47332000",
+    "47334234",
+    "42898486",
+    "47333431",
+    "47204573",
+    "45261587",
+    "47333452",
+    "48458654",
+    "48018559",
+    "42897692",
+    "47331319",
+    "42897688",
+    "48458481",
+    "47334239",
+    "47115452",
+    "47895534",
+    "47331068",
+    "48018737",
+    "47331651",
+    "47204552",
+    "47334256",
+    "47331262",
+    "42899736",
+    "47334115",
+    "47895542",
+    "48458415",
+    "48018345",
+    "43896260",
+    "48458647",
+    "48018947",
+    "42898521",
+    "47333916",
+    "42899725"
+  ],
+  "visual_rejected_capture_ids": [
+    "47115525",
+    "47204605"
+  ],
+  "rejection_reason_counts": {
+    "maximum_uses_per_object": 7,
+    "minimum_eligible_pairs": 23,
+    "no_frame_candidates": 21,
+    "visual_qc_failure": 2
+  },
+  "global_selected_minimum_m": 0.2591378106063114,
+  "global_selected_maximum_m": 6.446858051272044,
+  "accepted_capture_summaries": [
+    {
+      "order_index": 1,
+      "capture_id": "42897561",
+      "candidate_rank": 1,
+      "frame_index": 91,
+      "strict_pair_count": 19,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.48272175467975387,
+      "selected_maximum_m": 1.4335311172425163,
+      "distance_ratio": 2.9696840951233825,
+      "unique_objects_used": 7,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam as caixas A e B visíveis e coerentes com as anotações projetadas."
+    },
+    {
+      "order_index": 3,
+      "capture_id": "47333898",
+      "candidate_rank": 4,
+      "frame_index": 278,
+      "strict_pair_count": 100,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.28950137007034166,
+      "selected_maximum_m": 1.5787149188001606,
+      "distance_ratio": 5.45322088947825,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações exibem A e B visíveis e coerentes com as anotações projetadas. As caixas de stove cover e foldable table são amplas, mas identificáveis; o leve desfoque não inviabiliza os estímulos."
+    },
+    {
+      "order_index": 6,
+      "capture_id": "42899679",
+      "candidate_rank": 1,
+      "frame_index": 848,
+      "strict_pair_count": 43,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.53358621008,
+      "selected_maximum_m": 6.236192071672188,
+      "distance_ratio": 11.687318663533683,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes. Em P10, o power cord possui baixo contraste com o piso, mas permanece visível e contido na caixa na resolução original."
+    },
+    {
+      "order_index": 7,
+      "capture_id": "43896330",
+      "candidate_rank": 1,
+      "frame_index": 1794,
+      "strict_pair_count": 26,
+      "selected_pairs": 12,
+      "selected_minimum_m": 1.0255069042873994,
+      "selected_maximum_m": 6.446858051272044,
+      "distance_ratio": 6.286508676167143,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 4,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes. A trash bin permanece identificável junto ao sofá, e a window ao fundo continua legível nos estímulos longos."
+    },
+    {
+      "order_index": 8,
+      "capture_id": "45260854",
+      "candidate_rank": 7,
+      "frame_index": 193,
+      "strict_pair_count": 26,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.3717286260031235,
+      "selected_maximum_m": 3.7546880544585,
+      "distance_ratio": 10.100615857404941,
+      "unique_objects_used": 7,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes. A makeup bag e o container são pequenos, mas permanecem identificáveis; door e door frame seguem as anotações projetadas."
+    },
+    {
+      "order_index": 10,
+      "capture_id": "47334107",
+      "candidate_rank": 1,
+      "frame_index": 467,
+      "strict_pair_count": 15,
+      "selected_pairs": 12,
+      "selected_minimum_m": 1.044170816472892,
+      "selected_maximum_m": 4.417495379137022,
+      "distance_ratio": 4.230625209445035,
+      "unique_objects_used": 6,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes. Paper artwork e chandelier ocupam regiões menores ou periféricas, mas permanecem identificáveis; os demais objetos estão claramente delimitados."
+    },
+    {
+      "order_index": 11,
+      "capture_id": "42899459",
+      "candidate_rank": 44,
+      "frame_index": 441,
+      "strict_pair_count": 36,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.4801704917508382,
+      "selected_maximum_m": 2.9218119904807804,
+      "distance_ratio": 6.084946994195796,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. As anotações chimney e step abrangem o conjunto da lareira e do degrau, enquanto window sill contém objetos apoiados, mas todas permanecem identificáveis. A inclinação da câmera não compromete a leitura."
+    },
+    {
+      "order_index": 13,
+      "capture_id": "42897521",
+      "candidate_rank": 1,
+      "frame_index": 519,
+      "strict_pair_count": 44,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.5082222381670735,
+      "selected_maximum_m": 2.0253532492256614,
+      "distance_ratio": 3.9851724248238125,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Em P01, toaster e pot estão próximos e as caixas se sobrepõem parcialmente, mas permanecem distinguíveis. O bucket em P07 e P11 é escuro e próximo ao bread maker, porém sua região continua localizada. Os demais objetos estão claramente delimitados."
+    },
+    {
+      "order_index": 14,
+      "capture_id": "47895364",
+      "candidate_rank": 2,
+      "frame_index": 26,
+      "strict_pair_count": 23,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.2591378106063114,
+      "selected_maximum_m": 0.9895909446370854,
+      "distance_ratio": 3.8187825324359808,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Spectacles, hair dryer e toilet roll holder são pequenos ou possuem baixo contraste, mas permanecem localizados pelas caixas. As caixas da laundry machine são amplas e alcançam a borda inferior, porém o objeto é inequívoco; flush tank e cloth continuam identificáveis."
+    },
+    {
+      "order_index": 16,
+      "capture_id": "42899712",
+      "candidate_rank": 2,
+      "frame_index": 743,
+      "strict_pair_count": 14,
+      "selected_pairs": 12,
+      "selected_minimum_m": 1.0905420744734762,
+      "selected_maximum_m": 5.363658249941724,
+      "distance_ratio": 4.918341415237324,
+      "unique_objects_used": 6,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes. Picture e picture frame permanecem distinguíveis pelo tamanho e pela posição. A trash can está parcialmente ocluída pelas cadeiras, mas continua visível e localizada. O cabinet aparece distante no cômodo ao fundo, porém permanece identificável. As caixas de table são amplas e incluem interferência visual das cadeiras, sem impedir a identificação do objeto."
+    },
+    {
+      "order_index": 17,
+      "capture_id": "48458427",
+      "candidate_rank": 2,
+      "frame_index": 7,
+      "strict_pair_count": 26,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.622029957291064,
+      "selected_maximum_m": 1.84050907573064,
+      "distance_ratio": 2.9588752987814986,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Plunger e paper roll ocupam regiões pequenas ou próximas da borda, mas permanecem identificáveis. As caixas de tile representam regiões alongadas da parede e continuam coerentes com a anotação."
+    },
+    {
+      "order_index": 18,
+      "capture_id": "44358451",
+      "candidate_rank": 2,
+      "frame_index": 539,
+      "strict_pair_count": 54,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.3036255815825303,
+      "selected_maximum_m": 1.4112301209376217,
+      "distance_ratio": 4.6479289181831565,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. O clothing iron ocupa uma região pequena em P01 e P11, e o clothing rack aparece próximo da borda inferior em P03 e P06, mas permanecem identificáveis. Os demais objetos também apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 19,
+      "capture_id": "47333934",
+      "candidate_rank": 1,
+      "frame_index": 507,
+      "strict_pair_count": 26,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.3312869470242339,
+      "selected_maximum_m": 1.6464960663268795,
+      "distance_ratio": 4.969999817730328,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 4,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. A cena apresenta leve desfoque global, e o laptop em P02 ocupa uma região pequena, mas permanece identificável. As sobreposições entre potted plant, window e windowsill em P01, P02 e P03 são coerentes com a disposição real dos objetos. Bookshelf e towel também permanecem identificáveis nos pares correspondentes."
+    },
+    {
+      "order_index": 20,
+      "capture_id": "44358442",
+      "candidate_rank": 24,
+      "frame_index": 61,
+      "strict_pair_count": 27,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.5090737600970088,
+      "selected_maximum_m": 2.7464914190599563,
+      "distance_ratio": 5.39507559481476,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. O clothes rack está parcialmente encoberto pelos casacos em P04, P06 e P07, mas sua estrutura superior permanece visível. O yoga mat em P06 e P10 e o badge holder em P11 e P12 ocupam regiões estreitas próximas às bordas, porém permanecem dentro da imagem e identificáveis. As demais caixas apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 21,
+      "capture_id": "45261575",
+      "candidate_rank": 10,
+      "frame_index": 19,
+      "strict_pair_count": 14,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.5620325127409644,
+      "selected_maximum_m": 2.3870762638578302,
+      "distance_ratio": 4.247220952069745,
+      "unique_objects_used": 6,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Remote control e speaker ocupam regiões pequenas sobre o móvel, mas permanecem identificáveis. O outlet aparece em uma região estreita junto à porta, e o windowsill fica próximo da borda superior em P02, P07, P10 e P12, porém as caixas permanecem dentro da imagem. Lamp e radiator apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 24,
+      "capture_id": "45260920",
+      "candidate_rank": 7,
+      "frame_index": 91,
+      "strict_pair_count": 62,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.716886490830979,
+      "selected_maximum_m": 3.307881816015961,
+      "distance_ratio": 4.614233715272873,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. O objeto anotado como horn é semanticamente pouco intuitivo, mas sua região permanece claramente delimitada e consistente em P01, P05, P10 e P11. O charger ocupa uma região pequena próxima da borda direita em P11 e P12, porém continua visível. Lamp, television, painting, mirror, fireplace e magazine rack apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 26,
+      "capture_id": "42898867",
+      "candidate_rank": 1,
+      "frame_index": 92,
+      "strict_pair_count": 25,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.6060851080471296,
+      "selected_maximum_m": 1.945290617980189,
+      "distance_ratio": 3.2095997610766607,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. O objeto box em P08 e P10 fica próximo da borda esquerda, mas permanece suficientemente visível. Wire, music player e decoration ocupam regiões pequenas ou estreitas, porém continuam identificáveis. Television, speaker, doll house e cardboard apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 29,
+      "capture_id": "47331963",
+      "candidate_rank": 5,
+      "frame_index": 1226,
+      "strict_pair_count": 43,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.4727157022275483,
+      "selected_maximum_m": 5.96226635389548,
+      "distance_ratio": 12.612795229352166,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 4,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Wall e handrail abrangem regiões extensas ou estreitas em alguns pares, enquanto mat e dog food tray aparecem próximos da borda inferior, mas os objetos permanecem identificáveis."
+    },
+    {
+      "order_index": 31,
+      "capture_id": "47333923",
+      "candidate_rank": 1,
+      "frame_index": 33,
+      "strict_pair_count": 41,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.35371575729775584,
+      "selected_maximum_m": 1.030773398870202,
+      "distance_ratio": 2.9141291491928163,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Wire ocupa uma região estreita em P02, P03, P06 e P09, e flowers e sponge são pequenos em P05 e P11, mas permanecem identificáveis. Os demais objetos apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 32,
+      "capture_id": "42899611",
+      "candidate_rank": 1,
+      "frame_index": 609,
+      "strict_pair_count": 20,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.3859581413159779,
+      "selected_maximum_m": 2.2508796499473767,
+      "distance_ratio": 5.831926856815845,
+      "unique_objects_used": 7,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Plant ocupa uma região pequena na parte superior em P07, P08, P11 e P12, e cushion é pequeno em P03, mas permanecem identificáveis. Drawer, AC unit, chair, rug e ottoman também apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 34,
+      "capture_id": "47895341",
+      "candidate_rank": 1,
+      "frame_index": 590,
+      "strict_pair_count": 42,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.6989354194160564,
+      "selected_maximum_m": 2.940497564140563,
+      "distance_ratio": 4.207109101148826,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. CPU e book ocupam regiões estreitas em alguns pares, mas permanecem identificáveis. Chair, mat, desk, TV, CD album e CD holder também apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 42,
+      "capture_id": "47331661",
+      "candidate_rank": 2,
+      "frame_index": 1127,
+      "strict_pair_count": 13,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.33184322835966895,
+      "selected_maximum_m": 3.3478189425961413,
+      "distance_ratio": 10.088555849533869,
+      "unique_objects_used": 6,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Table lamp, pen holder e radio ocupam regiões menores, mas permanecem identificáveis. Calendar, framed picture e door também apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 44,
+      "capture_id": "47333440",
+      "candidate_rank": 2,
+      "frame_index": 103,
+      "strict_pair_count": 18,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.36496724732484453,
+      "selected_maximum_m": 0.967849687364747,
+      "distance_ratio": 2.651880941259636,
+      "unique_objects_used": 7,
+      "maximum_object_uses": 4,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Wire e pipe ocupam regiões estreitas, enquanto mobile e electrical outlet são pequenos, mas todos permanecem identificáveis. Pouch, cup e socks também apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 45,
+      "capture_id": "45261121",
+      "candidate_rank": 6,
+      "frame_index": 125,
+      "strict_pair_count": 64,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.3556830123949778,
+      "selected_maximum_m": 2.3035085540274567,
+      "distance_ratio": 6.476296235001135,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 4,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Pot aparece próximo à borda esquerda em alguns pares, mas permanece visível e identificável. Television, shelves, kitchen towel, stool, coffee maker e grid panel apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 46,
+      "capture_id": "42897647",
+      "candidate_rank": 1,
+      "frame_index": 581,
+      "strict_pair_count": 41,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.5285286491623742,
+      "selected_maximum_m": 2.3171734619451296,
+      "distance_ratio": 4.384196515396934,
+      "unique_objects_used": 7,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Chair aparece parcialmente encoberta junto ao cabinet em P08, P09, P11 e P12, mas permanece identificável. Vase é pequeno sobre o cabinet; storage box, toy chair, info book e pine tree também estão adequadamente delimitados."
+    },
+    {
+      "order_index": 49,
+      "capture_id": "43896321",
+      "candidate_rank": 1,
+      "frame_index": 231,
+      "strict_pair_count": 52,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.3235609770134221,
+      "selected_maximum_m": 1.957813638806487,
+      "distance_ratio": 6.050833623009094,
+      "unique_objects_used": 7,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Pan, strainer e electric kettle ocupam regiões menores, mas permanecem identificáveis. Paper towel, toaster, shelf e microwave apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 52,
+      "capture_id": "47332885",
+      "candidate_rank": 1,
+      "frame_index": 10,
+      "strict_pair_count": 43,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.6181697602359215,
+      "selected_maximum_m": 2.9860252218818863,
+      "distance_ratio": 4.83042913768911,
+      "unique_objects_used": 9,
+      "maximum_object_uses": 4,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Jacket e cloth aparecem em regiões estreitas próximas à borda direita, enquanto potted plant e photo frame são pequenos, mas permanecem identificáveis. Windowsill, desk, CPU, monitor e chair também apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 54,
+      "capture_id": "42898538",
+      "candidate_rank": 2,
+      "frame_index": 578,
+      "strict_pair_count": 15,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.2950348538336347,
+      "selected_maximum_m": 1.1214365235766193,
+      "distance_ratio": 3.801030654530664,
+      "unique_objects_used": 7,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Hair dryer e curling iron ocupam regiões alongadas sobre o móvel, enquanto vase e coaster são menores e aparecem entre outros objetos, mas permanecem identificáveis. Base, tissue box e container também apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 55,
+      "capture_id": "47331971",
+      "candidate_rank": 5,
+      "frame_index": 435,
+      "strict_pair_count": 13,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.9068481745007027,
+      "selected_maximum_m": 3.4650917695459755,
+      "distance_ratio": 3.8210274519809277,
+      "unique_objects_used": 6,
+      "maximum_object_uses": 4,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Door, doorframe e door frame possuem caixas próximas ou encaixadas por serem componentes arquitetônicos adjacentes, mas continuam distinguíveis. Framed artwork, artwork e flowerpot são menores, porém permanecem identificáveis."
+    },
+    {
+      "order_index": 59,
+      "capture_id": "45663164",
+      "candidate_rank": 6,
+      "frame_index": 433,
+      "strict_pair_count": 71,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.43434778316563805,
+      "selected_maximum_m": 2.605414163573692,
+      "distance_ratio": 5.998451620000833,
+      "unique_objects_used": 7,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Holder, kettle e egg tray ocupam regiões menores ao fundo, mas permanecem identificáveis. A caixa de counter é ampla e acompanha a bancada; potted plant, toy e stove também apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 61,
+      "capture_id": "47430485",
+      "candidate_rank": 2,
+      "frame_index": 1039,
+      "strict_pair_count": 52,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.3050530306483888,
+      "selected_maximum_m": 2.47194814888251,
+      "distance_ratio": 8.103339093627085,
+      "unique_objects_used": 9,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Wire management unit ocupa uma região estreita na estante, e book e soft toy são pequenos, mas permanecem identificáveis. Chair, shelf, radiator, base board, side table e box também apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 63,
+      "capture_id": "47333927",
+      "candidate_rank": 20,
+      "frame_index": 213,
+      "strict_pair_count": 23,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.4102997302371751,
+      "selected_maximum_m": 2.2271867490830246,
+      "distance_ratio": 5.428194524514048,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 4,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Books aparecem próximos à borda direita em P04 e P05, enquanto framed picture, framed artwork e pot ocupam regiões menores, mas permanecem identificáveis. Table lamp, plant, window e radiator também apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 65,
+      "capture_id": "48018367",
+      "candidate_rank": 1,
+      "frame_index": 7,
+      "strict_pair_count": 44,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.4266056902810522,
+      "selected_maximum_m": 1.9592139955836125,
+      "distance_ratio": 4.592564141122596,
+      "unique_objects_used": 7,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Pipe ocupa uma região estreita junto à parede direita, e container e tissue roll são pequenos e periféricos, mas permanecem identificáveis. Oven, cooktop, washing machine e rangehood apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 67,
+      "capture_id": "45261133",
+      "candidate_rank": 3,
+      "frame_index": 899,
+      "strict_pair_count": 26,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.29343807152256657,
+      "selected_maximum_m": 1.0648944418549984,
+      "distance_ratio": 3.6290261734939997,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Robotic vacuum cleaner aparece parcialmente encoberto pela estrutura vermelha e pelos cabos em P02, P03, P05, P07 e P12, mas sua região visível permanece identificável. Multi plug outlet é pequeno; vinyl records, record player, boxes, cable, remote control e smart TV box também apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 71,
+      "capture_id": "47204559",
+      "candidate_rank": 1,
+      "frame_index": 92,
+      "strict_pair_count": 20,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.39171762431011947,
+      "selected_maximum_m": 1.7586080018032784,
+      "distance_ratio": 4.489478881376559,
+      "unique_objects_used": 6,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Keyboard ocupa uma região alongada junto à borda esquerda em vários pares, enquanto jar, bowl e potted plant são menores, mas permanecem identificáveis. Books e file também apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 73,
+      "capture_id": "47332915",
+      "candidate_rank": 1,
+      "frame_index": 19,
+      "strict_pair_count": 28,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.663290907346191,
+      "selected_maximum_m": 3.1351065461229553,
+      "distance_ratio": 4.726593582695761,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Printer e box ocupam regiões menores, curtain aparece em uma faixa estreita junto à janela e screen moulding forma uma região alongada próxima ao teto, mas todos permanecem identificáveis. Pillow, shelf, TV console e clothes também apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 75,
+      "capture_id": "42897552",
+      "candidate_rank": 1,
+      "frame_index": 118,
+      "strict_pair_count": 32,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.3476612737520591,
+      "selected_maximum_m": 1.7096045394648893,
+      "distance_ratio": 4.91744312219291,
+      "unique_objects_used": 7,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Wire é pequeno, magazine aparece próximo à borda esquerda em alguns pares e trash can fica parcialmente próximo à blanket, mas os objetos permanecem identificáveis. Box, lamp e weights também apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 77,
+      "capture_id": "45260903",
+      "candidate_rank": 9,
+      "frame_index": 795,
+      "strict_pair_count": 15,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.5951990512176731,
+      "selected_maximum_m": 2.8986055419312113,
+      "distance_ratio": 4.869976751476958,
+      "unique_objects_used": 6,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Remote control e magazine ocupam regiões pequenas sobre a mesa, mas permanecem identificáveis. Television, VHS player, ottoman e fireplace apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 78,
+      "capture_id": "42897538",
+      "candidate_rank": 10,
+      "frame_index": 301,
+      "strict_pair_count": 14,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.5478664189098357,
+      "selected_maximum_m": 3.362973146318884,
+      "distance_ratio": 6.138308591737834,
+      "unique_objects_used": 6,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Switch ocupa uma região pequena e isolada na parede, enquanto sink e window ledge formam caixas estreitas. Window, window frame e cabinet permanecem claramente identificáveis e adequadamente delimitados."
+    },
+    {
+      "order_index": 81,
+      "capture_id": "45662981",
+      "candidate_rank": 1,
+      "frame_index": 90,
+      "strict_pair_count": 34,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.5892884870578342,
+      "selected_maximum_m": 3.2619476287136204,
+      "distance_ratio": 5.5354002332536405,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Fireplace, hearth e fireplace screen possuem caixas próximas ou encaixadas por representarem componentes adjacentes, mas continuam distinguíveis. Potted plant, cabinet, television, chair e mantel piece também apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 84,
+      "capture_id": "42446540",
+      "candidate_rank": 34,
+      "frame_index": 336,
+      "strict_pair_count": 54,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.4023617979890526,
+      "selected_maximum_m": 5.794330787780559,
+      "distance_ratio": 14.400797532816997,
+      "unique_objects_used": 9,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. O smoke detector ocupa uma região pequena no teto em P07, P08, P09, P10 e P12, e os packs aparecem parcialmente ao fundo, mas permanecem identificáveis. Microwave, sandwich maker, toaster, basket, decoration, fruit bowl e mirror apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 86,
+      "capture_id": "42897501",
+      "candidate_rank": 2,
+      "frame_index": 38,
+      "strict_pair_count": 24,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.35126741395628197,
+      "selected_maximum_m": 2.0052052562740963,
+      "distance_ratio": 5.708486402680267,
+      "unique_objects_used": 7,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Sponge holder, soap dispenser, toaster e container ocupam regiões pequenas sobre a bancada, mas permanecem identificáveis. Sink e dish rack têm delimitações amplas compatíveis com os objetos, sem perda de legibilidade."
+    },
+    {
+      "order_index": 89,
+      "capture_id": "45663149",
+      "candidate_rank": 1,
+      "frame_index": 47,
+      "strict_pair_count": 43,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.5667785882811261,
+      "selected_maximum_m": 4.411992216186691,
+      "distance_ratio": 7.784331143431114,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 4,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Burner e hearth ocupam regiões próximas dentro da lareira, mas permanecem distinguíveis; chandelier e curtain rod aparecem em áreas menores ou periféricas, porém identificáveis. Television, rug, fireplace e lamp apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 91,
+      "capture_id": "48018375",
+      "candidate_rank": 8,
+      "frame_index": 63,
+      "strict_pair_count": 35,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.3983891347472558,
+      "selected_maximum_m": 2.668210247486988,
+      "distance_ratio": 6.697497533861564,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 4,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B coerentes com as anotações projetadas. Há desfoque moderado na cena, mas windowsill, radiator, chest of drawers, floor lamp, television, mirror, window e framed artwork permanecem distinguíveis e contidos nas respectivas caixas."
+    },
+    {
+      "order_index": 92,
+      "capture_id": "45663113",
+      "candidate_rank": 4,
+      "frame_index": 42,
+      "strict_pair_count": 27,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.49484383369665486,
+      "selected_maximum_m": 2.7098875345368345,
+      "distance_ratio": 5.476247959468417,
+      "unique_objects_used": 7,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Hand towel e curtain rod ocupam regiões pequenas ou estreitas em P03, P07, P08 e P10, enquanto towel aparece junto à borda direita em P04, P09, P11 e P12; todos permanecem identificáveis. Toilet seat, mat, bathtub e wash basin apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 94,
+      "capture_id": "42899691",
+      "candidate_rank": 19,
+      "frame_index": 296,
+      "strict_pair_count": 19,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.6957073431630983,
+      "selected_maximum_m": 3.975227127989891,
+      "distance_ratio": 5.71393584824928,
+      "unique_objects_used": 7,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Fan e blanket ocupam regiões pequenas ou parcialmente distantes em P03, P06, P11 e P12, mas permanecem identificáveis. Drawer, TV, plant, couch e AC unit apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 95,
+      "capture_id": "47332893",
+      "candidate_rank": 1,
+      "frame_index": 1252,
+      "strict_pair_count": 28,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.30702089747452904,
+      "selected_maximum_m": 3.1679265031837547,
+      "distance_ratio": 10.318276473172551,
+      "unique_objects_used": 7,
+      "maximum_object_uses": 4,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B coerentes com as anotações projetadas. Há leve desfoque na cena, e pendant light, curtain e poster ocupam regiões estreitas ou periféricas, mas permanecem identificáveis. Books, container, radiator e soft toys também estão visíveis e adequadamente delimitados."
+    },
+    {
+      "order_index": 98,
+      "capture_id": "42898849",
+      "candidate_rank": 8,
+      "frame_index": 254,
+      "strict_pair_count": 43,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.5009772069829765,
+      "selected_maximum_m": 3.214931786726208,
+      "distance_ratio": 6.417321470745979,
+      "unique_objects_used": 7,
+      "maximum_object_uses": 4,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Clock ocupa uma região pequena acima do móvel, e board aparece sobre a ilha em uma área menor, mas ambos permanecem identificáveis. Blinds, window, sink, stove top e stove apresentam delimitações adequadas."
+    },
+    {
+      "order_index": 99,
+      "capture_id": "42898811",
+      "candidate_rank": 1,
+      "frame_index": 50,
+      "strict_pair_count": 28,
+      "selected_pairs": 12,
+      "selected_minimum_m": 0.6299659963801924,
+      "selected_maximum_m": 2.4579340973650834,
+      "distance_ratio": 3.9016932842224223,
+      "unique_objects_used": 8,
+      "maximum_object_uses": 5,
+      "visual_qc": "pass",
+      "visual_qc_note": "As 12 relações apresentam caixas A e B visíveis e coerentes com as anotações projetadas. Brush, book e bag ocupam regiões pequenas, enquanto hanger aparece parcialmente entre outros itens próximos ao sink, mas todos permanecem identificáveis. Radiator, suitcases, stairs e sink também apresentam delimitações adequadas."
+    }
+  ],
+  "rejected_capture_summaries": [
+    {
+      "order_index": 2,
+      "capture_id": "42899698",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 19,
+      "best_candidate_rank": 2,
+      "best_frame_index": 226,
+      "best_strict_pair_count": 7,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 4,
+      "capture_id": "45662942",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 6,
+      "best_candidate_rank": 3,
+      "best_frame_index": 50,
+      "best_strict_pair_count": 6,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 5,
+      "capture_id": "48018382",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 9,
+      "capture_id": "45662970",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 12,
+      "best_candidate_rank": 1,
+      "best_frame_index": 0,
+      "best_strict_pair_count": 6,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 12,
+      "capture_id": "47331311",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 67,
+      "best_candidate_rank": 3,
+      "best_frame_index": 85,
+      "best_strict_pair_count": 35,
+      "rejection_reasons": [
+        "maximum_uses_per_object"
+      ]
+    },
+    {
+      "order_index": 15,
+      "capture_id": "48018566",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 30,
+      "best_candidate_rank": 5,
+      "best_frame_index": 215,
+      "best_strict_pair_count": 5,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 22,
+      "capture_id": "47115469",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 119,
+      "best_candidate_rank": 2,
+      "best_frame_index": 456,
+      "best_strict_pair_count": 19,
+      "rejection_reasons": [
+        "maximum_uses_per_object"
+      ]
+    },
+    {
+      "order_index": 23,
+      "capture_id": "45260898",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 25,
+      "capture_id": "42897599",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 371,
+      "best_candidate_rank": 17,
+      "best_frame_index": 442,
+      "best_strict_pair_count": 75,
+      "rejection_reasons": [
+        "maximum_uses_per_object"
+      ]
+    },
+    {
+      "order_index": 27,
+      "capture_id": "47115525",
+      "capture_decision": "rejected_visual",
+      "candidate_frames": 170,
+      "best_candidate_rank": 5,
+      "best_frame_index": 28,
+      "best_strict_pair_count": 36,
+      "rejection_reasons": [],
+      "visual_qc": "fail",
+      "visual_qc_note": "Nos pares P05, P07, P08 e P09, o objeto flower pot correspondente à caixa B está ocluído pela porta ou não é visualmente identificável. A caixa projetada cobre uma região sem evidência suficiente do objeto. Como 4 dos 12 estímulos falham no controle visual, a captura foi reprovada."
+    },
+    {
+      "order_index": 28,
+      "capture_id": "47331988",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 333,
+      "best_candidate_rank": 1,
+      "best_frame_index": 1173,
+      "best_strict_pair_count": 20,
+      "rejection_reasons": [
+        "maximum_uses_per_object"
+      ]
+    },
+    {
+      "order_index": 30,
+      "capture_id": "47430475",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 52,
+      "best_candidate_rank": 1,
+      "best_frame_index": 8,
+      "best_strict_pair_count": 6,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 33,
+      "capture_id": "47895552",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 10,
+      "best_candidate_rank": 2,
+      "best_frame_index": 4,
+      "best_strict_pair_count": 6,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 35,
+      "capture_id": "45261143",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 126,
+      "best_candidate_rank": 38,
+      "best_frame_index": 516,
+      "best_strict_pair_count": 10,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 36,
+      "capture_id": "47204605",
+      "capture_decision": "rejected_visual",
+      "candidate_frames": 114,
+      "best_candidate_rank": 1,
+      "best_frame_index": 3,
+      "best_strict_pair_count": 15,
+      "rejection_reasons": [],
+      "visual_qc": "fail",
+      "visual_qc_note": "Visual QC failed because the sofa is not identifiable in P03-P07: its projected boxes fall on the door that occludes it. Chandelier and folding curtain are also projected over the door in several pairs without visually distinguishable objects."
+    },
+    {
+      "order_index": 37,
+      "capture_id": "42899617",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 47,
+      "best_candidate_rank": 1,
+      "best_frame_index": 58,
+      "best_strict_pair_count": 5,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 38,
+      "capture_id": "45261631",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 39,
+      "capture_id": "48018730",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 40,
+      "capture_id": "42898570",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 126,
+      "best_candidate_rank": 4,
+      "best_frame_index": 670,
+      "best_strict_pair_count": 9,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 41,
+      "capture_id": "42899729",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 20,
+      "best_candidate_rank": 5,
+      "best_frame_index": 452,
+      "best_strict_pair_count": 6,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 43,
+      "capture_id": "47332000",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 26,
+      "best_candidate_rank": 3,
+      "best_frame_index": 476,
+      "best_strict_pair_count": 7,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 47,
+      "capture_id": "47334234",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 32,
+      "best_candidate_rank": 1,
+      "best_frame_index": 87,
+      "best_strict_pair_count": 6,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 48,
+      "capture_id": "42898486",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 6,
+      "best_candidate_rank": 2,
+      "best_frame_index": 29,
+      "best_strict_pair_count": 6,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 50,
+      "capture_id": "47333431",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 9,
+      "best_candidate_rank": 1,
+      "best_frame_index": 314,
+      "best_strict_pair_count": 5,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 51,
+      "capture_id": "47204573",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 25,
+      "best_candidate_rank": 1,
+      "best_frame_index": 760,
+      "best_strict_pair_count": 3,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 53,
+      "capture_id": "45261587",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 35,
+      "best_candidate_rank": 1,
+      "best_frame_index": 436,
+      "best_strict_pair_count": 10,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 56,
+      "capture_id": "47333452",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 176,
+      "best_candidate_rank": 1,
+      "best_frame_index": 32,
+      "best_strict_pair_count": 43,
+      "rejection_reasons": [
+        "maximum_uses_per_object"
+      ]
+    },
+    {
+      "order_index": 57,
+      "capture_id": "48458654",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 58,
+      "capture_id": "48018559",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 60,
+      "capture_id": "42897692",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 95,
+      "best_candidate_rank": 5,
+      "best_frame_index": 87,
+      "best_strict_pair_count": 9,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 62,
+      "capture_id": "47331319",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 64,
+      "capture_id": "42897688",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 66,
+      "capture_id": "48458481",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 68,
+      "capture_id": "47334239",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 32,
+      "best_candidate_rank": 5,
+      "best_frame_index": 230,
+      "best_strict_pair_count": 7,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 69,
+      "capture_id": "47115452",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 354,
+      "best_candidate_rank": 30,
+      "best_frame_index": 686,
+      "best_strict_pair_count": 32,
+      "rejection_reasons": [
+        "maximum_uses_per_object"
+      ]
+    },
+    {
+      "order_index": 70,
+      "capture_id": "47895534",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 72,
+      "capture_id": "47331068",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 10,
+      "best_candidate_rank": 10,
+      "best_frame_index": 613,
+      "best_strict_pair_count": 1,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 74,
+      "capture_id": "48018737",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 76,
+      "capture_id": "47331651",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 79,
+      "capture_id": "47204552",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 80,
+      "capture_id": "47334256",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 82,
+      "capture_id": "47331262",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 61,
+      "best_candidate_rank": 11,
+      "best_frame_index": 273,
+      "best_strict_pair_count": 10,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 83,
+      "capture_id": "42899736",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 71,
+      "best_candidate_rank": 20,
+      "best_frame_index": 206,
+      "best_strict_pair_count": 10,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 85,
+      "capture_id": "47334115",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 87,
+      "capture_id": "47895542",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 88,
+      "capture_id": "48458415",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 90,
+      "capture_id": "48018345",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 93,
+      "capture_id": "43896260",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 123,
+      "best_candidate_rank": 1,
+      "best_frame_index": 6,
+      "best_strict_pair_count": 26,
+      "rejection_reasons": [
+        "maximum_uses_per_object"
+      ]
+    },
+    {
+      "order_index": 96,
+      "capture_id": "48458647",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 97,
+      "capture_id": "48018947",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 100,
+      "capture_id": "42898521",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    },
+    {
+      "order_index": 101,
+      "capture_id": "47333916",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 73,
+      "best_candidate_rank": 14,
+      "best_frame_index": 81,
+      "best_strict_pair_count": 10,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    },
+    {
+      "order_index": 102,
+      "capture_id": "42899725",
+      "capture_decision": "rejected_numerical",
+      "candidate_frames": 8,
+      "best_candidate_rank": 1,
+      "best_frame_index": 242,
+      "best_strict_pair_count": 3,
+      "rejection_reasons": [
+        "minimum_eligible_pairs"
+      ]
+    }
+  ],
+  "checkpoint_artifact_counts": {
+    "selection_protocols": 102,
+    "accepted_validation_reports": 49,
+    "accepted_render_protocols": 49,
+    "accepted_contact_sheets": 49,
+    "visual_rejection_evidence_sets": 2,
+    "contact_sheet_bytes": 25361778
+  },
+  "checkpoint_transformations": [
+    {
+      "files": "validation_reports/*.txt and visual_rejections/validation_reports/*.txt",
+      "operation": "removed_absolute_project_root_prefix",
+      "scientific_values_changed": false,
+      "reason": "repository_portability"
+    }
+  ]
+}

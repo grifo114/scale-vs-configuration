@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "status": "confirmatory_pair_selection",
+  "capture_decisions": {
+    "48458415": {
+      "capture_id": "48458415",
+      "candidate_frames": 0,
+      "best_candidate_rank": null,
+      "best_frame_index": null,
+      "best_strict_pair_count": 0,
+      "accepted": false,
+      "rejection_reasons": [
+        "no_frame_candidates"
+      ]
+    }
+  },
+  "accepted_captures": [],
+  "rejected_captures": [
+    "48458415"
+  ],
+  "number_of_pairs": 0,
+  "output": "outputs/phase1/confirmatory_dataset/qc_batches/order-083-to-092/work/selection/48458415.jsonl",
+  "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

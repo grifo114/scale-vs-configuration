@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "status": "operational_amendment_snapshot",
+  "amendment_id": "confirmatory-visual-qc-failure-path-v1",
+  "created_at_utc": "2026-08-17T14:28:24.973900+00:00",
+  "source_branch": "phase1/confirmatory-dataset",
+  "source_commit": "32ed8acb79927aa1bd954b728e5fcbd2b062d76a",
+  "source_log_sha256": "00998074ed11ec3a5caa1dba6e5c8aa82effcf36108e3605b84d88a8e434cc9a",
+  "inspected_captures": 27,
+  "accepted_captures": 17,
+  "numerically_rejected_captures": 9,
+  "visually_rejected_captures": 1,
+  "trigger_capture_id": "47115525",
+  "trigger_order_index": 27,
+  "next_capture_id": "47331988"
+}

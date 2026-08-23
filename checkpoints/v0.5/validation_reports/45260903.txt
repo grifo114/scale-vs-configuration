@@ -1,0 +1,9 @@
+Pair-manifest validation
+Manifest: outputs/phase1/confirmatory_dataset/qc_batches/order-073-to-082/work/selection/45260903.jsonl
+SHA-256: 58bfcda5a4930343d1add611a8d7b2c3e8f424ec2f45f485eaa289c7fe0d2db5
+Scenes: 1
+Pairs: 12
+
+45260903: pairs=12 distance=0.595-2.899 m ratio=4.870 objects=6 max_uses=5
+
+Result: PASSED

@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "status": "confirmatory_sampling_frozen_before_data_processing",
+  "frozen_on": "2026-08-15",
+  "source": {
+    "validation_list": "ml-cubifyanything/data/val.txt",
+    "url_pattern": "^https://ml-site\\.cdn-apple\\.com/datasets/ca1m/val/ca1m-val-([0-9]+)\\.tar$",
+    "expected_records": 107,
+    "expected_unique_capture_ids": 107
+  },
+  "development_exclusion": {
+    "file": "configs/development_capture_ids.txt",
+    "capture_ids": [
+      "42897545",
+      "45261179",
+      "45261615",
+      "45662921",
+      "47115543"
+    ],
+    "expected_count": 5,
+    "reason": "Used to develop and tune the v0.3 scene-selection protocol."
+  },
+  "confirmatory_pool": {
+    "expected_capture_count": 102,
+    "one_scene_per_capture": true,
+    "model_outputs_allowed_during_selection": false
+  },
+  "capture_order": {
+    "method": "lexicographic_sha256",
+    "namespace": "scale-vs-configuration-confirmatory-v1",
+    "key_format": "{namespace}:{capture_id}",
+    "digest": "sha256",
+    "sort": [
+      "order_key_sha256_ascending",
+      "capture_id_ascending"
+    ],
+    "manual_reordering_allowed": false
+  },
+  "stopping_rule": {
+    "target_accepted_scenes": 50,
+    "maximum_captures_inspected": 102,
+    "stop_when_target_reached": true,
+    "if_pool_exhausted_before_target": "Stop, report the achieved sample size, and do not relax thresholds after seeing acceptance results."
+  },
+  "frozen_protocol_reference": {
+    "tag": "v0.3-scene-selection-protocol",
+    "commit": "9164c09042c07b7dcb0bb2c0416ccf702a92c215",
+    "checkpoint_directory": "checkpoints/v0.3",
+    "pair_manifest_sha256": "8347d700cf8874b511ca266644c8f5bca224b821c6e745b38dc8e61add610c44"
+  },
+  "frame_candidate_rule": {
+    "minimum_oracle_objects": 8,
+    "minimum_natural_objects": 6,
+    "minimum_natural_interior_objects": 3,
+    "exhaustive_within_capture": true
+  },
+  "pair_filters": {
+    "minimum_distance_m": 0.25,
+    "minimum_visible_fraction": 1,
+    "maximum_pair_iou": 0.5,
+    "maximum_intersection_over_smaller_box": 0.8,
+    "minimum_box_area_fraction": 0.00375,
+    "minimum_box_side_px": 30,
+    "minimum_border_margin_px": 20,
+    "both_objects_interior": true
+  },
+  "scene_acceptance": {
+    "minimum_eligible_pairs": 12,
+    "selected_pairs": 12,
+    "minimum_unique_objects": 6,
+    "maximum_uses_per_object": 5,
+    "minimum_distance_ratio": 2.5,
+    "distance_strata": [
+      "short",
+      "medium",
+      "long"
+    ],
+    "pairs_per_stratum": 4,
+    "fold_assignment": "Odd pair indices are fold A; even pair indices are fold B.",
+    "pairs_per_fold": 6,
+    "rejection_rule": "Reject the capture when its best-ranked frame has fewer than 12 eligible pairs."
+  },
+  "audit_log": {
+    "record_every_inspected_capture": true,
+    "record_acceptance_and_rejection": true,
+    "preserve_processing_order": true,
+    "preserve_input_and_output_sha256": true
+  },
+  "prohibited_adaptations_after_processing_begins": [
+    "Changing the capture order.",
+    "Replacing rejected captures outside the frozen order.",
+    "Relaxing frame, pair, diversity, or distance thresholds.",
+    "Selecting scenes or pairs using VLM predictions.",
+    "Reusing any of the five development captures."
+  ]
+}

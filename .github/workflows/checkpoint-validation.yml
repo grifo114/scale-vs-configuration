@@ -37,3 +37,86 @@ jobs:
 
       - name: Verify v0.3 checksums
         run: sha256sum --check checkpoints/v0.3/SHA256SUMS
+
+      - name: Verify v0.4 checksums
+        run: sha256sum --check checkpoints/v0.4/SHA256SUMS
+
+      - name: Verify v0.5 checksums
+        working-directory: checkpoints/v0.5
+        run: sha256sum --check SHA256SUMS
+
+      - name: Validate final v0.5 invariants
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+
+          checkpoint = Path("checkpoints/v0.5")
+          summary = json.loads(
+              (checkpoint / "summary.json").read_text(encoding="utf-8")
+          )
+
+          expected = {
+              "status": "confirmatory_pool_exhausted_before_target",
+              "inspected_captures": 102,
+              "target_accepted_scenes": 50,
+              "accepted_captures": 49,
+              "target_shortfall": 1,
+              "numerically_rejected_captures": 51,
+              "visually_rejected_captures": 2,
+              "selected_relations": 588,
+              "relations_per_accepted_capture": 12,
+          }
+          for key, value in expected.items():
+              observed = summary.get(key)
+              assert observed == value, (
+                  f"{key}: expected {value!r}, observed {observed!r}"
+              )
+
+          def jsonl_rows(path):
+              rows = [
+                  json.loads(line)
+                  for line in path.read_text(encoding="utf-8").splitlines()
+                  if line.strip()
+              ]
+              assert all(isinstance(row, dict) for row in rows)
+              return rows
+
+          log_rows = jsonl_rows(
+              checkpoint / "confirmatory_capture_log.jsonl"
+          )
+          pair_rows = jsonl_rows(
+              checkpoint / "accepted_pairs_manifest.jsonl"
+          )
+          rendered_rows = jsonl_rows(
+              checkpoint / "rendered_manifest.jsonl"
+          )
+
+          assert len(log_rows) == 102
+          assert [int(row["order_index"]) for row in log_rows] == list(
+              range(1, 103)
+          )
+          assert len({str(row["capture_id"]) for row in log_rows}) == 102
+          assert len(pair_rows) == 588
+          assert len(rendered_rows) == 588
+          assert len(summary["accepted_capture_ids"]) == 49
+          assert len(set(summary["accepted_capture_ids"])) == 49
+          assert set(summary["visual_rejected_capture_ids"]) == {
+              "47115525",
+              "47204605",
+          }
+
+          log_digest = hashlib.sha256(
+              (checkpoint / "confirmatory_capture_log.jsonl").read_bytes()
+          ).hexdigest()
+          assert log_digest == (
+              "ed8957558dd677a885e2ab753527974050e64f583098562969b8ca56bf1bb59c"
+          )
+          assert summary["source_log_sha256"] == log_digest
+
+          print("v0.5 final invariants: OK")
+          print("Log rows:", len(log_rows))
+          print("Accepted pair rows:", len(pair_rows))
+          print("Rendered rows:", len(rendered_rows))
+          PY

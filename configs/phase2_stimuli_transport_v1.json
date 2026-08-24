@@ -1,0 +1,34 @@
+{
+  "archive": {
+    "entry_count": 588,
+    "entry_order": "phase2_query_manifest.run_index_ascending",
+    "filename": "phase2_stimuli_transport_v1.tar",
+    "format": "uncompressed_posix_pax_tar",
+    "normalized_metadata": {
+      "gid": 0,
+      "gname": "",
+      "mode": "0644",
+      "mtime": 0,
+      "uid": 0,
+      "uname": ""
+    },
+    "payload_size_bytes": 445903141,
+    "sha256": "069a5342ad5b9c2a0c3525c3dd7baa8bb76ac6e580b4ac15413facf3db8fa74e",
+    "size_bytes": 446730240
+  },
+  "artifact_name": "phase2_stimuli_transport_v1",
+  "schema_version": "1.0",
+  "source": {
+    "git_branch": "phase2/inference-protocol",
+    "git_commit": "f5753aa1e7ee41a5ecab3bf8d9226eab26075c23",
+    "packager_path": "scripts/package_phase2_stimuli.py",
+    "packager_sha256": "aae1366fc05caf13a410676c7cea88df417cbeb9c82a3825288d887cba09b185",
+    "protocol_path": "configs/phase2_inference_protocol.json",
+    "protocol_sha256": "3c09ca97984f47b868758ce3b4d07bf85e38dabd3d66b7e4eae9bb474ce4b774",
+    "query_manifest_path": "configs/phase2_query_manifest.jsonl",
+    "query_manifest_sha256": "61e4f9a8583dc6f375b6d4d9f72361acf1d9ff3a976485bf5b2f83736ea0360e",
+    "runner_path": "scripts/run_phase2_inference.py",
+    "runner_sha256": "643a63625d97aa893322410cf865bd2aa190d2f9b5d4c984aa6c50ef09a38818",
+    "stimulus_set_sha256": "3f2958fbd7920701ad81a116120dd5b08d5156b1541645ac69775acb00d3c043"
+  }
+}

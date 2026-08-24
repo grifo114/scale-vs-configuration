@@ -1,0 +1,54 @@
+{
+  "artifact_name": "phase2_colab_canary_notebook_validation_v1",
+  "canary_execution_verified": false,
+  "canary_git_ref": "phase2-canary-v1",
+  "canary_git_ref_status": "pending_creation_after_preparation_commit",
+  "checks": {
+    "all_code_cells_have_valid_python_syntax": true,
+    "all_execution_counts_cleared": true,
+    "all_frozen_input_hashes_embedded": true,
+    "all_outputs_cleared": true,
+    "canary_git_ref_embedded": true,
+    "cuda_preflight_present": true,
+    "exact_prefix_resume_1_to_12_present": true,
+    "exactly_one_one_query_invocation_present": true,
+    "full_inference_command_absent": true,
+    "full_inference_remains_blocked": true,
+    "model_keys_match_frozen_protocol": true,
+    "notebook_json_valid": true,
+    "stimulus_archive_588_member_check_present": true,
+    "validate_only_before_model_load_present": true
+  },
+  "frozen_inputs": {
+    "colab_environment_sha256": "4d2e96152a71a0105c2cdbf1ec817d1f3eaf75ed4ff98b1f05bb071deab9045c",
+    "protocol_sha256": "3c09ca97984f47b868758ce3b4d07bf85e38dabd3d66b7e4eae9bb474ce4b774",
+    "query_manifest_sha256": "61e4f9a8583dc6f375b6d4d9f72361acf1d9ff3a976485bf5b2f83736ea0360e",
+    "runner_sha256": "643a63625d97aa893322410cf865bd2aa190d2f9b5d4c984aa6c50ef09a38818",
+    "stimulus_packager_sha256": "aae1366fc05caf13a410676c7cea88df417cbeb9c82a3825288d887cba09b185",
+    "stimulus_transport_descriptor_sha256": "c3e88b6225d7026005c6419830fcb3f3ffda3d39ec64e0986c3e15cdac6f8fb0"
+  },
+  "notebook": {
+    "code_cells": 12,
+    "markdown_cells": 4,
+    "nbformat": 4,
+    "nbformat_minor": 5,
+    "path": "notebooks/phase2_colab_canary_v1.ipynb",
+    "sha256": "0ca7f849ef37f43496cf8f6f6e12d3cfa4cb28b3e53fe1ddd79336dec3c76c97",
+    "size_bytes": 30216,
+    "total_cells": 16
+  },
+  "recorded_date": "2026-08-24",
+  "repository": {
+    "base_commit": "37b560837f981c225a15ee8842543349345fc4f8",
+    "branch": "phase2/inference-protocol"
+  },
+  "schema_version": "1.0",
+  "scientific_design_changed": false,
+  "scientific_outputs_analyzed": false,
+  "status": "static_validation_passed_pending_colab_execution",
+  "validator": {
+    "path": "scripts/validate_phase2_colab_notebook.py",
+    "sha256": "9d0cce5158baacb2b95de84b8febf91b9e90864342b265e635e8781bd680187d",
+    "version": "0.1.0"
+  }
+}

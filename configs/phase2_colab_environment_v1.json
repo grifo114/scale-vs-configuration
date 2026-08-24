@@ -1,0 +1,111 @@
+{
+  "artifact_name": "phase2_colab_environment_v1",
+  "canary_execution": {
+    "full_mode_allowed": false,
+    "models_run_separately": true,
+    "output_storage": {
+      "default_drive_relative_root": "scale-vs-configuration/phase2",
+      "provider": "Google Drive",
+      "write_results_directly_to_persistent_storage": true
+    },
+    "resume_test": {
+      "first_invocation_max_new_queries": 1,
+      "remaining_queries_completed_by_second_invocation": true,
+      "required_same_colab_session": true,
+      "reason": "The runner fingerprint includes Python, recorded packages, CUDA, cuDNN, GPU name, GPU memory, and compute capability."
+    },
+    "target_mode": "canary",
+    "target_queries_per_model": 12
+  },
+  "colab_runtime": {
+    "accelerator": "GPU",
+    "expected_preinstalled": {
+      "numpy": "2.0.2",
+      "python": "3.12.13",
+      "torch": "2.11.0",
+      "ubuntu": "22.04.5 LTS"
+    },
+    "gpu_model": "assigned_by_colab_and_recorded_by_runner",
+    "reinstall_preinstalled_numpy": false,
+    "reinstall_preinstalled_torch": false,
+    "runtime_version": "2026.07",
+    "selection_method": "Runtime > Change runtime type > Runtime Version"
+  },
+  "compatibility_basis": {
+    "internvl": {
+      "frozen_model_revision": "6bd4487402110ef9889ba50eb7aefeb302526fed",
+      "native_transformers_class": "AutoModelForImageTextToText",
+      "pre_canary_risk": "The current model page also advertises trust_remote_code=True; the frozen runner deliberately uses the native implementation with trust_remote_code=False, which remains to be tested with the pinned revision."
+    },
+    "llava_next": {
+      "frozen_model_revision": "2424fdd47412fccc66d91719126b420e9fbd7065",
+      "minimum_documented_transformers_for_multimodal_chat_template": "4.48"
+    },
+    "qwen3_vl": {
+      "frozen_model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+      "first_documented_stable_transformers_line": "4.57"
+    },
+    "selected_transformers_rationale": "4.57.6 is the last published patch in the 4.57 line and avoids introducing the Transformers 5.x major-version transition before the canary."
+  },
+  "environment_capture": {
+    "full_pip_freeze_saved_per_model_run": true,
+    "runner_recorded_packages": [
+      "accelerate",
+      "bitsandbytes",
+      "huggingface-hub",
+      "numpy",
+      "pillow",
+      "safetensors",
+      "torch",
+      "transformers"
+    ],
+    "scope": "Colab runtime core plus explicitly pinned direct model-loading and tokenization dependencies; the resolved full environment is captured at execution time."
+  },
+  "frozen_scientific_inputs": {
+    "protocol_sha256": "3c09ca97984f47b868758ce3b4d07bf85e38dabd3d66b7e4eae9bb474ce4b774",
+    "query_manifest_sha256": "61e4f9a8583dc6f375b6d4d9f72361acf1d9ff3a976485bf5b2f83736ea0360e",
+    "runner_sha256": "643a63625d97aa893322410cf865bd2aa190d2f9b5d4c984aa6c50ef09a38818"
+  },
+  "pip_install": {
+    "allow_prereleases": false,
+    "packages_in_install_order": [
+      "huggingface-hub==0.36.0",
+      "tokenizers==0.22.1",
+      "safetensors==0.6.2",
+      "sentencepiece==0.2.1",
+      "pillow==11.3.0",
+      "accelerate==1.14.0",
+      "bitsandbytes==0.50.1",
+      "transformers==4.57.6"
+    ],
+    "upgrade_strategy": "only-if-needed"
+  },
+  "pre_canary_checks": {
+    "actual_cuda_execution_verified": false,
+    "bitsandbytes_nf4_load_verified": false,
+    "frozen_revisions_resolve_in_colab_verified": false,
+    "full_inference_block_remains_required": true,
+    "internvl_native_load_verified": false,
+    "package_versions_must_match_this_artifact": true,
+    "stimulus_archive_and_members_must_be_verified_before_model_load": true
+  },
+  "recorded_date": "2026-08-23",
+  "repository": {
+    "branch": "phase2/inference-protocol",
+    "canary_ref_status": "to_be_tagged_after_notebook_and_validation_artifacts_are_committed",
+    "url": "https://github.com/grifo114/scale-vs-configuration"
+  },
+  "schema_version": "1.0",
+  "scientific_design_changed": false,
+  "status": "predeclared_pending_colab_preflight",
+  "stimulus_transport": {
+    "archive_filename": "phase2_stimuli_transport_v1.tar",
+    "archive_sha256": "069a5342ad5b9c2a0c3525c3dd7baa8bb76ac6e580b4ac15413facf3db8fa74e",
+    "archive_size_bytes": 446730240,
+    "descriptor_path": "configs/phase2_stimuli_transport_v1.json",
+    "descriptor_sha256": "c3e88b6225d7026005c6419830fcb3f3ffda3d39ec64e0986c3e15cdac6f8fb0",
+    "entry_count": 588,
+    "extract_to_colab_local_vm": true,
+    "stimulus_set_sha256": "3f2958fbd7920701ad81a116120dd5b08d5156b1541645ac69775acb00d3c043"
+  }
+}

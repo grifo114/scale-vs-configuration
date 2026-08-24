@@ -1,0 +1,184 @@
+{
+  "canary": {
+    "acceptance_criteria": [
+      "model loads without an out-of-memory error",
+      "all 12 queries produce a stored raw response row",
+      "result resumption accepts an exact completed prefix",
+      "runtime metadata and package versions are recorded"
+    ],
+    "canary_outputs_excluded_from_scientific_analysis": true,
+    "full_run_reexecutes_canary_queries": true,
+    "json_validity_is_not_an_inclusion_criterion": true,
+    "number_of_queries": 12,
+    "number_of_scenes": 12,
+    "pair_ids_in_canary_order": [
+      "45260920-P03",
+      "48458427-P01",
+      "47204559-P02",
+      "45662981-P04",
+      "47430485-P05",
+      "47895364-P07",
+      "47331971-P06",
+      "47332893-P06",
+      "42898849-P09",
+      "43896321-P09",
+      "47895341-P12",
+      "47333934-P10"
+    ],
+    "purpose": "technical compatibility only",
+    "selection_algorithm": "two rows per distance_stratum x fold cell, ranked by SHA-256, with twelve unique scenes",
+    "selection_seed": "phase2-canary-v1-20260823"
+  },
+  "created_at_utc": "2026-08-24T00:17:59.223977+00:00",
+  "dataset": {
+    "accepted_pairs_manifest_sha256": "d2512625303526a300539fc1ce17e3b8d4baed97713d055c846f361a90c20097",
+    "checkpoint": "checkpoints/v0.5",
+    "checkpoint_checksums_verified": 269,
+    "checkpoint_sha256s_sha256": "b9013ed8af55f7252f294ec4b8250d08a0b52bae8e263f33b853234c1cddd7b3",
+    "checkpoint_tag": "v0.5-confirmatory-dataset",
+    "checkpoint_tag_commit": "ef785e8ffebf42418190dcebd36c8ddf11a47102",
+    "distance_stratum_counts": {
+      "long": 196,
+      "medium": 196,
+      "short": 196
+    },
+    "external_stimulus_bytes": 445903141,
+    "external_stimulus_mib": 425.246373,
+    "fold_counts": {
+      "A": 294,
+      "B": 294
+    },
+    "number_of_relations": 588,
+    "number_of_scenes": 49,
+    "render_protocols_verified": 49,
+    "rendered_manifest_sha256": "99e52855aec65493d17d84843733268a651ce3f65a0218c1bdb456c9c8fb8c8e"
+  },
+  "failure_policy": {
+    "if_a_model_cannot_execute_under_the_predeclared_stack": "record the technical failure and amend the protocol before any full confirmatory result is analyzed",
+    "if_free_colab_gpu_is_insufficient": "use a larger CUDA GPU with the same model revision, native processor, prompt, quantization, and generation settings",
+    "model_replacement_after_observing_outputs": false,
+    "prompt_change_after_observing_outputs": false
+  },
+  "freeze_transition": {
+    "current_state": "pending_canary",
+    "requirements": [
+      "three successful technical canaries",
+      "exact CUDA GPU and package metadata captured",
+      "query manifest and protocol committed before full inference"
+    ],
+    "scientific_results_may_be_analyzed_before_freeze": false
+  },
+  "generator": {
+    "path": "scripts/prepare_phase2_inference_protocol.py",
+    "version": "0.1.0"
+  },
+  "inference": {
+    "backend": "pytorch_transformers_cuda",
+    "condition": "G-oracle",
+    "do_sample": false,
+    "generation_seed": 0,
+    "gpu_model": "record_at_runtime",
+    "manual_image_resizing": false,
+    "max_new_tokens": 64,
+    "native_chat_template_per_model": true,
+    "native_image_processor_per_model": true,
+    "primary_environment": "Google Colab",
+    "prompt": "Object A is marked with a red box and object B with a blue box. Estimate the 3D Euclidean distance between the centers of their 3D bounding boxes, in meters. Return only JSON in this format: {\"distance_m\": number}",
+    "prompt_is_identical_across_models": true,
+    "quantization": {
+      "bnb_4bit_compute_dtype": "float16",
+      "bnb_4bit_quant_type": "nf4",
+      "bnb_4bit_use_double_quant": true,
+      "library": "bitsandbytes",
+      "load_in_4bit": true
+    },
+    "runs_per_model": 1,
+    "software_versions": "freeze_after_successful_canary",
+    "temperature": 0.0
+  },
+  "models": [
+    {
+      "declared_parameters_billion": 4.0,
+      "expected_license": "apache-2.0",
+      "family": "Qwen3-VL",
+      "key": "qwen3_vl_4b_instruct",
+      "library_name": "transformers",
+      "license": "apache-2.0",
+      "metadata_source": "https://huggingface.co/api/models/Qwen/Qwen3-VL-4B-Instruct",
+      "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+      "pipeline_tag": "image-text-to-text",
+      "revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+      "role": "contemporary_primary"
+    },
+    {
+      "declared_parameters_billion": 4.7,
+      "expected_license": "apache-2.0",
+      "family": "InternVL3.5",
+      "key": "internvl3_5_4b_hf",
+      "library_name": "transformers",
+      "license": "apache-2.0",
+      "metadata_source": "https://huggingface.co/api/models/OpenGVLab/InternVL3_5-4B-HF",
+      "model_id": "OpenGVLab/InternVL3_5-4B-HF",
+      "pipeline_tag": "image-text-to-text",
+      "revision": "6bd4487402110ef9889ba50eb7aefeb302526fed",
+      "role": "contemporary_independent"
+    },
+    {
+      "declared_parameters_billion": 7.0,
+      "expected_license": "apache-2.0",
+      "family": "LLaVA-NeXT",
+      "key": "llava_next_mistral_7b",
+      "library_name": "transformers",
+      "license": "apache-2.0",
+      "metadata_source": "https://huggingface.co/api/models/llava-hf/llava-v1.6-mistral-7b-hf",
+      "model_id": "llava-hf/llava-v1.6-mistral-7b-hf",
+      "pipeline_tag": "image-text-to-text",
+      "revision": "2424fdd47412fccc66d91719126b420e9fbd7065",
+      "role": "historical_reference"
+    }
+  ],
+  "outputs": {
+    "checkpoint_after_each_query": true,
+    "metadata_filename": "metadata.json",
+    "official_results_tracked_in_git": false,
+    "results_filename": "results.jsonl",
+    "resume_requires_exact_prefix": true,
+    "root": "outputs/phase2/inference"
+  },
+  "protocol_name": "phase2_confirmatory_vlm_inference",
+  "protocol_status": "predeclared_pending_canary",
+  "query_manifest": {
+    "ordered_pair_ids_sha256": "e6e618af4185ec41af5a3e483c42b0b9b186541a6d316951a3e93760e00584a8",
+    "ordering_algorithm": "ascending_sha256(seed + NUL + pair_id)",
+    "ordering_seed": "phase2-confirmatory-order-v1-20260823",
+    "path": "configs/phase2_query_manifest.jsonl",
+    "rows": 588,
+    "sha256": "61e4f9a8583dc6f375b6d4d9f72361acf1d9ff3a976485bf5b2f83736ea0360e"
+  },
+  "response_schema": {
+    "expected_json": {
+      "distance_m": "positive finite number"
+    },
+    "invalid_response_is_retained": true,
+    "model_specific_prompt_repair": false,
+    "retry_on_invalid_response": false,
+    "store_raw_response": true
+  },
+  "schema_version": "1.0",
+  "source_control": {
+    "generator_path": "scripts/prepare_phase2_inference_protocol.py",
+    "generator_sha256": "32fb619efda86f1bfa02f4e34613d7a3ba9198e70f12f6538db2a5b010bb28b5",
+    "generator_was_the_only_possible_change": true,
+    "protocol_source_branch": "phase2/inference-protocol",
+    "protocol_source_commit": "47d557b0deb777bd2edac8914bfe4fb470712123",
+    "worktree_other_changes_before_generation": false
+  },
+  "stimulus_semantics": {
+    "category_names_visible": false,
+    "ground_truth_visible": false,
+    "object_a_color": "#E53935",
+    "object_a_label": "A",
+    "object_b_color": "#1565E8",
+    "object_b_label": "B"
+  }
+}

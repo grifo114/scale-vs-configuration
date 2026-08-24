@@ -124,7 +124,7 @@
       "role": "contemporary_independent"
     },
     {
-      "declared_parameters_billion": 7.0,
+      "declared_parameters_billion": 8.0,
       "expected_license": "apache-2.0",
       "family": "LLaVA-NeXT",
       "key": "llava_next_mistral_7b",
@@ -145,6 +145,20 @@
     "resume_requires_exact_prefix": true,
     "root": "outputs/phase2/inference"
   },
+  "pre_canary_amendments": [
+    {
+      "evidence": "https://huggingface.co/llava-hf/llava-v1.6-mistral-7b-hf/tree/2424fdd47412fccc66d91719126b420e9fbd7065",
+      "field": "models[llava_next_mistral_7b].declared_parameters_billion",
+      "id": "llava-total-parameter-metadata-v1",
+      "model_revision_changed": false,
+      "new_value": 8.0,
+      "old_value": 7.0,
+      "query_manifest_changed": false,
+      "reason": "The 7B designation refers to the Mistral language backbone; the complete multimodal checkpoint is reported as 8B parameters.",
+      "recorded_date": "2026-08-23",
+      "scientific_design_changed": false
+    }
+  ],
   "protocol_name": "phase2_confirmatory_vlm_inference",
   "protocol_status": "predeclared_pending_canary",
   "query_manifest": {

@@ -29,7 +29,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-SCRIPT_VERSION = "0.1.0"
+SCRIPT_VERSION = "0.1.1"
 EXPECTED_BRANCH = "phase2/inference-protocol"
 DATASET_TAG = "v0.5-confirmatory-dataset"
 DATASET_TAG_COMMIT = "ef785e8ffebf42418190dcebd36c8ddf11a47102"
@@ -77,7 +77,7 @@ MODEL_SPECS = (
         "model_id": "llava-hf/llava-v1.6-mistral-7b-hf",
         "family": "LLaVA-NeXT",
         "role": "historical_reference",
-        "declared_parameters_billion": 7.0,
+        "declared_parameters_billion": 8.0,
         "expected_license": "apache-2.0",
     },
 )

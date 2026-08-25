@@ -1,0 +1,47 @@
+{
+  "artifact_name": "phase2_colab_execution_revision_v4",
+  "canary_git_ref": "phase2-canary-v4",
+  "canary_git_ref_status": "pending_creation_after_preparation_commit",
+  "frozen_scientific_inputs": {
+    "colab_environment_sha256": "4d2e96152a71a0105c2cdbf1ec817d1f3eaf75ed4ff98b1f05bb071deab9045c",
+    "protocol_sha256": "3c09ca97984f47b868758ce3b4d07bf85e38dabd3d66b7e4eae9bb474ce4b774",
+    "query_manifest_sha256": "61e4f9a8583dc6f375b6d4d9f72361acf1d9ff3a976485bf5b2f83736ea0360e",
+    "runner_sha256": "643a63625d97aa893322410cf865bd2aa190d2f9b5d4c984aa6c50ef09a38818",
+    "stimulus_packager_sha256": "aae1366fc05caf13a410676c7cea88df417cbeb9c82a3825288d887cba09b185",
+    "stimulus_transport_descriptor_sha256": "c3e88b6225d7026005c6419830fcb3f3ffda3d39ec64e0986c3e15cdac6f8fb0"
+  },
+  "full_inference_allowed": false,
+  "post_output_technical_revision": true,
+  "recorded_date": "2026-08-24",
+  "repository": {
+    "base_commit": "f53fd335b5017e966e3aaaae0d41f2afba709eaf",
+    "branch": "phase2/inference-protocol"
+  },
+  "schema_version": "1.0",
+  "scientific_design_changed": false,
+  "scientific_outputs_analyzed": false,
+  "status": "predeclared_pending_v4_static_validation_and_execution",
+  "technical_revision": {
+    "attempt_directories_are_unique": true,
+    "full_inference_command_absent": true,
+    "git_commit_peel_expression_literal_verified": true,
+    "legacy_v2_and_v3_directories_are_not_read_or_written": true,
+    "reason": "Correct the v3 Git peel expression and collapse the complete canary workflow into one executable cell so a failure cannot be obscured by later cell execution.",
+    "runner_or_scientific_protocol_changed": false,
+    "single_executable_cell": true,
+    "state_machine_is_monotonic": true
+  },
+  "v3_preflight_incident": {
+    "attempt_id": "20260825T010253Z_a9c71b1b",
+    "completed_queries": 0,
+    "error_message": "name 'commit' is not defined",
+    "error_type": "NameError",
+    "failed_stage": "preflight",
+    "inference_executed": false,
+    "raw_responses_inspected": false,
+    "root_cause": "The generated Python f-string evaluated commit as a Python name instead of preserving the Git peel suffix ^{commit} as literal text.",
+    "v3_attempt_designated_for_cross_model_review": false,
+    "v3_git_ref": "phase2-canary-v3",
+    "v3_revision_sha256": "4c306dba701d584e05ac1718d3526e57d7bdd9f558b5fcd99dea844e8de6738b"
+  }
+}

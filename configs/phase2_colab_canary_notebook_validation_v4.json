@@ -1,0 +1,66 @@
+{
+  "artifact_name": "phase2_colab_canary_notebook_validation_v4",
+  "canary_execution_verified": false,
+  "canary_git_ref": "phase2-canary-v4",
+  "canary_git_ref_status": "pending_creation_after_preparation_commit",
+  "checks": {
+    "all_code_cells_have_valid_python_syntax": true,
+    "all_execution_counts_cleared": true,
+    "all_frozen_input_hashes_embedded": true,
+    "all_outputs_cleared": true,
+    "exact_prefix_resume_1_to_12_present": true,
+    "exactly_one_one_query_invocation_present": true,
+    "full_inference_command_absent": true,
+    "full_inference_remains_blocked": true,
+    "git_commit_peel_expression_evaluates_correctly": true,
+    "global_pip_check_diagnostic_only": true,
+    "legacy_v2_and_v3_paths_absent": true,
+    "model_keys_match_frozen_protocol": true,
+    "monotonic_attempt_state_present": true,
+    "notebook_json_valid": true,
+    "single_executable_cell": true,
+    "stimulus_archive_588_member_check_present": true,
+    "targeted_package_imports_present": true,
+    "unique_attempt_directories_present": true,
+    "validate_only_before_model_load_present": true
+  },
+  "frozen_inputs": {
+    "colab_environment_sha256": "4d2e96152a71a0105c2cdbf1ec817d1f3eaf75ed4ff98b1f05bb071deab9045c",
+    "protocol_sha256": "3c09ca97984f47b868758ce3b4d07bf85e38dabd3d66b7e4eae9bb474ce4b774",
+    "query_manifest_sha256": "61e4f9a8583dc6f375b6d4d9f72361acf1d9ff3a976485bf5b2f83736ea0360e",
+    "runner_sha256": "643a63625d97aa893322410cf865bd2aa190d2f9b5d4c984aa6c50ef09a38818",
+    "stimulus_packager_sha256": "aae1366fc05caf13a410676c7cea88df417cbeb9c82a3825288d887cba09b185",
+    "stimulus_transport_descriptor_sha256": "c3e88b6225d7026005c6419830fcb3f3ffda3d39ec64e0986c3e15cdac6f8fb0"
+  },
+  "notebook": {
+    "code_cells": 1,
+    "markdown_cells": 2,
+    "nbformat": 4,
+    "nbformat_minor": 5,
+    "path": "notebooks/phase2_colab_canary_v4.ipynb",
+    "sha256": "d0b717370ed4b126d210d5b0de03229849610c9e1c63771cb7f9d300aa0aee40",
+    "size_bytes": 43072,
+    "total_cells": 3
+  },
+  "recorded_date": "2026-08-24",
+  "repository": {
+    "base_commit": "f53fd335b5017e966e3aaaae0d41f2afba709eaf",
+    "branch": "phase2/inference-protocol"
+  },
+  "schema_version": "1.0",
+  "scientific_design_changed": false,
+  "scientific_outputs_analyzed": false,
+  "status": "static_validation_passed_pending_colab_execution",
+  "technical_revision": {
+    "from_notebook": "notebooks/phase2_colab_canary_v3.ipynb",
+    "path": "configs/phase2_colab_execution_revision_v4.json",
+    "reason": "Correct the v3 Git peel expression and collapse the complete canary workflow into one executable cell so a failure cannot be obscured by later cell execution.",
+    "sha256": "09175329b35d13ddd768d02578541e59fc2c16b2033f064ad7ab5e77df53763a",
+    "v3_inference_executed": false
+  },
+  "validator": {
+    "path": "scripts/validate_phase2_colab_notebook_v4.py",
+    "sha256": "cd35c3e28882df1ac843f342fe46160053742bd7087765e55e2c3f9f3757970f",
+    "version": "0.4.0"
+  }
+}

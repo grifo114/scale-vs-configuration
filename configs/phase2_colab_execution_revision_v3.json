@@ -1,0 +1,63 @@
+{
+  "artifact_name": "phase2_colab_execution_revision_v3",
+  "canary_git_ref": "phase2-canary-v3",
+  "canary_git_ref_status": "pending_creation_after_preparation_commit",
+  "frozen_scientific_inputs": {
+    "colab_environment_sha256": "4d2e96152a71a0105c2cdbf1ec817d1f3eaf75ed4ff98b1f05bb071deab9045c",
+    "protocol_sha256": "3c09ca97984f47b868758ce3b4d07bf85e38dabd3d66b7e4eae9bb474ce4b774",
+    "query_manifest_sha256": "61e4f9a8583dc6f375b6d4d9f72361acf1d9ff3a976485bf5b2f83736ea0360e",
+    "runner_sha256": "643a63625d97aa893322410cf865bd2aa190d2f9b5d4c984aa6c50ef09a38818",
+    "stimulus_packager_sha256": "aae1366fc05caf13a410676c7cea88df417cbeb9c82a3825288d887cba09b185",
+    "stimulus_transport_descriptor_sha256": "c3e88b6225d7026005c6419830fcb3f3ffda3d39ec64e0986c3e15cdac6f8fb0"
+  },
+  "full_inference_allowed": false,
+  "post_output_technical_revision": true,
+  "recorded_date": "2026-08-24",
+  "repository": {
+    "base_commit": "536d8cb12216d2772863b5f2b770b06eff205f5b",
+    "branch": "phase2/inference-protocol"
+  },
+  "schema_version": "1.0",
+  "scientific_design_changed": false,
+  "scientific_outputs_analyzed": false,
+  "status": "predeclared_pending_v3_static_validation_and_execution",
+  "technical_incidents_observed_before_v3": [
+    {
+      "additional_inference_executed_during_incident": false,
+      "incident_report_drive_sha256": "5471f92693e6bc821a6e46d8df681b039e6326e654662940fc9d4863e5495e28",
+      "model_key": "qwen3_vl_4b_instruct",
+      "raw_responses_inspected": false,
+      "summary": "A completed v2 canary retained its results, metadata, invocation logs, and validation, but a later accidental Qwen preflight overwrote six preflight provenance files.",
+      "v2_outputs_designated_for_v3_cross_model_review": false
+    },
+    {
+      "completed_queries": 1,
+      "failure_file_recorded": false,
+      "model_key": "internvl3_5_4b_hf",
+      "raw_responses_inspected": false,
+      "response_status_observed": "invalid_json",
+      "resume_executed": false,
+      "summary": "The v2 first invocation was persisted, but the notebook kernel state required for same-session resumption was unavailable before the resume cell.",
+      "v2_outputs_designated_for_v3_cross_model_review": false
+    }
+  ],
+  "technical_revision": {
+    "attempt_directories_are_unique": true,
+    "attempt_identifier_generated_before_preflight": true,
+    "configuration_and_paths_initialized_together": true,
+    "execution_steps": [
+      "initialize_unique_attempt",
+      "blocking_preflight",
+      "exactly_one_query",
+      "same_session_resume_to_twelve",
+      "technical_validation_and_collection"
+    ],
+    "full_inference_command_absent": true,
+    "global_pip_check_blocking": false,
+    "in_memory_session_token_matches_persistent_attempt_state": true,
+    "legacy_v2_directories_are_not_read_or_written": true,
+    "reason": "Prevent cross-session path reuse, stale model selection, provenance overwrite, and hidden notebook-state dependencies.",
+    "runner_or_scientific_protocol_changed": false,
+    "state_machine_is_monotonic": true
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "artifact_name": "phase2_response_extraction_canary_evidence_v1",
+  "attempt_id": "20260825T155631Z_9b93e13c",
+  "counts": {
+    "analysis_extractable_single_json_markdown_fence": 9,
+    "strict_json_valid": 0,
+    "total_rows": 12,
+    "unrecognized_prose": 3
+  },
+  "full_confirmatory_outputs_observed": false,
+  "ground_truth_compared": false,
+  "model_key": "internvl3_5_4b_hf",
+  "model_revision": "6bd4487402110ef9889ba50eb7aefeb302526fed",
+  "raw_response_values_recorded": false,
+  "results_sha256": "ad29e6e1ac86e956955e7eb850923e8a9a67b7b964316b36ae0449ef9897092a",
+  "rows": [
+    {
+      "analysis_format_class": "single_json_markdown_fence",
+      "original_response_status": "invalid_json",
+      "pair_id": "45260920-P03",
+      "raw_response_sha256": "c12d02acef822a65533a57d6ed7c3e9db9f457a45c7463394b008c7ea0194c20",
+      "sequence_index": 1
+    },
+    {
+      "analysis_format_class": "single_json_markdown_fence",
+      "original_response_status": "invalid_json",
+      "pair_id": "48458427-P01",
+      "raw_response_sha256": "e27820acc14a947d20464706784006ef7044112a9925b5803c4538f1ced00b56",
+      "sequence_index": 2
+    },
+    {
+      "analysis_format_class": "unrecognized_prose",
+      "original_response_status": "invalid_json",
+      "pair_id": "47204559-P02",
+      "raw_response_sha256": "a04ad4eedd19f3653e19ae6726eca31cc0c8df652ab803272c30da3c3e41492f",
+      "sequence_index": 3
+    },
+    {
+      "analysis_format_class": "single_json_markdown_fence",
+      "original_response_status": "invalid_json",
+      "pair_id": "45662981-P04",
+      "raw_response_sha256": "c12d02acef822a65533a57d6ed7c3e9db9f457a45c7463394b008c7ea0194c20",
+      "sequence_index": 4
+    },
+    {
+      "analysis_format_class": "single_json_markdown_fence",
+      "original_response_status": "invalid_json",
+      "pair_id": "47430485-P05",
+      "raw_response_sha256": "2b1b09f75af6b4cee0876e253b1a35f977f0554fe29794224929a022b48eade8",
+      "sequence_index": 5
+    },
+    {
+      "analysis_format_class": "single_json_markdown_fence",
+      "original_response_status": "invalid_json",
+      "pair_id": "47895364-P07",
+      "raw_response_sha256": "c12d02acef822a65533a57d6ed7c3e9db9f457a45c7463394b008c7ea0194c20",
+      "sequence_index": 6
+    },
+    {
+      "analysis_format_class": "unrecognized_prose",
+      "original_response_status": "invalid_json",
+      "pair_id": "47331971-P06",
+      "raw_response_sha256": "3bf2b027dfb1894ffe69e9ce2d29bf75a31c65471c0a426b8b1ce4fab7731b83",
+      "sequence_index": 7
+    },
+    {
+      "analysis_format_class": "single_json_markdown_fence",
+      "original_response_status": "invalid_json",
+      "pair_id": "47332893-P06",
+      "raw_response_sha256": "fb3fbc3b25e01117a1728e5095bbcd4e5569ba0d7db5d9fd06644dc85162e591",
+      "sequence_index": 8
+    },
+    {
+      "analysis_format_class": "single_json_markdown_fence",
+      "original_response_status": "invalid_json",
+      "pair_id": "42898849-P09",
+      "raw_response_sha256": "2b1b09f75af6b4cee0876e253b1a35f977f0554fe29794224929a022b48eade8",
+      "sequence_index": 9
+    },
+    {
+      "analysis_format_class": "unrecognized_prose",
+      "original_response_status": "invalid_json",
+      "pair_id": "43896321-P09",
+      "raw_response_sha256": "4eaae7a93cf7837328f60d7bef59e949a4f0066489dc1e77088e20fbd8deaaed",
+      "sequence_index": 10
+    },
+    {
+      "analysis_format_class": "single_json_markdown_fence",
+      "original_response_status": "invalid_json",
+      "pair_id": "47895341-P12",
+      "raw_response_sha256": "fb3fbc3b25e01117a1728e5095bbcd4e5569ba0d7db5d9fd06644dc85162e591",
+      "sequence_index": 11
+    },
+    {
+      "analysis_format_class": "single_json_markdown_fence",
+      "original_response_status": "invalid_json",
+      "pair_id": "47333934-P10",
+      "raw_response_sha256": "2b1b09f75af6b4cee0876e253b1a35f977f0554fe29794224929a022b48eade8",
+      "sequence_index": 12
+    }
+  ],
+  "schema_version": "1.0",
+  "scientific_metrics_computed": false,
+  "validation_scope": "response_format_only"
+}

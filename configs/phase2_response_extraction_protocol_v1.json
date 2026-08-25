@@ -1,0 +1,66 @@
+{
+  "artifact_name": "phase2_response_extraction_protocol_v1",
+  "full_confirmatory_outputs_observed": false,
+  "inference_inputs_changed": false,
+  "models_changed": false,
+  "prompt_changed": false,
+  "query_manifest_changed": false,
+  "recorded_date": "2026-08-25",
+  "response_extraction_rule_changed": true,
+  "schema_version": "1.0",
+  "scientific_question_changed": false,
+  "source_inputs": {
+    "git_commit": "2c3daf86f69f4dab3666c24006f8002a7efba162",
+    "inference_protocol_path": "configs/phase2_inference_protocol.json",
+    "inference_protocol_sha256": "3c09ca97984f47b868758ce3b4d07bf85e38dabd3d66b7e4eae9bb474ce4b774",
+    "query_manifest_path": "configs/phase2_query_manifest.jsonl",
+    "query_manifest_sha256": "61e4f9a8583dc6f375b6d4d9f72361acf1d9ff3a976485bf5b2f83736ea0360e",
+    "runner_path": "scripts/run_phase2_inference.py",
+    "runner_sha256": "643a63625d97aa893322410cf865bd2aa190d2f9b5d4c984aa6c50ef09a38818"
+  },
+  "status": "predeclared_after_technical_canary_before_full_inference",
+  "technical_canary_basis": {
+    "attempt_id": "20260825T155631Z_9b93e13c",
+    "evidence_path": "configs/phase2_response_extraction_canary_evidence_v1.json",
+    "full_inference_executed": false,
+    "ground_truth_compared": false,
+    "model_key": "internvl3_5_4b_hf",
+    "raw_responses_included_in_repository": false,
+    "results_sha256": "ad29e6e1ac86e956955e7eb850923e8a9a67b7b964316b36ae0449ef9897092a",
+    "scientific_metrics_computed": false
+  },
+  "two_layer_policy": {
+    "analysis_extraction": {
+      "accepted_forms_in_precedence_order": [
+        "strict_json",
+        "single_json_markdown_fence"
+      ],
+      "distance_m_must_be_positive_and_finite": true,
+      "exact_schema": {
+        "distance_m": "JSON number"
+      },
+      "single_json_markdown_fence": {
+        "closing_fence_must_be_on_its_own_line": true,
+        "language_label": "json",
+        "language_label_case_sensitive": true,
+        "multiple_fences_allowed": false,
+        "opening_fence_must_be_on_its_own_line": true,
+        "surrounding_prose_allowed": false,
+        "unlabelled_fence_allowed": false
+      },
+      "surrounding_whitespace_allowed": true
+    },
+    "disallowed_operations": [
+      "prompt repair",
+      "model-specific parser",
+      "response retry",
+      "prose number extraction",
+      "multiple-candidate selection",
+      "mutation of raw response rows"
+    ],
+    "strict_format_compliance": {
+      "definition": "The complete stripped raw response must itself be the exact JSON object.",
+      "preserved_as_separate_measure": true
+    }
+  }
+}

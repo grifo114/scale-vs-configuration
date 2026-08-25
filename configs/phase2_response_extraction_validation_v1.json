@@ -1,0 +1,66 @@
+{
+  "artifact_name": "phase2_response_extraction_validation_v1",
+  "evidence": {
+    "path": "configs/phase2_response_extraction_canary_evidence_v1.json",
+    "sha256": "50ff624e907acda61ef4bd7ea7cea508e2b59385f2122e3034bccfc6fcce03f6"
+  },
+  "extractor": {
+    "path": "scripts/extract_phase2_responses.py",
+    "sha256": "11e5a8addc7eaf624269d2059e598805e0b62e7826f9c81091bc6ad9e5b159ee"
+  },
+  "full_inference_remains_blocked": true,
+  "ground_truth_compared": false,
+  "internvl_canary_evidence_verified": true,
+  "internvl_canary_validation": {
+    "analysis_extraction_method_counts": {
+      "none": 3,
+      "single_json_markdown_fence": 9
+    },
+    "analysis_response_status_counts": {
+      "invalid_json": 3,
+      "valid": 9
+    },
+    "raw_results_mutated": false,
+    "results_sha256": "ad29e6e1ac86e956955e7eb850923e8a9a67b7b964316b36ae0449ef9897092a",
+    "rows": 12,
+    "strict_json_valid": 0
+  },
+  "protocol": {
+    "path": "configs/phase2_response_extraction_protocol_v1.json",
+    "sha256": "ff311420fac5ea2dba345e1d86f5659c67058adf41d3dccca222b693f8bcc80e"
+  },
+  "raw_results_mutated": false,
+  "schema_version": "1.0",
+  "scientific_metrics_computed": false,
+  "status": "passed",
+  "synthetic_tests": {
+    "names": [
+      "strict_integer",
+      "strict_float_whitespace",
+      "fenced_json",
+      "fenced_json_crlf",
+      "prose_before_fence",
+      "prose_after_fence",
+      "unlabelled_fence",
+      "uppercase_fence",
+      "multiple_fences",
+      "prose_number",
+      "malformed_fenced_json",
+      "strict_extra_key",
+      "fenced_extra_key",
+      "boolean",
+      "string",
+      "zero",
+      "negative",
+      "array",
+      "nan",
+      "infinity"
+    ],
+    "passed": 20
+  },
+  "validator": {
+    "path": "scripts/validate_phase2_response_extraction_v1.py",
+    "sha256": "7601fdb06cf73cbe19d53813178cd82a32fcaeaf3cbc2efd1d55195b4dbe7d6b"
+  },
+  "validator_version": "0.1.0"
+}

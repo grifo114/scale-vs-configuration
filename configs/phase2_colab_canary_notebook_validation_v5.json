@@ -1,0 +1,78 @@
+{
+  "artifact_name": "phase2_colab_canary_notebook_validation_v5",
+  "canary_execution_verified": false,
+  "canary_git_ref": "phase2-canary-v5",
+  "canary_git_ref_status": "pending_creation_after_preparation_commit",
+  "checks": {
+    "all_code_cells_have_valid_python_syntax": true,
+    "all_execution_counts_cleared": true,
+    "all_frozen_input_hashes_embedded": true,
+    "all_outputs_cleared": true,
+    "exact_prefix_resume_1_to_12_present": true,
+    "exactly_one_one_query_invocation_present": true,
+    "failure_record_has_local_fallback": true,
+    "full_inference_command_absent": true,
+    "full_inference_remains_blocked": true,
+    "git_commit_peel_expression_evaluates_correctly": true,
+    "global_pip_check_diagnostic_only": true,
+    "legacy_attempt_paths_absent": true,
+    "local_cache_free_space_check_present": true,
+    "local_vm_model_cache_present": true,
+    "model_keys_match_frozen_protocol": true,
+    "monotonic_attempt_state_present": true,
+    "notebook_json_valid": true,
+    "persistent_attempt_outputs_remain_on_drive": true,
+    "single_executable_cell": true,
+    "stimulus_archive_588_member_check_present": true,
+    "targeted_package_imports_present": true,
+    "unique_attempt_directories_present": true,
+    "v4_failure_evidence_verified": true,
+    "validate_only_before_model_load_present": true
+  },
+  "failure_evidence": {
+    "path": "configs/phase2_colab_llava_v4_failure_evidence_v1.json",
+    "sha256": "6e71ac585c2a30b0207ccc09348f78772b60b10a66d2131626bef0be71b4cab2",
+    "v4_completed_queries": 0
+  },
+  "frozen_inputs": {
+    "colab_environment_sha256": "4d2e96152a71a0105c2cdbf1ec817d1f3eaf75ed4ff98b1f05bb071deab9045c",
+    "protocol_sha256": "3c09ca97984f47b868758ce3b4d07bf85e38dabd3d66b7e4eae9bb474ce4b774",
+    "query_manifest_sha256": "61e4f9a8583dc6f375b6d4d9f72361acf1d9ff3a976485bf5b2f83736ea0360e",
+    "runner_sha256": "643a63625d97aa893322410cf865bd2aa190d2f9b5d4c984aa6c50ef09a38818",
+    "stimulus_packager_sha256": "aae1366fc05caf13a410676c7cea88df417cbeb9c82a3825288d887cba09b185",
+    "stimulus_transport_descriptor_sha256": "c3e88b6225d7026005c6419830fcb3f3ffda3d39ec64e0986c3e15cdac6f8fb0"
+  },
+  "notebook": {
+    "code_cells": 1,
+    "markdown_cells": 2,
+    "nbformat": 4,
+    "nbformat_minor": 5,
+    "path": "notebooks/phase2_colab_canary_v5.ipynb",
+    "sha256": "1a2da4cc6315f5f88e33d924981aa54c9207b94c1066821bc60182e571f3e3cd",
+    "size_bytes": 46228,
+    "total_cells": 3
+  },
+  "recorded_date": "2026-08-26",
+  "repository": {
+    "base_commit": "c3cf968744bdf6973731ade239c073ce8e2fdf93",
+    "branch": "phase2/inference-protocol"
+  },
+  "schema_version": "1.0",
+  "scientific_design_changed": false,
+  "scientific_outputs_analyzed": false,
+  "status": "static_validation_passed_pending_colab_execution",
+  "technical_revision": {
+    "cache_storage": "colab_local_vm",
+    "from_notebook": "notebooks/phase2_colab_canary_v4.ipynb",
+    "path": "configs/phase2_colab_execution_revision_v5.json",
+    "persistent_attempt_outputs": "google_drive",
+    "reason": "Move the Hugging Face model cache to the Colab local VM after the LLaVA v4 checkpoint download disconnected the Google Drive mount. Preserve the frozen runner, scientific protocol, persistent attempt outputs, and one-cell workflow.",
+    "sha256": "62a929397a9aaabadbecb78087d949b700fed23f6cae359228046331da402241",
+    "v4_llava_inference_executed": false
+  },
+  "validator": {
+    "path": "scripts/validate_phase2_colab_notebook_v5.py",
+    "sha256": "2281b386a1604809732df52917ea77537ff622959e4cf397c735232a13a69544",
+    "version": "0.5.0"
+  }
+}

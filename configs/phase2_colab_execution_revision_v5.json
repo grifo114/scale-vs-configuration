@@ -1,0 +1,45 @@
+{
+  "artifact_name": "phase2_colab_execution_revision_v5",
+  "canary_git_ref": "phase2-canary-v5",
+  "canary_git_ref_status": "pending_creation_after_preparation_commit",
+  "failure_evidence": {
+    "path": "configs/phase2_colab_llava_v4_failure_evidence_v1.json",
+    "sha256": "6e71ac585c2a30b0207ccc09348f78772b60b10a66d2131626bef0be71b4cab2"
+  },
+  "frozen_scientific_inputs": {
+    "colab_environment_sha256": "4d2e96152a71a0105c2cdbf1ec817d1f3eaf75ed4ff98b1f05bb071deab9045c",
+    "protocol_sha256": "3c09ca97984f47b868758ce3b4d07bf85e38dabd3d66b7e4eae9bb474ce4b774",
+    "query_manifest_sha256": "61e4f9a8583dc6f375b6d4d9f72361acf1d9ff3a976485bf5b2f83736ea0360e",
+    "runner_sha256": "643a63625d97aa893322410cf865bd2aa190d2f9b5d4c984aa6c50ef09a38818",
+    "stimulus_packager_sha256": "aae1366fc05caf13a410676c7cea88df417cbeb9c82a3825288d887cba09b185",
+    "stimulus_transport_descriptor_sha256": "c3e88b6225d7026005c6419830fcb3f3ffda3d39ec64e0986c3e15cdac6f8fb0"
+  },
+  "full_inference_allowed": false,
+  "post_output_technical_revision": true,
+  "recorded_date": "2026-08-26",
+  "repository": {
+    "base_commit": "c3cf968744bdf6973731ade239c073ce8e2fdf93",
+    "branch": "phase2/inference-protocol"
+  },
+  "schema_version": "1.0",
+  "scientific_design_changed": false,
+  "scientific_outputs_analyzed": false,
+  "status": "predeclared_pending_v5_static_validation_and_execution",
+  "technical_revision": {
+    "attempt_directories_are_unique": true,
+    "cache_change": {
+      "from": "/content/drive/MyDrive/scale-vs-configuration/phase2/hf_cache/<model_key>",
+      "reason": "Avoid high-volume checkpoint writes through the Google Drive FUSE mount.",
+      "to": "/content/phase2_hf_cache/<model_key>"
+    },
+    "fallback_failure_record_is_local": true,
+    "full_inference_command_absent": true,
+    "minimum_local_cache_free_bytes": 26843545600,
+    "persistent_attempt_outputs_remain_on_google_drive": true,
+    "reason": "Move the Hugging Face model cache to the Colab local VM after the LLaVA v4 checkpoint download disconnected the Google Drive mount. Preserve the frozen runner, scientific protocol, persistent attempt outputs, and one-cell workflow.",
+    "response_extraction_protocol_changed": false,
+    "runner_or_scientific_protocol_changed": false,
+    "single_executable_cell": true,
+    "state_machine_is_monotonic": true
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "artifact_name": "phase2_colab_llava_v4_failure_evidence_v1",
+  "attempt": {
+    "attempt_id": "20260826T005104Z_08f97dbb",
+    "attempt_root": "/content/drive/MyDrive/scale-vs-configuration/phase2/v4_attempts/llava_next_mistral_7b/20260826T005104Z_08f97dbb",
+    "canary_git_commit": "2c3daf86f69f4dab3666c24006f8002a7efba162",
+    "canary_git_ref": "phase2-canary-v4",
+    "model_id": "llava-hf/llava-v1.6-mistral-7b-hf",
+    "model_key": "llava_next_mistral_7b",
+    "model_revision": "2424fdd47412fccc66d91719126b420e9fbd7065"
+  },
+  "failure": {
+    "completed_queries": 0,
+    "drive_backed_cache_path": "/content/drive/MyDrive/scale-vs-configuration/phase2/hf_cache/llava_next_mistral_7b",
+    "error_message": "I/O error: IO Error: Transport endpoint is not connected (os error 107)",
+    "error_type": "OSError",
+    "failed_stage": "model_download_before_first_query",
+    "first_query_marker_observed": false,
+    "inference_generation_started": false,
+    "model_load_header_observed": true,
+    "persistent_failure_record_completed": false,
+    "persistent_failure_record_error": "The disconnected Drive mount made invocation_01_max_new_queries_1.log and attempt_state.json unavailable.",
+    "root_cause_observed": "The Google Drive mount disconnected while huggingface_hub xet_get wrote LLaVA checkpoint files to the Drive-backed cache. Subsequent FileNotFoundError exceptions were cascading persistence failures.",
+    "runner_existing_prefix": "0/12"
+  },
+  "full_inference_remains_blocked": true,
+  "ground_truth_compared": false,
+  "raw_model_responses_observed": false,
+  "recorded_date": "2026-08-26",
+  "schema_version": "1.0",
+  "scientific_metrics_computed": false,
+  "source_evidence": {
+    "content_sha256": "3329bd870297b1cd5b96c38d60483489fe04de92405d62e1254472c218234647",
+    "description": "Complete Colab cell output preserved by the operator and reviewed before this technical revision.",
+    "repository_path": null
+  },
+  "status": "technical_failure_recorded_no_inference"
+}
